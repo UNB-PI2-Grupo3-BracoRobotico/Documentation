@@ -154,9 +154,35 @@ O identificador de cada requisito é formado por 'B' + um número, sendo 'B' uma
 
 Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos funcionais e não funcionais representados na Tabela 1.
 
-| Identificador | Requisito |                    Tipo                     |
-| :-----------: | --------- | :-----------------------------------------: | --- | --- |
-|     <!--      | B01       | O usuário deve poder filtrar os adversários | RF  | --> |
+| Identificador | Requisito                                                                                                                                                                                            | Tipo |
+| :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: |
+|      B1       | Usuário deve conseguir visualizar quantas unidades um determinado produto possui disponível.                                                                                                         |  RF  |
+|      B2       | Usuário deve poder visualizar a lista de todos os produtos.                                                                                                                                          |  RF  |
+|      B3       | Usuário pode fazer o pagamento com cartão digital (débito).                                                                                                                                          |  RF  |
+|      B4       | Usuário pode fazer o pagamento com cartão digital (crédito).                                                                                                                                         |  RF  |
+|      B5       | Usuário pode fazer o pagamento via PIX.                                                                                                                                                              |  RF  |
+|      B6       | Usuário deve se identificar via cpf para finalizar a compra.                                                                                                                                         |  RF  |
+|      B7       | Usuário deve ser capaz de navegar para uma tela anterior.                                                                                                                                            |  RF  |
+|      B8       | Usuário pode adicionar produtos na lista de compras.                                                                                                                                                 |  RF  |
+|      B9       | Usuário pode remover produtos da lista de compras.                                                                                                                                                   |  RF  |
+|      B10      | Usuário pode optar por incluir cpf na nota fiscal.                                                                                                                                                   |  RF  |
+|      B11      | Usuário pode pesquisar um produto por seu nome.                                                                                                                                                      |  RF  |
+|      B12      | Usuário deve conseguir filtrar pesquisas com base na: categoria e preço.                                                                                                                             |  RF  |
+|      B13      | Produtos devem conter uma descrição.                                                                                                                                                                 |  RF  |
+|      B14      | O sistema deve ter um botão de ajuda para ensinar o usuário a como operar o sistema em caso de dúvidas.                                                                                              |  RF  |
+|      B15      | Produtos sem estoque devem ser mostrados e diferenciados de produtos com estoque.                                                                                                                    |  RF  |
+|      B16      | Sistema deve ter acesso a energia.                                                                                                                                                                   | RNF  |
+|      B17      | Sistema deve ter conexão a internet.                                                                                                                                                                 | RNF  |
+|      B18      | Sistema deve apresentar produtos populares.                                                                                                                                                          | RNF  |
+|      B19      | A aplicação deve limitar a 5s o tempo de interação de uma tela e a resposta, em caso de múltiplas ocorrência do mesmo erroo uma mensagem deve ser mostrada, com exceção do uso de serviços externos. | RNF  |
+|      B20      | Sistema deve permitir usuário selecionar o tipo de pagamento do pedido.                                                                                                                              | RNF  |
+|      B21      | Sistema deve fornecer feedback contínuo sobre o status das operações em andamento, como o progresso do braço robótico ou o status de um processamento de pagamento.                                  | RNF  |
+|      B22      | Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.                                                                                                      | RNF  |
+|      B23      | Sistema deve assegurar conformidade de dados com LGPD.                                                                                                                                               | RNF  |
+|      B24      | Sistema não deve ter produtos com restrição de venda.                                                                                                                                                | RNF  |
+|      B25      | Sistema deve registrar as vendas e atualizar o estoque automaticamente após cada transação.                                                                                                          | RNF  |
+|      B26      | Sistema deve ajudar o usuário a reconhecer, diagnosticar e recuperar-se de erros.                                                                                                                    | RNF  |
+|      B27      | o sistema deve fornecer uma interface amigável e intuitiva para que os usuários possam pesquisar, selecionar e comprar medicamentos.                                                                 | RNF  |
 
 ## Requisitos Elicitados
 
