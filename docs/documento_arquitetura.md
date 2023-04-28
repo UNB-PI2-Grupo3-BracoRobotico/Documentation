@@ -1,4 +1,4 @@
-# Introdução
+# Documento de Arquitetura
 
 <!-- Adicionar explicação do que é o documento de arquitetura e sua finalidade -->
 
