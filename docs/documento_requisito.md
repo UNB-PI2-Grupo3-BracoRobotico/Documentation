@@ -186,10 +186,9 @@ Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos f
 
 ## Requisitos Elicitados
 
+# Introspecção
 
-# <center> Introspecção
-
-##  Introdução
+## Introdução
 
 <p style="text-align: justify; text-indent: 20px">A introspecção é uma técnica essencialmente voltada para especialistas em requisitos, que devem extrair as melhores informações por meio de uma análise profunda sobre como e quais requisitos são necessários para satisfazer os usuários e stakeholders do sistema. Embora seja uma técnica rica em detalhes e informações, pode não ser adequada quando não é um especialista da área realizando-a. No entanto, mesmo que não seja um especialista, ainda pode ser útil realizar a técnica de introspecção para extrair o máximo de suas vantagens e obter informações valiosas para o projeto. </p>
 <p style="text-align: justify; text-indent: 20px">
@@ -200,9 +199,8 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 
 <p style="text-align: justify; text-indent: 20px"> A fim de elaborar o artefato de requisitos, cada membro do grupo utilizou individualmente a técnica da introspecção para elicitar requisitos, os quais foram posteriormente compilados em um único artefato, eliminando duplicações de requisitos. Dessa forma, foi possível obter uma visão geral dos requisitos desejados pelos stakeholders do projeto, evitando redundâncias e garantindo a precisão das informações coletadas</p>
 
+## Requisitos levantados
 
-
-##  Requisitos levantados
 <p style="text-align: justify; text-indent: 20px"> 
     A partir dos dados obtidos pelo brainstorming foi possível levantar possíveis requisitos da aplicação.
 </p>
@@ -210,33 +208,32 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
     Dessa forma, foram detectados os seguintes requisitos:
 </p>
 
+| ID  | Descrição                                                                                                                                                                                                                       | Tipo de Requisito |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| I01 | O sistema deverá identificar a localização inicial do serviço                                                                                                                                                                   | RF                |
+| I02 | O sistema deverá indicar quais produtos estão fora do inventário </a>                                                                                                                                                           | RF                |
+| I03 | O sistema deve ser capaz de integrar-se a outros sistemas ou plataformas, como mídias sociais, serviços de pagamento ou serviços de entrega. O sistema deve fornecer documentação técnica ou APIs para facilitar a integração.> | RF                |
+| I04 | O usuário poderá acompanhar o status do andamento do serviço                                                                                                                                                                    | RF                |
+| I05 | O sistema deve permitir que os usuários comparem produtos ou serviços com base em critérios específicos, como preço, qualidade ou recursos                                                                                      | RF                |
+| I06 | O sistema deve permitir que os usuários vejam o histórico de pedidos e o status atual de cada pedido                                                                                                                            | RF                |
+| I07 | O sistema deve permitir que os usuários concluam uma compra, inserindo informações de pagamento e endereço de entrega                                                                                                           | RF                |
+| I08 | O sistema deve ser flexível o suficiente para acomodar mudanças futuras, incluindo a adição ou remoção de recursos, funcionalidades e requisitos                                                                                | RF                |
+| I9  | O sistema deverá preservar energia e reiniciar automaticamente quando não estiver em uso                                                                                                                                        | RNF               |
+| I10 | O sistema deve ser responsivo                                                                                                                                                                                                   | RNF               |
+| I11 | O aplicativo deve ser intuitivo                                                                                                                                                                                                 | RNF               |
+| I12 | O aplicativo deve ser acessível                                                                                                                                                                                                 | RNF               |
 
-|ID|Descrição|Tipo de Requisito
-|--|--|--|
-|I01|O sistema deverá identificar a localização inicial do serviço |RF|
-|I02|O sistema deverá indicar quais produtos estão fora do inventário </a>|RF|
-|I03|O sistema deve ser capaz de integrar-se a outros sistemas ou plataformas, como mídias sociais, serviços de pagamento ou serviços de entrega. O sistema deve fornecer documentação técnica ou APIs para facilitar a integração.>|RF|
-|I04|O usuário poderá acompanhar o status do andamento do serviço |RF|
-|I05|O sistema deve permitir que os usuários comparem produtos ou serviços com base em critérios específicos, como preço, qualidade ou recursos|RF|
-|I06|O sistema deve permitir que os usuários vejam o histórico de pedidos e o status atual de cada pedido|RF|
-|I07|O sistema deve permitir que os usuários concluam uma compra, inserindo informações de pagamento e endereço de entrega|RF|
-|I08|O sistema deve ser flexível o suficiente para acomodar mudanças futuras, incluindo a adição ou remoção de recursos, funcionalidades e requisitos|RF|
-|I9|O sistema deverá preservar energia e reiniciar automaticamente quando não estiver em uso |RNF|
-|I10|O sistema deve ser responsivo|RNF|
-|I11|O aplicativo deve ser intuitivo|RNF|
-|I12|O aplicativo deve ser acessível|RNF|
 <h6 align = "center">Tabela 1: Tabela contendo os requisitos levantados pela introspecção</h6>
 <h6 align = "center">Fonte: Autor</h6>
 
-
 <center>
 
+| Legenda |        Descrição        |
+| :-----: | :---------------------: |
+|    I    |      Introspecção       |
+|   RF    |   Requisito Funcional   |
+|   RNF   | Requisito Não Funcional |
 
-|Legenda|Descrição|
-|:--:|:--:|
-|I|Introspecção|
-|RF|Requisito Funcional|
-|RNF|Requisito Não Funcional|
 <h6>Tabela 2: Legenda dos acrônimos contidos na Tabela 1</h6>
 <h6>Fonte: Autor</h6>
 
@@ -252,15 +249,15 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 
 [4] DevMedia. Especificação de Casos de Uso na Prática. 2010. DevMedia. Disponível em no [link](https://www.devmedia.com.br/especificacao-de-casos-de-uso-na-pratica/18427). Acessado em 09 de dez. de 2022.
 
-
 [5] - SERRANO, Maurício; SERRANO, Milene. Disponível em: Requisitos - Aula 07. 1º/2019. 50 slides. Material apresentado para a disciplina de Requisitos de Software no curso de Engenharia de Software da UnB, FGA.
 
 [6] - ANDRADE DE MORAIS, E. Utilização de uma estratégia para Identificação de fontes de informação na fase de Elicitação. Doutorado—[s.l.] Pontifícia Universidade Católica Do Rio De Janeiro, 2021.
 
 ## Histórico de Versão<br>
-|Versão|Data|Descrição|Autor(es)|
-|------|----|---------|--------|
-|1.0   | 23/04/2023 | Criação do documento | Mauricio Machado|
-|1.1   | 23/04/2023 | Adição do diagrama de casos de uso e sua explicação | Mauricio Machado |
-|1.2   | 26/04/2023 | Adição dos requisitos via brainstorm | Mauricio Machado, Davi Matheus, Filipe Machado, Natanael|
-|1.3   | 27/04/2023 | Adição dos requisitos via introspecção | Davi Matheus|
+
+| Versão | Data       | Descrição                                           | Autor(es)                                                |
+| ------ | ---------- | --------------------------------------------------- | -------------------------------------------------------- |
+| 1.0    | 23/04/2023 | Criação do documento                                | Mauricio Machado                                         |
+| 1.1    | 23/04/2023 | Adição do diagrama de casos de uso e sua explicação | Mauricio Machado                                         |
+| 1.2    | 26/04/2023 | Adição dos requisitos via brainstorm                | Mauricio Machado, Davi Matheus, Filipe Machado, Natanael |
+| 1.3    | 27/04/2023 | Adição dos requisitos via introspecção              | Davi Matheus                                             |
