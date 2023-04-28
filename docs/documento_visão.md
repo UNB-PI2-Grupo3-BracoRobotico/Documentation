@@ -61,7 +61,7 @@ Neste tópico, são apresentados os rich-pictures criados pelos integrantes. Na 
 ### Rich-Pictures v2
 
 
-![Rich Picture v2.0](./assets/documento_visao/RichPicture_Samuel.png)
+![Rich Picture v2.0](./assets/documento_visao/Richpicture_Samuel.png)
 
 <center>
 
