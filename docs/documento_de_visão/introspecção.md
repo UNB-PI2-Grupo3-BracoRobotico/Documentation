@@ -27,6 +27,34 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
     Dessa forma, foram detectados os seguintes requisitos:
 </p>
 
+## 4. Requisitos levantados
+|ID|Descrição|Tipo de Requisito
+|--|--|--|
+|I01|Cadastro e login de <a href="../../modelagem/lexicos#usuario">usuário</a> com opção de recuperar senha|RF|
+|I02|O <a href="../../modelagem/lexicos#produtor">produtor</a> deve visualizar suas <a href="../../modelagem/lexicos#propriedade">propriedades</a>|RF|
+|I03|O sistema deverá  deve <a href="../../modelagem/lexicos#cadastrar_plantio">cadastrar uma plantação</a>|RF|
+|I04|O produtor pode visualizar o histórico de suas <a href="../../modelagem/lexicos#visualizar_plantio">plantações</a> e <a href="../../modelagem/lexicos#visualizar_aplicacao_agrotoxico">agrotóxicos</a>|RF|
+|I05|O produtor pode visualizar o perfil do <a href="../../modelagem/lexicos#tecnico">técnico</a> que está monitorando sua propriedade|RF|
+|I06|O produtor pode visualizar o <a href="../../modelagem/lexicos#plantio_plantado">status de cada plantação</a>|RF|
+|I07|O produtor deve <a href="../../modelagem/lexicos#aplicar_agrotoxico">cadastrar o uso do agrotóxico</a> com foto e data apenas|RF|
+|I08|O técnico deve ter <a href="../../modelagem/lexicos#analisar_aplicacao_agrotoxico">acesso a foto dos agrotóxicos</a> enviadas pelos produtores|RF|
+|I09|O técnico deve <a href="../../modelagem/lexicos#visualizar_propriedade">visualizar as propriedades</a> supervisionadas por ele|RF|
+|I10|O aplicativo deve ter uso simples|RNF|
+|I11|O usuário deve <a href="../../modelagem/lexicos#visualizar_plantio">visualizar as informações das plantações</a> responsáveis|RF|
+|I12|O produtor pode ter acesso a recomendações e boas práticas para o produto agrícola plantado|RF|
+|I13|O produtor deve adicionar a data de colheita <a href="../../modelagem/lexicos#plantio_finalizado">encerrando a plantação</a>|RF|
+|I14|O produtor pode programar o uso de um agrotóxico |RF|
+|I15|O técnico deve  editar as informações necessárias da plantação e do agrotóxico |RF|
+|I16|O usuário pode editar suas informações pessoais|RF|
+|I17|O usuário deve ter acesso a informações pertinentes ao uso do app (<a href="../../modelagem/lexicos#plantio_finalizado">plantações concluídas</a>, <a href="../../modelagem/lexicos#aplicacao_agrotoxico">agrotóxicos utilizados</a>)|RF|
+|I18|O aplicativo deve ser seguro para garantir o <a href="../../modelagem/lexicos#cardeneta_de_campo">rastreamento das plantações</a>|RNF| 
+|I19|O aplicativo deve ser intuitivo|RNF|
+|I20|O aplicativo deve ser acessível|RNF|
+<h6 align = "center">Tabela 1: Tabela contendo os requisitos levantados pela introspecção</h6>
+<h6 align = "center">Fonte: Autor</h6>
+
+
+<center>
 
 
 |Legenda|Descrição|
