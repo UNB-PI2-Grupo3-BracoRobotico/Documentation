@@ -19,3 +19,6 @@ theme:
   features:
     - tabs
     - navigation.section
+
+nav:
+  - Documento de Arquitetura: documento_arquitetura.md
