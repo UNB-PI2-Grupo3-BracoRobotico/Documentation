@@ -7,7 +7,16 @@ O Diagrama de Implementação é uma representação visual que mostra a estrutu
 O Diagrama de Implementação será usado para descrever a conexão das máquinas e os protocolos de comunicação utilizados para transferir informações. O objetivo é obter uma visão clara da implementação do software, o que facilita o processo de desenvolvimento, uma vez que a modelagem é focada em um nível arquitetural mais específico em relação ao hardware. Com o Diagrama de Implementação, é possível entender como os componentes do sistema se interconectam fisicamente e quais recursos de hardware são necessários para executar o software. Dessa forma, é possível identificar e resolver problemas de desempenho ou escalabilidade antes de implementar o sistema, o que pode economizar tempo e recursos. O diagrama também ajuda a comunicar a arquitetura do sistema para as partes interessadas de forma clara e eficaz.
 
 ## v1.0
+
 ![Versão v1.0 do 5W2H](./assets/documento_diagrama_implementacao/diagrama_implementacao.png)
+
+A primeira versão desse diagrama se concentrou em um nível de desenvolvimento e tangibilizou uma implantação mais simples. Partindo dessa perspectiva, temos o servidor da aplicação englobando o ambiente do Front End, Back End e o Banco de Dados rodando localmente. 
+
+## v2.0
+
+![Versão v1.0 do 5W2H](./assets/documento_diagrama_implementacao/diagrama_implementacaoV2.png)
+
+A segunda versão desse diagrama apresenta todos os ambientes estão dentro do container do Docker. O acesso é feito pelo protocolo HTTP a partir de navegadores.
 
 ## Histórico de Versão<br>
 |    Data    | Versão | Descrição            | Autor(es)       |
