@@ -25,6 +25,45 @@ Camada responsável por tratar o dado adquirido pela infra e passá-lo ao domín
 
 Camada encapsulado do sistema frontend que não é afetada por mudanças fora dessa camada (com exceções de mudanças na regra do negócio). Nessa camada que é definida os usecases, entidades e falhas específicas do domínio. No caso de necessidade de vários usecases pode-se criar uma rotina que faz uso de um agrupamento de usecases.
 
+# Diagrama de Pacote (Back-end)
+
+Diagrama de pacotes são diagramas estruturais comumente usados para simplificar os diagramas de classe complexos e organizar as classes em pacotes. Um grande benefício desse artefato é a visibilidade de alto nível do sistema a ser desenvolvido. Abaixo o grupo criou o diagrama de pacotes referente a aplicação back-end com estruturação na _Clean Architecture_.
+
+## v1.0
+
+![Diagrama de Pacote Back-End v1.0](./assets/documento_arquitetura/diagrama_pacote_backend_v1.png)
+
+Os componentes com o sufixo 'Consumer' e 'Producer' são respectivamente responsáveis por se conectarem com o sistema Apache Kafka para enviar e receber mensagens de outros sistemas e/ou pacotes.
+
+Os componentes com o sufixo 'Processor' têm a responsabilidade de implementar a lógica do pacote, sem se preocupar em como a comunicação com outros sistemas e/ou pacotes é feita.
+
+Os pacotes 'Models' são responsáveis por modelos de objetos a serem utilizados.
+
+Os pacotes 'Exceptions' são responsáveis por especificar excessões para que erros não sejam tratados de forma genérica.
+
+### order_manager
+
+Tem a responsabilidade de gerenciar as ordens de compra, fazendo a comunicação com o banco de dados e com o sistema de pagamento.
+
+### payment_manager
+
+Tem a responsabilidade de gerenciar e verificar os pagamentos. 
+
+### robotic_arm_controller
+
+Tem a responsabilidade de gerar e enviar os comandos para o braço robótico.
+
+### database_manager
+
+Tem a responsabilidade de realizar operações de leitura, registro, atualização e remoção de dados no banco de dados.
+
+### config
+
+Tem a responsabilidade de armazenar valores de configurações do sistema.
+
+### tests
+
+Tem a responsabilidade de armazenar os testes unitários e de integração do sistema.
 
 # Diagrama de Classes 
 
