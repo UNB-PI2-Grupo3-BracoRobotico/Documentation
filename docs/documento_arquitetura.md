@@ -34,7 +34,7 @@ As classes são representadas como retângulos, com o nome da classe no topo do 
 
 ## v1.0
 
-![Diagrama de classes Modelo v1.0](../docs/assets/documento_arquitetura/diagramadeclassesv2%20-%20MODELO.png)
+![Diagrama de classes Modelo v1.0](../docs/assets/documento_arquitetura/diagrama_classe_v1.png)
 
 O diagrama indica o modelo do projeto. Esse modelo possui diversas classes.
 
