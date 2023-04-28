@@ -62,7 +62,7 @@ Nesse tópico é apresentado os rich-pictures criados por cada um dos integrante
     <img src='./assets/RichPicture_Samuel.png'>
     <figcaption align='center'>
         <b>
-            <a href='./assets/RichPicture_Davi.png'>
+            <a href='./assets/RichPicture_Samuel.png'>
                Figura 2: Rich Picture V2
             </a>
         </b>   
