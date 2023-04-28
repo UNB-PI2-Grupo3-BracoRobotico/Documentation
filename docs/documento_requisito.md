@@ -189,11 +189,6 @@ Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos f
 
 # <center> Introspecção
 
-## Histórico de Versão<br>
-Versão|Data|Descrição|Autor(es)
-------|----|---------|--------
-1.0   | 27/04/2023 | Criação do documento | Davi matheus
-
 ##  Introdução
 
 <p style="text-align: justify; text-indent: 20px">A introspecção é uma técnica essencialmente voltada para especialistas em requisitos, que devem extrair as melhores informações por meio de uma análise profunda sobre como e quais requisitos são necessários para satisfazer os usuários e stakeholders do sistema. Embora seja uma técnica rica em detalhes e informações, pode não ser adequada quando não é um especialista da área realizando-a. No entanto, mesmo que não seja um especialista, ainda pode ser útil realizar a técnica de introspecção para extrair o máximo de suas vantagens e obter informações valiosas para o projeto. </p>
@@ -207,7 +202,7 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 
 
 
-## 4. Requisitos levantados
+##  Requisitos levantados
 <p style="text-align: justify; text-indent: 20px"> 
     A partir dos dados obtidos pelo brainstorming foi possível levantar possíveis requisitos da aplicação.
 </p>
@@ -215,7 +210,7 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
     Dessa forma, foram detectados os seguintes requisitos:
 </p>
 
-## 4. Requisitos levantados
+
 |ID|Descrição|Tipo de Requisito
 |--|--|--|
 |I01|O sistema deverá identificar a localização inicial do serviço |RF|
@@ -261,3 +256,11 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 [5] - SERRANO, Maurício; SERRANO, Milene. Disponível em: Requisitos - Aula 07. 1º/2019. 50 slides. Material apresentado para a disciplina de Requisitos de Software no curso de Engenharia de Software da UnB, FGA.
 
 [6] - ANDRADE DE MORAIS, E. Utilização de uma estratégia para Identificação de fontes de informação na fase de Elicitação. Doutorado—[s.l.] Pontifícia Universidade Católica Do Rio De Janeiro, 2021.
+
+## Histórico de Versão<br>
+|Versão|Data|Descrição|Autor(es)|
+|------|----|---------|--------|
+|1.0   | 23/04/2023 | Criação do documento | Mauricio Machado|
+|1.1   | 23/04/2023 | Adição do diagrama de casos de uso e sua explicação | Mauricio Machado |
+|1.2   | 26/04/2023 | Adição dos requisitos via brainstorm | Mauricio Machado, Davi Matheus, Filipe Machado, Natanael|
+|1.3   | 27/04/2023 | Adição dos requisitos via introspecção | Davi Matheus|
