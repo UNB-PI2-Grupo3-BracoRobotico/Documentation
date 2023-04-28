@@ -186,6 +186,14 @@ Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos f
 
 ## Requisitos Elicitados
 
+
+# <center> Introspecção
+
+## Histórico de Versão<br>
+Versão|Data|Descrição|Autor(es)
+------|----|---------|--------
+1.0   | 27/04/2023 | Criação do documento | Davi matheus
+
 ##  Introdução
 
 <p style="text-align: justify; text-indent: 20px">A introspecção é uma técnica essencialmente voltada para especialistas em requisitos, que devem extrair as melhores informações por meio de uma análise profunda sobre como e quais requisitos são necessários para satisfazer os usuários e stakeholders do sistema. Embora seja uma técnica rica em detalhes e informações, pode não ser adequada quando não é um especialista da área realizando-a. No entanto, mesmo que não seja um especialista, ainda pode ser útil realizar a técnica de introspecção para extrair o máximo de suas vantagens e obter informações valiosas para o projeto. </p>
@@ -210,26 +218,18 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 ## 4. Requisitos levantados
 |ID|Descrição|Tipo de Requisito
 |--|--|--|
-|I01|Cadastro e login de <a href="../../modelagem/lexicos#usuario">usuário</a> com opção de recuperar senha|RF|
-|I02|O <a href="../../modelagem/lexicos#produtor">produtor</a> deve visualizar suas <a href="../../modelagem/lexicos#propriedade">propriedades</a>|RF|
-|I03|O sistema deverá  deve <a href="../../modelagem/lexicos#cadastrar_plantio">cadastrar uma plantação</a>|RF|
-|I04|O produtor pode visualizar o histórico de suas <a href="../../modelagem/lexicos#visualizar_plantio">plantações</a> e <a href="../../modelagem/lexicos#visualizar_aplicacao_agrotoxico">agrotóxicos</a>|RF|
-|I05|O produtor pode visualizar o perfil do <a href="../../modelagem/lexicos#tecnico">técnico</a> que está monitorando sua propriedade|RF|
-|I06|O produtor pode visualizar o <a href="../../modelagem/lexicos#plantio_plantado">status de cada plantação</a>|RF|
-|I07|O produtor deve <a href="../../modelagem/lexicos#aplicar_agrotoxico">cadastrar o uso do agrotóxico</a> com foto e data apenas|RF|
-|I08|O técnico deve ter <a href="../../modelagem/lexicos#analisar_aplicacao_agrotoxico">acesso a foto dos agrotóxicos</a> enviadas pelos produtores|RF|
-|I09|O técnico deve <a href="../../modelagem/lexicos#visualizar_propriedade">visualizar as propriedades</a> supervisionadas por ele|RF|
-|I10|O aplicativo deve ter uso simples|RNF|
-|I11|O usuário deve <a href="../../modelagem/lexicos#visualizar_plantio">visualizar as informações das plantações</a> responsáveis|RF|
-|I12|O produtor pode ter acesso a recomendações e boas práticas para o produto agrícola plantado|RF|
-|I13|O produtor deve adicionar a data de colheita <a href="../../modelagem/lexicos#plantio_finalizado">encerrando a plantação</a>|RF|
-|I14|O produtor pode programar o uso de um agrotóxico |RF|
-|I15|O técnico deve  editar as informações necessárias da plantação e do agrotóxico |RF|
-|I16|O usuário pode editar suas informações pessoais|RF|
-|I17|O usuário deve ter acesso a informações pertinentes ao uso do app (<a href="../../modelagem/lexicos#plantio_finalizado">plantações concluídas</a>, <a href="../../modelagem/lexicos#aplicacao_agrotoxico">agrotóxicos utilizados</a>)|RF|
-|I18|O aplicativo deve ser seguro para garantir o <a href="../../modelagem/lexicos#cardeneta_de_campo">rastreamento das plantações</a>|RNF| 
-|I19|O aplicativo deve ser intuitivo|RNF|
-|I20|O aplicativo deve ser acessível|RNF|
+|I01|O sistema deverá identificar a localização inicial do serviço |RF|
+|I02|O sistema deverá indicar quais produtos estão fora do inventário </a>|RF|
+|I03|O sistema deve ser capaz de integrar-se a outros sistemas ou plataformas, como mídias sociais, serviços de pagamento ou serviços de entrega. O sistema deve fornecer documentação técnica ou APIs para facilitar a integração.>|RF|
+|I04|O usuário poderá acompanhar o status do andamento do serviço |RF|
+|I05|O sistema deve permitir que os usuários comparem produtos ou serviços com base em critérios específicos, como preço, qualidade ou recursos|RF|
+|I06|O sistema deve permitir que os usuários vejam o histórico de pedidos e o status atual de cada pedido|RF|
+|I07|O sistema deve permitir que os usuários concluam uma compra, inserindo informações de pagamento e endereço de entrega|RF|
+|I08|O sistema deve ser flexível o suficiente para acomodar mudanças futuras, incluindo a adição ou remoção de recursos, funcionalidades e requisitos|RF|
+|I9|O sistema deverá preservar energia e reiniciar automaticamente quando não estiver em uso |RNF|
+|I10|O sistema deve ser responsivo|RNF|
+|I11|O aplicativo deve ser intuitivo|RNF|
+|I12|O aplicativo deve ser acessível|RNF|
 <h6 align = "center">Tabela 1: Tabela contendo os requisitos levantados pela introspecção</h6>
 <h6 align = "center">Fonte: Autor</h6>
 
