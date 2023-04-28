@@ -16,15 +16,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC01. Visualizar produtos disponíveis
 
-| UC01 | Visualizar produtos disponíveis |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Alta |
-| **Requisitos** | Visualização do estoque atualizado (mesmo sem internet) |
-| **Condição de entrada** | O usuário interage com a tela do sistema. Ao interagir, a tela sairá do modo *sono* e irá apresentar a lista de itens disponíveis. |
-| **Fluxo principal** | <ol> <li> Sistema sai do modo *sono* <li> Sistema carrega itens em estoque da farmácia </ol>|
-| **Fluxos alternativos** | Não há |
-| **Fluxos de exceção** | **Fluxo 1. O sistema não reconhece o toque do usuário** <ol> <li> O sistema toca na tela *touch screen* <li> Toque não é reconhecido <li> O usuário alerta o funcionário que reinicia e limpa a tela <li> Usuário toca novamente na tela e seu toque é reconhecido</ol> |
+|                    UC01 | Visualizar produtos disponíveis                                                                                                                                                                                                                                         |
+| ----------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                                                                                                                                          |
+|   **Frequência de uso** | Alta                                                                                                                                                                                                                                                                    |
+|          **Requisitos** | Visualização do estoque atualizado (mesmo sem internet)                                                                                                                                                                                                                 |
+| **Condição de entrada** | O usuário interage com a tela do sistema. Ao interagir, a tela sairá do modo _sono_ e irá apresentar a lista de itens disponíveis.                                                                                                                                      |
+|     **Fluxo principal** | <ol> <li> Sistema sai do modo _sono_ <li> Sistema carrega itens em estoque da farmácia </ol>                                                                                                                                                                            |
+| **Fluxos alternativos** | Não há                                                                                                                                                                                                                                                                  |
+|   **Fluxos de exceção** | **Fluxo 1. O sistema não reconhece o toque do usuário** <ol> <li> O sistema toca na tela _touch screen_ <li> Toque não é reconhecido <li> O usuário alerta o funcionário que reinicia e limpa a tela <li> Usuário toca novamente na tela e seu toque é reconhecido</ol> |
 
 <div style="text-align: center">
 <p> Tabela 1: Especificação do caso de uso: Visualizar produtos disponíveis. (Fonte: autores, 2022).</p>
@@ -32,15 +32,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC02. Buscar produto por nome
 
-| UC02 | Buscar produto por nome |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Média |
-| **Requisitos** | Carregamento correto do estoque |
-| **Condição de entrada** | Lista de produtos disponíveis é carregada. |
-| **Fluxo principal** | <ol> <li> Usuário clica na barra de pesquisa e escreve nome do produto que procura. <li> Produto encontrado será mostrado junto com suas informações. </ol>|
-| **Fluxos alternativos** | **Fluxo 1. Produto não disponível** <ol> <li> Usuário escreve o nome do produto e clica em ok. </li> <li> Item não é encontrado no estoque.</li> <li> Usuário é apresentado uma tela com a mensagem: *esse item não está disponível. Por favor, volte para a tela de produtos disponíveis*. Ao final da tela terá um botão para voltar a tela de produtos disponíveis. </li> </ol> |
-| **Fluxos de exceção** | **Fluxo 1. Erro ao pesquisar produto** <ol> <li> Usuário escreve nome do produto e clica em ok.<li> Processo de filtro por nome falha. <li> Usuário é apresentado uma tela indicando que não conseguimos finalizar a busca, dando a opção de tentar realizar a busca novamente ou voltar a listagem de produtos </ol> |
+|                    UC02 | Buscar produto por nome                                                                                                                                                                                                                                                                                                                                                            |
+| ----------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                                                                                                                                                                                                                                                     |
+|   **Frequência de uso** | Média                                                                                                                                                                                                                                                                                                                                                                              |
+|          **Requisitos** | Carregamento correto do estoque                                                                                                                                                                                                                                                                                                                                                    |
+| **Condição de entrada** | Lista de produtos disponíveis é carregada.                                                                                                                                                                                                                                                                                                                                         |
+|     **Fluxo principal** | <ol> <li> Usuário clica na barra de pesquisa e escreve nome do produto que procura. <li> Produto encontrado será mostrado junto com suas informações. </ol>                                                                                                                                                                                                                        |
+| **Fluxos alternativos** | **Fluxo 1. Produto não disponível** <ol> <li> Usuário escreve o nome do produto e clica em ok. </li> <li> Item não é encontrado no estoque.</li> <li> Usuário é apresentado uma tela com a mensagem: _esse item não está disponível. Por favor, volte para a tela de produtos disponíveis_. Ao final da tela terá um botão para voltar a tela de produtos disponíveis. </li> </ol> |
+|   **Fluxos de exceção** | **Fluxo 1. Erro ao pesquisar produto** <ol> <li> Usuário escreve nome do produto e clica em ok.<li> Processo de filtro por nome falha. <li> Usuário é apresentado uma tela indicando que não conseguimos finalizar a busca, dando a opção de tentar realizar a busca novamente ou voltar a listagem de produtos </ol>                                                              |
 
 <div style="text-align: center">
 <p> Tabela 2: Especificação do caso de uso: Buscar produto por nome. (Fonte: autores, 2022).</p>
@@ -48,15 +48,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC03. Iniciar processo de compra
 
-| UC03 | Iniciar processo de compra |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Alta |
-| **Requisitos** | Carregamento correto do estoque |
-| **Condição de entrada** | Usuário adiciona item ao carrinho ou usuário clica em iniciar compra. |
-| **Fluxo principal** | <ol> <li> Usuário adiciona item ao carrinho. <li> Usuário fecha o carrinho e segue para realização da compra. </ol>|
+|                    UC03 | Iniciar processo de compra                                                                                                                                |
+| ----------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                            |
+|   **Frequência de uso** | Alta                                                                                                                                                      |
+|          **Requisitos** | Carregamento correto do estoque                                                                                                                           |
+| **Condição de entrada** | Usuário adiciona item ao carrinho ou usuário clica em iniciar compra.                                                                                     |
+|     **Fluxo principal** | <ol> <li> Usuário adiciona item ao carrinho. <li> Usuário fecha o carrinho e segue para realização da compra. </ol>                                       |
 | **Fluxos alternativos** | **Fluxo 1. Iniciar fluxo de compra manualmente** <ol> <li> Usuário clica no botão de iniciar fluxo de compra sem adicionar items no carrinho. </li> </ol> |
-| **Fluxos de exceção** | Não há |
+|   **Fluxos de exceção** | Não há                                                                                                                                                    |
 
 <div style="text-align: center">
 <p> Tabela 3: Especificação do caso de uso: Iniciar processo de compra. (Fonte: autores, 2022).</p>
@@ -64,15 +64,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC04. Cancelar compra
 
-| UC04 | Cancelar compra |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Baixa |
-| **Requisitos** | Usuário ter iniciado fluxo de compra |
-| **Condição de entrada** | Usuário no fluxo de checkout cancelar a compra ou limpar o carrinho. |
-| **Fluxo principal** | <ol> <li> Usuário clica em cancelar compra. <li> Tela entra em modo hibernar até outro clique começar novo processo de compra. </ol>|
+|                    UC04 | Cancelar compra                                                                                                                                                                                                                                                                                                          |
+| ----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                                                                                                                                                                                           |
+|   **Frequência de uso** | Baixa                                                                                                                                                                                                                                                                                                                    |
+|          **Requisitos** | Usuário ter iniciado fluxo de compra                                                                                                                                                                                                                                                                                     |
+| **Condição de entrada** | Usuário no fluxo de checkout cancelar a compra ou limpar o carrinho.                                                                                                                                                                                                                                                     |
+|     **Fluxo principal** | <ol> <li> Usuário clica em cancelar compra. <li> Tela entra em modo hibernar até outro clique começar novo processo de compra. </ol>                                                                                                                                                                                     |
 | **Fluxos alternativos** | **Fluxo 1. Usuário limpa o carrinho até nenhum item estar no carrinho** <ol> <li> Usuário remove produto adicionado do carrinho. </li> <li> Carrinho fica vazio. </li> <li> Usuário é apresentado uma tela informando que o carrinho está vazio e ele deve adicionar um item antes de seguir com o checkout. </li> </ol> |
-| **Fluxos de exceção** | **Fluxo 1. Usuário tenta remover item quando não existem mais itens no carrinho.** <ol> <li> Usuário clica em remover item do carrinho quando carrinho estiver vazio. </li> <li> Usuário é apresentado uma mensagem indicando que o carrinho está sem itens e não tem como remover outro produto/item. </li> </ol> |
+|   **Fluxos de exceção** | **Fluxo 1. Usuário tenta remover item quando não existem mais itens no carrinho.** <ol> <li> Usuário clica em remover item do carrinho quando carrinho estiver vazio. </li> <li> Usuário é apresentado uma mensagem indicando que o carrinho está sem itens e não tem como remover outro produto/item. </li> </ol>       |
 
 <div style="text-align: center">
 <p> Tabela 4: Especificação do caso de uso: Cancelar compra. (Fonte: autores, 2022).</p>
@@ -80,15 +80,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC05. Adicionar item
 
-| UC05 | Adicionar item |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Alta |
-| **Requisitos** | Usuário ter iniciado fluxo de compra |
-| **Condição de entrada** | Usuário clicar no botão de adicionar produto ao carrinho |
-| **Fluxo principal** | <ol> <li> Usuário encontra produto que deseja comprar. <li> Usuário clica no ícone de adicionar desse item. </ol>|
-| **Fluxos alternativos** | Não há |
-| **Fluxos de exceção** | **Fluxo 1. Produto não está disponível.** <ol> <li> Usuário encontra produto que deseja comprar. <li> Usuário clica no ícone de adicionar desse item. <li> Produto não está mais disponível no estoque. <li> Usuário é apresentado com uma tela informando que o produto dele não está mais disponível e os possíveis motivos disso ter acontecido. </ol> |
+|                    UC05 | Adicionar item                                                                                                                                                                                                                                                                                                                                            |
+| ----------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                                                                                                                                                                                                                            |
+|   **Frequência de uso** | Alta                                                                                                                                                                                                                                                                                                                                                      |
+|          **Requisitos** | Usuário ter iniciado fluxo de compra                                                                                                                                                                                                                                                                                                                      |
+| **Condição de entrada** | Usuário clicar no botão de adicionar produto ao carrinho                                                                                                                                                                                                                                                                                                  |
+|     **Fluxo principal** | <ol> <li> Usuário encontra produto que deseja comprar. <li> Usuário clica no ícone de adicionar desse item. </ol>                                                                                                                                                                                                                                         |
+| **Fluxos alternativos** | Não há                                                                                                                                                                                                                                                                                                                                                    |
+|   **Fluxos de exceção** | **Fluxo 1. Produto não está disponível.** <ol> <li> Usuário encontra produto que deseja comprar. <li> Usuário clica no ícone de adicionar desse item. <li> Produto não está mais disponível no estoque. <li> Usuário é apresentado com uma tela informando que o produto dele não está mais disponível e os possíveis motivos disso ter acontecido. </ol> |
 
 <div style="text-align: center">
 <p> Tabela 5: Especificação do caso de uso: Adicionar item. (Fonte: autores, 2022).</p>
@@ -96,15 +96,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC06. Remover item
 
-| UC06 | Remover item |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Alta |
-| **Requisitos** | Usuário ter iniciado fluxo de compra |
-| **Condição de entrada** | Usuário clicar no botão de remover produto do carrinho |
-| **Fluxo principal** | <ol> <li> Usuário acessa carrinho de compras. <li> Usuário clica no botão de remover item do carrinho. </ol>|
-| **Fluxos alternativos** | Não há |
-| **Fluxos de exceção** | **Fluxo 1. Remover item com carrinho vazio.** <ol> <li> Usuário clica em remover item do carrinho quando carrinho estiver vazio. </li> <li> Usuário é apresentado uma mensagem indicando que o carrinho está sem itens e não tem como remover outro produto/item. </li> </ol> |
+|                    UC06 | Remover item                                                                                                                                                                                                                                                                  |
+| ----------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                                                                                                                                                |
+|   **Frequência de uso** | Alta                                                                                                                                                                                                                                                                          |
+|          **Requisitos** | Usuário ter iniciado fluxo de compra                                                                                                                                                                                                                                          |
+| **Condição de entrada** | Usuário clicar no botão de remover produto do carrinho                                                                                                                                                                                                                        |
+|     **Fluxo principal** | <ol> <li> Usuário acessa carrinho de compras. <li> Usuário clica no botão de remover item do carrinho. </ol>                                                                                                                                                                  |
+| **Fluxos alternativos** | Não há                                                                                                                                                                                                                                                                        |
+|   **Fluxos de exceção** | **Fluxo 1. Remover item com carrinho vazio.** <ol> <li> Usuário clica em remover item do carrinho quando carrinho estiver vazio. </li> <li> Usuário é apresentado uma mensagem indicando que o carrinho está sem itens e não tem como remover outro produto/item. </li> </ol> |
 
 <div style="text-align: center">
 <p> Tabela 6: Especificação do caso de uso: Remover item. (Fonte: autores, 2022).</p>
@@ -112,15 +112,15 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC07. Identificação do comprador
 
-| UC07 | Identificação do comprador |
-| -: | :- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Alta |
-| **Requisitos** | Usuário iniciar o fluxo de checkout. |
-| **Condição de entrada** | Usuário clicar em continuar na aba de carrinho. |
-| **Fluxo principal** | <ol> <li> Usuário acessa carrinho de compras. <li> Usuário clica no botão de continuar. <li> Usuário preenche campo de número de cadastro de pessoa física. <li> Número é validado e pode seguir o fluxo de compra </ol>|
-| **Fluxos alternativos** | Não há |
-| **Fluxos de exceção** | **Fluxo 1. Documento inválido.** <ol> <li> Usuário adiciona número de CPF inválido. </li> <li> Usuário é apresentado uma mensagem indicando que o documento apresentado está errado. O sistema irá apresentar possíveis ocorrências desse erro. </li> </ol> |
+|                    UC07 | Identificação do comprador                                                                                                                                                                                                                                  |
+| ----------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Comprador                                                                                                                                                                                                                                              |
+|   **Frequência de uso** | Alta                                                                                                                                                                                                                                                        |
+|          **Requisitos** | Usuário iniciar o fluxo de checkout.                                                                                                                                                                                                                        |
+| **Condição de entrada** | Usuário clicar em continuar na aba de carrinho.                                                                                                                                                                                                             |
+|     **Fluxo principal** | <ol> <li> Usuário acessa carrinho de compras. <li> Usuário clica no botão de continuar. <li> Usuário preenche campo de número de cadastro de pessoa física. <li> Número é validado e pode seguir o fluxo de compra </ol>                                    |
+| **Fluxos alternativos** | Não há                                                                                                                                                                                                                                                      |
+|   **Fluxos de exceção** | **Fluxo 1. Documento inválido.** <ol> <li> Usuário adiciona número de CPF inválido. </li> <li> Usuário é apresentado uma mensagem indicando que o documento apresentado está errado. O sistema irá apresentar possíveis ocorrências desse erro. </li> </ol> |
 
 <div style="text-align: center">
 <p> Tabela 7: Especificação do caso de uso: Identificação do comprador. (Fonte: autores, 2022).</p>
@@ -128,20 +128,63 @@ A seguir, a especificação dos casos de uso identificados.
 
 ### UC08. Operação da garra de forma manual
 
-| UC08 | Operação da garra de forma manual |
-| -: | :- |
-| **Atores** | <li> Operário |
-| **Frequência de uso** | Baixa |
-| **Requisitos** | Operário ter credencial com autorização de sobrescrever método de operação da garra. |
-| **Condição de entrada** | Inserir credencial no sistema. |
-| **Fluxo principal** | <ol> <li> Operário acessa o totem. <li> Operário clica no botão de admin. <li> Adiciona credencial de acesso. <li> Opera a máquina. <li> Após período de 1 minuto sem atividade sistema irá voltar ao modo *sono* e sair do modo de operação manual fazendo braço voltar a posição inicial </ol>|
-| **Fluxos alternativos** | Não há |
-| **Fluxos de exceção** | **Fluxo 1. Credencial inválida ou sem permissão.** <ol> <li> Usuário adiciona credencial inválido ou sem acesso. </li> <li> Usuário é apresentado uma mensagem indicando que não foi possível entrar no modo manual. Não serão adicionadas informações adicionais sobre erros nessa tela, a fim de evitar acessos indesejados. </li> </ol> |
+|                    UC08 | Operação da garra de forma manual                                                                                                                                                                                                                                                                                                          |
+| ----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|              **Atores** | <li> Operário                                                                                                                                                                                                                                                                                                                              |
+|   **Frequência de uso** | Baixa                                                                                                                                                                                                                                                                                                                                      |
+|          **Requisitos** | Operário ter credencial com autorização de sobrescrever método de operação da garra.                                                                                                                                                                                                                                                       |
+| **Condição de entrada** | Inserir credencial no sistema.                                                                                                                                                                                                                                                                                                             |
+|     **Fluxo principal** | <ol> <li> Operário acessa o totem. <li> Operário clica no botão de admin. <li> Adiciona credencial de acesso. <li> Opera a máquina. <li> Após período de 1 minuto sem atividade sistema irá voltar ao modo _sono_ e sair do modo de operação manual fazendo braço voltar a posição inicial </ol>                                           |
+| **Fluxos alternativos** | Não há                                                                                                                                                                                                                                                                                                                                     |
+|   **Fluxos de exceção** | **Fluxo 1. Credencial inválida ou sem permissão.** <ol> <li> Usuário adiciona credencial inválido ou sem acesso. </li> <li> Usuário é apresentado uma mensagem indicando que não foi possível entrar no modo manual. Não serão adicionadas informações adicionais sobre erros nessa tela, a fim de evitar acessos indesejados. </li> </ol> |
 
 <div style="text-align: center">
 <p> Tabela 8: Especificação do caso de uso: Operação da garra de forma manual. (Fonte: autores, 2022).</p>
 </div>
 
+# Brainstorm
+
+O brainstorm é uma técnica utilizada para levantar requisitos e aprender sobre novas características que os usuários apreciariam em um produto. Essa técnica tem como objetivo incentivar a criatividade do usuário a partir da filosofia de que cada um é livre para opinar e apresentar suas ideias acerca do que deve ser melhorado, sem julgamentos nem cobranças. Buscando assim, levantar o máximo de opiniões em torno de um tema.
+
+| Membros Participantes |
+| :-------------------: |
+|   Mauricio Machado    |
+
+O identificador de cada requisito é formado por 'B' + um número, sendo 'B' uma abreviação de Brainstorm, e o tipo de requisito refere-se à classificação entre requisitos funcionais (RF) e não funcionais (RNF).
+
+Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos funcionais e não funcionais representados na Tabela 1.
+
+| Identificador | Requisito                                                                                                                                                                                            | Tipo |
+| :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: |
+|      B1       | Usuário deve conseguir visualizar quantas unidades um determinado produto possui disponível.                                                                                                         |  RF  |
+|      B2       | Usuário deve poder visualizar a lista de todos os produtos.                                                                                                                                          |  RF  |
+|      B3       | Usuário pode fazer o pagamento com cartão digital (débito).                                                                                                                                          |  RF  |
+|      B4       | Usuário pode fazer o pagamento com cartão digital (crédito).                                                                                                                                         |  RF  |
+|      B5       | Usuário pode fazer o pagamento via PIX.                                                                                                                                                              |  RF  |
+|      B6       | Usuário deve se identificar via cpf para finalizar a compra.                                                                                                                                         |  RF  |
+|      B7       | Usuário deve ser capaz de navegar para uma tela anterior.                                                                                                                                            |  RF  |
+|      B8       | Usuário pode adicionar produtos na lista de compras.                                                                                                                                                 |  RF  |
+|      B9       | Usuário pode remover produtos da lista de compras.                                                                                                                                                   |  RF  |
+|      B10      | Usuário pode optar por incluir cpf na nota fiscal.                                                                                                                                                   |  RF  |
+|      B11      | Usuário pode pesquisar um produto por seu nome.                                                                                                                                                      |  RF  |
+|      B12      | Usuário deve conseguir filtrar pesquisas com base na: categoria e preço.                                                                                                                             |  RF  |
+|      B13      | Produtos devem conter uma descrição.                                                                                                                                                                 |  RF  |
+|      B14      | O sistema deve ter um botão de ajuda para ensinar o usuário a como operar o sistema em caso de dúvidas.                                                                                              |  RF  |
+|      B15      | Produtos sem estoque devem ser mostrados e diferenciados de produtos com estoque.                                                                                                                    |  RF  |
+|      B16      | Sistema deve ter acesso a energia.                                                                                                                                                                   | RNF  |
+|      B17      | Sistema deve ter conexão a internet.                                                                                                                                                                 | RNF  |
+|      B18      | Sistema deve apresentar produtos populares.                                                                                                                                                          | RNF  |
+|      B19      | A aplicação deve limitar a 5s o tempo de interação de uma tela e a resposta, em caso de múltiplas ocorrência do mesmo erroo uma mensagem deve ser mostrada, com exceção do uso de serviços externos. | RNF  |
+|      B20      | Sistema deve permitir usuário selecionar o tipo de pagamento do pedido.                                                                                                                              | RNF  |
+|      B21      | Sistema deve fornecer feedback contínuo sobre o status das operações em andamento, como o progresso do braço robótico ou o status de um processamento de pagamento.                                  | RNF  |
+|      B22      | Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.                                                                                                      | RNF  |
+|      B23      | Sistema deve assegurar conformidade de dados com LGPD.                                                                                                                                               | RNF  |
+|      B24      | Sistema não deve ter produtos com restrição de venda.                                                                                                                                                | RNF  |
+|      B25      | Sistema deve registrar as vendas e atualizar o estoque automaticamente após cada transação.                                                                                                          | RNF  |
+|      B26      | Sistema deve ajudar o usuário a reconhecer, diagnosticar e recuperar-se de erros.                                                                                                                    | RNF  |
+|      B27      | o sistema deve fornecer uma interface amigável e intuitiva para que os usuários possam pesquisar, selecionar e comprar medicamentos.                                                                 | RNF  |
+
+## Requisitos Elicitados
 
 # Referências
 
