@@ -1,3 +1,8 @@
+# Introdução
+
+<!-- Adicionar explicação do que é o documento de visão e sua finalidade -->
+
+
 # <center> Rich Pictures
 
 ## Histórico de Versão<br>
@@ -5,7 +10,7 @@
 | :- | :- | :- | :- |
 | 25.04.2022 |  1.0   | Criação do documento | [Davi matheus](https://github.com/DaviMatheus) |
 | 28.04.2022 |  1.1   | Adição do Rich picture v2 | [Samuel Macedo](https://github.com/Samuelcastro7) |
-
+|28.04.2022  | 1.2    | Conclusão do documento de RichPicture | [Davi matheus](https://github.com/DaviMatheus) |
 
 <p align="justify">&emsp;&emsp;
 <code>Rich pictures</code> é uma técnica de modelagem de ideias informal e ideal para reuniões, pois permite um rápido entendimento sobre problemas complexos ou mal definidos. Através de desenhos rascunhados e textos curtos e objetivos, é possível expressar momentos e desejos de forma colaborativa com os stakeholders. Tanto a mão livre quanto o uso de software podem ser utilizados na construção do <code>rich picture</code>, e por ser um modelo informal, não há consenso sobre sua sintaxe e forma de uso.
@@ -17,10 +22,10 @@ O objetivo deste documento é apresentar todos os <code>rich pictures</code> cri
 
 
 <p align='center'>
-    <img src='./assets/RichPicture.png'>
+    <img src='./assets/documento_visao/RichPicture.png'>
     <figcaption align='center'>
         <b>
-            <a href='./assets/RichPicture.png'>
+            <a href='./assets/documento_visao/RichPicture.png'>
                Figura 1: Exemplo de rich picture
             </a>
         </b>   
@@ -34,21 +39,22 @@ O objetivo deste documento é apresentar todos os <code>rich pictures</code> cri
  Para elaboração do <code>rich picture</code> cada membro do grupo designado para a tarefa confecionará um sobre o projeto e o restantede do grupo após analisar o <code>rich picture</code> poderá ter uma visão mais clara sobre o escopo do projeto em si.
 </p>
 
+### Versão das Rich-Pictures 
+
+<p align="justify">&emsp;&emsp;
+Neste tópico, são apresentados os rich-pictures criados pelos integrantes. Na primeira versão, elaborou-se uma visão mais simples e visual, que servirá como base para a elaboração da próxima versão do RichPicture pelos membros.
+</p>
+
 ## Resultados
-
-### Rich-Pictures dos integrantes
-
-Nesse tópico é apresentado os rich-pictures criados por cada um dos integrantes.
-
 
 ### Rich-Pictures v1
 
 <p align='center'>
-    <img src='./assets/RichPicture_Davi.png'>
+    <img src='./assets/documento_visao/RichPicture_Davi.png'>
     <figcaption align='center'>
         <b>
-            <a href='./assets/RichPicture_Davi.png'>
-               Figura 2: Rich Picture Davi Matheus
+            <a href='./assets/documento_visao/RichPicture_Davi.png''>
+               Figura 2: Rich Picture V1
             </a>
         </b>   
         <br>
@@ -59,11 +65,11 @@ Nesse tópico é apresentado os rich-pictures criados por cada um dos integrante
 ### Rich-Pictures v2
 
 <p align='center'>
-    <img src='./assets/RichPicture_Samuel.png'>
+    <img src='./assets/documento_visao/RichPicture_Samuel.png'>
     <figcaption align='center'>
         <b>
-            <a href='./assets/RichPicture_Samuel.png'>
-               Figura 2: Rich Picture V2
+            <a href='./assets/documento_visao/RichPicture_Samuel.png'>
+               Figura 3: Rich Picture V2
             </a>
         </b>   
         <br>
