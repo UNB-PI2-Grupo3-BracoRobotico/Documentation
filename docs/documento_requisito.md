@@ -1,4 +1,4 @@
-# Introdução
+# Documento de Requisito
 
 <!-- Adicionar explicação do que é o documento de requisito e sua finalidade -->
 
