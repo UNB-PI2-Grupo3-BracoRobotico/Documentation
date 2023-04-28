@@ -3,7 +3,8 @@
 ## Histórico de Versão<br>
 |    Data    | Versão | Descrição            | Autor(es)       |
 | :- | :- | :- | :- |
-| 25.04.2022 |  0.1   | Criação do documento | [Davi matheus](https://github.com/DaviMatheus) |
+| 25.04.2022 |  1.0   | Criação do documento | [Davi matheus](https://github.com/DaviMatheus) |
+| 28.04.2022 |  1.1   | Adição do Rich picture v2 | [Samuel Macedo](https://github.com/Samuelcastro7) |
 
 
 <p align="justify">&emsp;&emsp;
@@ -40,7 +41,7 @@ O objetivo deste documento é apresentar todos os <code>rich pictures</code> cri
 Nesse tópico é apresentado os rich-pictures criados por cada um dos integrantes.
 
 
-### Rich-Pictures Davi Matheus
+### Rich-Pictures v1
 
 <p align='center'>
     <img src='./assets/RichPicture_Davi.png'>
@@ -55,6 +56,20 @@ Nesse tópico é apresentado os rich-pictures criados por cada um dos integrante
     </figcaption>
 </p>
 
+### Rich-Pictures v2
+
+<p align='center'>
+    <img src='./assets/RichPicture_Samuel.png'>
+    <figcaption align='center'>
+        <b>
+            <a href='./assets/RichPicture_Samuel.png'>
+               Figura 2: Rich Picture V2
+            </a>
+        </b>   
+        <br>
+        <small>Autor: <a href='https://github.com/Samuelcastro7'>Samuel Macedo</a>, 2023.</small>
+    </figcaption>
+</p>
 
 
 ## Referências
