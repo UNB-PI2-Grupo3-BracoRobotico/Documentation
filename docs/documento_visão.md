@@ -20,19 +20,16 @@ O objetivo deste documento é apresentar todos os <code>rich pictures</code> cri
 </p>
 
 
+![Rich Picture](./assets/documento_visao/RichPicture.png)
 
-<p align='center'>
-    <img src='./assets/documento_visao/RichPicture.png'>
-    <figcaption align='center'>
-        <b>
-            <a href='./assets/documento_visao/RichPicture.png'>
-               Figura 1: Exemplo de rich picture
-            </a>
-        </b>   
-        <br>
-        <small>Fonte: http://mxmossman.blogspot.com/2017/10/better-software-2017.html.</small>
-    </figcaption>
-</p>
+<center>
+
+<p> Figura 1: Exemplo de rich picture.</p>
+
+<small>Fonte: http://mxmossman.blogspot.com/2017/10/better-software-2017.html.</small>
+
+</center>
+
 
 ## Metodologia
 <p align="justify">&emsp;&emsp;
@@ -49,35 +46,30 @@ Neste tópico, são apresentados os rich-pictures criados pelos integrantes. Na 
 
 ### Rich-Pictures v1
 
-<p align='center'>
-    <img src='./assets/documento_visao/RichPicture_Davi.png'>
-    <figcaption align='center'>
-        <b>
-            <a href='./assets/documento_visao/RichPicture_Davi.png''>
-               Figura 2: Rich Picture V1
-            </a>
-        </b>   
-        <br>
-        <small>Autor: <a href='https://github.com/DaviMatheus'>Davi Matheus</a>, 2023.</small>
-    </figcaption>
-</p>
+
+![Rich Picture v1.0](./assets/documento_visao/RichPicture_Davi.png)
+
+<center>
+
+<p> Figura 2: Rich Picture.</p>
+
+<small>Autor: <a href='https://github.com/DaviMatheus'>Davi Matheus</a>, 2023.</small>
+
+</center>
+
 
 ### Rich-Pictures v2
 
 
-<p align='center'>
-    <img src='./assets/documento_visao/RichPicture_Samuel.png'>
-    <figcaption align='center'>
-        <b>
-            <a href='./assets/documento_visao/RichPicture_Samuel.png'>
-               Figura 3: Rich Picture V2
-            </a>
-        </b>   
-        <br>
-        <small>Autor: <a href='https://github.com/Samuelcastro7'>Samuel Macedo</a>, 2023.</small>
-    </figcaption>
-</p>
+![Rich Picture v2.0](./assets/documento_visao/RichPicture_Samuel.png)
 
+<center>
+
+<p> Figura 3: Rich Picture.</p>
+
+<small>Autor: <a href='https://github.com/Samuelcastro7'>Samuel Macedo</a>, 2023.</small>
+
+</center>
 
 ## Referências
 
