@@ -1,6 +1,6 @@
 # Introdução
 
-<!-- Adicionar explicação do que é o documento de arquitetura e sua finalidade -->
+<!-- Adicionar explicação do que é o documento de requisito e sua finalidade -->
 
 # Diagrama de Casos de Uso
 

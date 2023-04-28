@@ -64,6 +64,7 @@ Neste tópico, são apresentados os rich-pictures criados pelos integrantes. Na 
 
 ### Rich-Pictures v2
 
+
 <p align='center'>
     <img src='./assets/documento_visao/RichPicture_Samuel.png'>
     <figcaption align='center'>

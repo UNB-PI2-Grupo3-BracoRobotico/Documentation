@@ -23,3 +23,16 @@ theme:
 nav:
   - Documento de Arquitetura: documento_arquitetura.md
   - Documento de Requisitos: documento_requisito.md
+  - Documento de Visão: documento_visão.md
+  <p align='center'>
+    <img src='./assets/documento_visao/RichPicture_Davi.png'>
+    <figcaption align='center'>
+        <b>
+            <a href='./assets/documento_visao/RichPicture_Davi.png''>
+               Figura 2: Rich Picture V1
+            </a>
+        </b>   
+        <br>
+        <small>Autor: <a href='https://github.com/DaviMatheus'>Davi Matheus</a>, 2023.</small>
+    </figcaption>
+</p>
