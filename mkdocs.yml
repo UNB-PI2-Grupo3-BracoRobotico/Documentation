@@ -22,3 +22,4 @@ theme:
 
 nav:
   - Documento de Arquitetura: documento_arquitetura.md
+  - Documento de Requisitos: documento_requisito.md
