@@ -36,17 +36,17 @@ As classes são representadas como retângulos, com o nome da classe no topo do 
 
 ![Diagrama de classes Modelo v1.0](../docs/assets/documento_arquitetura/diagrama_classe_v1.png)
 
-O diagrama indica o modelo do projeto. Esse modelo possui diversas classes.
+O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que represemtam as funções do sistema.
 
 ## Classes
 
-Inventario: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
+Inventário: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
 
 
-Estoque: representa  uma lista de objetos do tipo Inventario.
+Estoque: representa  uma lista de objetos do tipo Inventário.
 
 
-Produto: representa um Produto do Inventario, com um id, nome, descrição e preço.
+Produto: representa um Produto do Inventário, com um id, nome, descrição e preço.
 
 Pagamento: representa o pagamento de um cliente, com um id, um valor total, um status (concluído ou não), e uma informação do cliente.
 
