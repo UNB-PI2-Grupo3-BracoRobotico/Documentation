@@ -30,7 +30,10 @@ markdown_extensions:
 
 
 nav:
-  - Documento de Arquitetura: documento_arquitetura.md
-  - Documento de Requisitos: documento_requisito.md
-  - Documento de Visão: documento_visão.md
+  - Sobre o Projeto: index.md
+  - Software:
+    - Documento de Arquitetura: documento_arquitetura.md
+    - Documento de Requisitos: documento_requisito.md
+    - Documento de Visão: documento_visão.md
+  - Estruturas: estruturas/documento_estrutura.md
 
