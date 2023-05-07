@@ -3,6 +3,24 @@
 Visando buscar remédios organizados em prateleiras, o braço robótico será construído para se mover horizontal e verticalmente até a coordenada do remédio selecionado para que, em seguida, sua garra possa pegar e retirar a caixa de remédio da prateleira e a depositar em um local fixo para sua retirada.</br>
 Para isso, o projeto constará de dois motores responsáveis pela movimentação da garra ao longo da prateleira, sendo um para o eixo x e outro para o eixo y, e a garra possuirá mais dois motores para executar sua função, um para o eixo z e outro para o movimento de abrir e fechar. Sendo assim, a estrutura do projeto terá o objetivo de acomodar os motores e fazer com que o braço execute seus movimentos da forma mais simples, segura e rápida possível.</br>
 
+# Matriz de decisão sobre materiais
+
+|               Material               | Densidade (g/cmˆ3) | Preço (Reais/Kg) |   Dureza   | Limite de escoamento (MPa) | Facilidade de Uso | Resistência a oxidação |
+| :----------------------------------: | :----------------: | :--------------: | :--------: | :------------------------: | :---------------: | :--------------------: |
+|               Alumínio               |        2,70        |      10,00       |   26 HB    |            220             |       Alta        |        Elevada         |
+| Aço com baixo teor de carbono (1020) |        7,87        |       6,50       |   170 HB   |            205             |       Alta        |         Baixa          |
+| Aço com médio teor de carbono (1045) |        7,87        |       7,50       |   240 HB   |            430             |       Alta        |         Baixa          |
+|                Cobre                 |        8,96        |      23,00       |   45 HB    |            190             |       Média       |         Média          |
+|               Madeira                |        1,53        |      15,30       |   73 HB    |             40             |       Média       |       Não oxida        |
+|            Polipropileno             |        0,90        |      23,35       | 66 Shore D |             32             |       Baixa       |       Não oxida        |
+|                 UHMW                 |        0,93        |      64,10       | 64 Shore D |             40             |       Baixa       |       Não oxida        |
+
+Pode-se observar na tabela 1 sete materiais usuais para sistemas mecânicos simples.Analisando-se o aspecto densidade, o menor valor foi o do polímero polipropileno(0,9 g/cm3), contudo, em relação aos metais, o do alumínio possuiu destaque(2,7 g/cm3).Apesar de ser o segundo metal mais caro, referente aos metais da tabela 1, foi o terceiro material mais barato com o preço médio de dez reais.</br>
+</br>
+Ademais, a ductilidade do alumínio também mostra-se como uma vantagem pois apesar de ser o material mais dúctil da tabela, sem considerar os polímeros(mostrado pela menor dureza de 26 HB), seu limite de escoamento é o segundo maior(220 Mpa). Assim, pode-se perceber uma característica importante do material para sistemas mecânicos, a resistência do material a deformações plásticas atrelada a baixa fragilidade,isto é, um material tenaz.</br>
+</br>
+Outrossim, a elevada resistência a oxidação do alumínio e sua facilidade de uso apresentam-se como aspectos positivos.A primeira propriedade se deve ao fato do alumínio reagir rapidamente com o oxigênio criando uma camada de óxido de alumínio que impede prolongação da oxidação.Porém, a segunda característica deve-se a diversidade de perfis comerciais e sua baixa dureza, tornando-se um material de fácil utilização.
+
 # Descrição Detalhada das partes da estrutura
 
 O braço robótico se baseará em movimentações simples em três dimensões, logo, existirão três motores e três mecanismos de movimentação principais.A parte superior da estrutura possuirá duas barras horizontais, a primeira possuirá a função de deixar a estrutura mais estável e equilibrada em relação seus esforços. A segunda, além de servir de sustentação do robô, será a responsável por manter fixa o mecanismo de movimentação horizontal.</br>
@@ -32,8 +50,11 @@ A estrutura possuirá um metro de comprimento, um metro de largura e 22 cm de pr
 
 ![Visão 3D](assets/desenho_visao_vertical.png)
 
+# Referências
+
 # Histórico de Versionamento
 
 | Versão | Data       | Descrição                          | Autor            |
 | ------ | ---------- | ---------------------------------- | ---------------- |
 | 1.0    | 02/05/2023 | Criação do documento de estruturas | Mauricio Machado |
+| 1.1    | 07/05/2023 | Adição de matriz de referências    | Mauricio Machado |
