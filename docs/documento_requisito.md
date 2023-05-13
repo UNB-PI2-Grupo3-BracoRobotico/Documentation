@@ -19,23 +19,149 @@ Para a criação desse artefato foi utilizado a abordagem tradicional, ou seja, 
 
 A seguir, a especificação dos casos de uso identificados.
 
-<!-- TODO: Listar os casos de uso em tabelas -->
+### UC01. Visualizar lista de produtos
 
-<!-- ### UC01. Visualizar produtos disponíveis
-
-| UC01 | Visualizar produtos disponíveis |
-| ----------------------: | |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Atores** | <li> Comprador |
-| **Frequência de uso** | Alta |
-| **Requisitos** | Visualização do estoque atualizado (mesmo sem internet) |
-| **Condição de entrada** | O usuário interage com a tela do sistema. Ao interagir, a tela sairá do modo _sono_ e irá apresentar a lista de itens disponíveis. |
-| **Fluxo principal** | <ol> <li> Sistema sai do modo _sono_ <li> Sistema carrega itens em estoque da farmácia </ol> |
-| **Fluxos alternativos** | Não há |
-| **Fluxos de exceção** | **Fluxo 1. O sistema não reconhece o toque do usuário** <ol> <li> O sistema toca na tela _touch screen_ <li> Toque não é reconhecido <li> O usuário alerta o funcionário que reinicia e limpa a tela <li> Usuário toca novamente na tela e seu toque é reconhecido</ol> |
+|          UC01           |                                                                                                                                                              Visualizar lista de produtos                                                                                                                                                              |
+| :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                                                                                     <li> Comprador                                                                                                                                                                     |
+|  **Frequência de uso**  |                                                                                                                                                                          Alta                                                                                                                                                                          |
+|     **Requisitos**      |                                                                                                                                                            Acesso a internet e conta criada                                                                                                                                                            |
+| **Condição de entrada** |                                                                                                        Usuário com conta criada acessa o app. Ao entrar nele será apresentado na tela inicial, que conterá os produtos disponíveis para compra                                                                                                         |
+|   **Fluxo principal**   |                                                                                                    <ol> <li> Usuário abre o aplicativo <li> Usuário insere credenciais de acesso <li> Lista de produtos é carregada e apresentada ao usuário </ol>                                                                                                     |
+| **Fluxos alternativos** |                                                                                                        <ol> <li> Usuário sem conta abre o aplicativo <li> Usuário cria conta <li> Lista de Produtos é carregada e apresentada ao usuário </ol>                                                                                                         |
+|  **Fluxos de exceção**  | **Fluxo 1. Usuário não possui conexão com internet ao acessar área logada** <ol> <li> Usuário faz o processo de login <li> Usuário perde conexão com internet <li> Requisição tentar adquirir a lista de produtos <li> Requisição falha <li> Usuário é apresentado que está sem internet e por isso não foi possível carregar a lista de produtos</ol> |
 
 <div style="text-align: center">
-<p> Tabela 1: Especificação do caso de uso: Visualizar produtos disponíveis. (Fonte: autores, 2022).</p>
-</div> -->
+<p> Tabela 1: Especificação do caso de uso: Visualizar lista de produtos. (Fonte: autores, 2023).</p>
+</div>
+
+### UC02. Filtrar lista de produtos
+
+|          UC02           |                                                                                                                                                                          Filtrar lista de produtos                                                                                                                                                                          |
+| :---------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                                                                                               <li> Comprador                                                                                                                                                                                |
+|  **Frequência de uso**  |                                                                                                                                                                                    Alta                                                                                                                                                                                     |
+|     **Requisitos**      |                                                                                                                                                                      Acesso a internet e conta criada                                                                                                                                                                       |
+| **Condição de entrada** |                                                                                                                                                            Usuário clica no ícone de adicionar filtro de buscas.                                                                                                                                                            |
+|   **Fluxo principal**   |                                                                            <ol> <li> Usuário clica no ícone de adicionar filtro de buscas <li> Usuário seleciona alguns filtros <li> Usuário aplica os filtros <li> Usuário é apresentado com itens que condizem com os filtros aplicados </ol>                                                                             |
+| **Fluxos alternativos** | **Fluxo 1. Filtros não tem nenhum item correspondente** <ol> <li> Usuário clica no ícone de adicionar filtro de buscas <li> Usuário seleciona alguns filtros <li> Usuário aplica os filtros <li> Nenhum produto é encontrado que seja condizente com o filtro <li> Usuário é apresentado com uma mensagem explicando que nenhum produto foi encontrado para essa busca</ol> |
+|  **Fluxos de exceção**  |                                                                                                                                                                                   Não há                                                                                                                                                                                    |
+
+<div style="text-align: center">
+<p> Tabela 2: Especificação do caso de uso: Filtrar lista de produtos. (Fonte: autores, 2023).</p>
+</div>
+
+### UC03. Pesquisar produto
+
+|          UC03           |                                                                                                                                             Pesquisar produto                                                                                                                                              |
+| :---------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                                                               <li> Comprador                                                                                                                                               |
+|  **Frequência de uso**  |                                                                                                                                                    Alta                                                                                                                                                    |
+|     **Requisitos**      |                                                                                                                                      Acesso a internet e conta criada                                                                                                                                      |
+| **Condição de entrada** |                                                                                                                                   Usuário clica no botão de fazer busca.                                                                                                                                   |
+|   **Fluxo principal**   |                                                                                <ol> <li> Usuário clica no botão de buscas <li> Usuário digita o que está procurando <li> Itens com escrita similar serão apresentados </ol>                                                                                |
+| **Fluxos alternativos** | **Fluxo 1. Busca não encontra nenhum produto correspondente ou similar** <ol> <li> Usuário clica no botão de buscas <li> Usuário digita o que está procurando <li> Nenhum item é encontrado <li> Usuário é apresentado com uma mensagem explicando que nenhum produto foi encontrado para essa busca </ol> |
+|  **Fluxos de exceção**  |                                        **Fluxo 1. Usuário perde conexão de internet durante a busca** <ol> <li> Usuário perde conexão ao tentar fazer uma busca <li> Usuário é informado de que está sem internet e deve se reconectar para continuar a busca </ol>                                        |
+
+<div style="text-align: center">
+<p> Tabela 3: Especificação do caso de uso: Pesquisar produto. (Fonte: autores, 2023).</p>
+</div>
+
+### UC04. Visualizar produto
+
+|          UC04           |                                                                                                                                                                                                                                        Visualizar produto                                                                                                                                                                                                                                         |
+| :---------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                                                                                                                                                          <li> Comprador                                                                                                                                                                                                                                           |
+|  **Frequência de uso**  |                                                                                                                                                                                                                                               Alta                                                                                                                                                                                                                                                |
+|     **Requisitos**      |                                                                                                                                                                                                                                 Acesso a internet e conta criada                                                                                                                                                                                                                                  |
+| **Condição de entrada** |                                                                                                                                                                                                                            Usuário seleciona em algum card de produto.                                                                                                                                                                                                                            |
+|   **Fluxo principal**   |                                                                                                                                                                                              <ol> <li> Usuário clica no card de produto <li> Usuário é apresentado com os detalhes do produto </ol>                                                                                                                                                                                               |
+| **Fluxos alternativos** | **Fluxo 1. Usuário acessa os detalhes de um produto via carrinho** <ol> <li> Usuário acessa o carrinhos de compras <li> Usuário clica em algum dos card de produtos do seu carrinho <li> Usuário é apresentado com os detalhes do produto selecionado </ol> **Fluxo 2. Produto tem estoque zerado enquanto usuário tenta acessar o produto** <ol> <li> Usuário clica em card do produto <li> Usuário é apresentado que o produto não está mais disponível para compra pois está sem estoque </ol> |
+|  **Fluxos de exceção**  |                                                                                         **Fluxo 1. Erro ao carregar informações do produto** <ol> <li> Usuário clica no card de detalhes do produto <li> Erro acontece ao tentar carregar os detalhes <li> Usuário é apresentado tela dizendo que o processamento do carregamento do item teve um problema e que ele pode tentar carregar novamente </ol>                                                                                         |
+
+<div style="text-align: center">
+<p> Tabela 4: Especificação do caso de uso: Visualizar produto. (Fonte: autores, 2023).</p>
+</div>
+
+### UC05. Adicionar produto ao carrinho
+
+|          UC05           |                                                                                                  Adicionar produto ao carrinho                                                                                                   |
+| :---------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                          <li> Comprador                                                                                                          |
+|  **Frequência de uso**  |                                                                                                               Alta                                                                                                               |
+|     **Requisitos**      |                                                                            Acesso a internet, conta criada e estar numa página de detalhe de produtos                                                                            |
+| **Condição de entrada** |                                                                                         Usuário clica em adicionar produto ao carrinho.                                                                                          |
+|   **Fluxo principal**   |                                                     <ol> <li> Usuário clica em adicionar produto ao carrinho <li> Usuário recebe feedback de sucesso ao adicionar item </ol>                                                     |
+| **Fluxos alternativos** |                                                                                                              Não há                                                                                                              |
+|  **Fluxos de exceção**  | **Fluxo 1. Estoque inexistente ao clicar em adicionar** <ol> <li> Usuário clica em adicionar produto ao carrinho <li> Usuário recebe feedback de que o produto não está mais disponível para compra pois seu estoque acabou</ol> |
+
+<div style="text-align: center">
+<p> Tabela 5: Especificação do caso de uso: Adicionar produto ao carrinho. (Fonte: autores, 2023).</p>
+</div>
+
+### UC06. Contatar suporte
+
+|          UC06           |                                                                                             Contatar suporte                                                                                              |
+| :---------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                              <li> Comprador                                                                                               |
+|  **Frequência de uso**  |                                                                                                   Média                                                                                                   |
+|     **Requisitos**      |                                                                                             Acesso a internet                                                                                             |
+| **Condição de entrada** |                                                                                     Usuário clica no botão de ajuda.                                                                                      |
+|   **Fluxo principal**   |                                            <ol> <li> Usuário clica no botão de ajuda <li> Usuário é redirecionado para página de FAQ e abertura de chat </ol>                                             |
+| **Fluxos alternativos** |                                                                                                  Não há                                                                                                   |
+|  **Fluxos de exceção**  | **Fluxo 1. Sem internet** <ol> <li> Usuário clica no botão de ajuda <li> Usuário é redirecionado para página apresentando que ele está sem internet e que deve se reconectar para poder obter ajuda </ol> |
+
+<div style="text-align: center">
+<p> Tabela 6: Especificação do caso de uso: Contatar suporte. (Fonte: autores, 2023).</p>
+</div>
+
+### UC07. Realizar compras em grupo
+
+|          UC07           |                                                                             Realizar compras em grupo                                                                             |
+| :---------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                  <li> Comprador                                                                                   |
+|  **Frequência de uso**  |                                                                                       Média                                                                                       |
+|     **Requisitos**      |                                                                          Acesso a internet, conta criada                                                                          |
+| **Condição de entrada** |                                                                            Pedir entrada em um grupo.                                                                             |
+|   **Fluxo principal**   |                       <ol> <li> Usuário pede acesso a um grupo de compra <li> Usuário é aceito e pode adicionar itens no carrinho da compra em grupo </ol>                        |
+| **Fluxos alternativos** | **Fluxo 1. Usuário tem acesso negado ao grupo** <ol> <li> Usuário pede acesso a um grupo de compra <li> Acesso é negado e usuário recebe esse feedback via notificação push </ol> |
+|  **Fluxos de exceção**  |                                                                                      Não há                                                                                       |
+
+<div style="text-align: center">
+<p> Tabela 7: Especificação do caso de uso: Realizar compras em grupo. (Fonte: autores, 2023).</p>
+</div>
+
+### UC08. Criação de conta
+
+|          UC08           |                                                                                                                                                   Criação de conta                                                                                                                                                    |
+| :---------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                                                                    <li> Comprador                                                                                                                                                     |
+|  **Frequência de uso**  |                                                                                                                                                         Alta                                                                                                                                                          |
+|     **Requisitos**      |                                                                                                                          Acesso a internet, número de documento não utilizado no aplicativo                                                                                                                           |
+| **Condição de entrada** |                                                                                                                                          Usuário clica no botão de cadastro.                                                                                                                                          |
+|   **Fluxo principal**   |                                                                                <ol> <li> Usuário insere informações de usuário <li> Usuário faz a validação de identidade <li> Usuário é redirecionado para a home do aplicativo </ol>                                                                                |
+| **Fluxos alternativos** |                                                                   **Fluxo 1. Usuário tem acesso negado ao grupo** <ol> <li> Usuário pede acesso a um grupo de compra <li> Acesso é negado e usuário recebe esse feedback via notificação push </ol>                                                                   |
+|  **Fluxos de exceção**  | **Fluxo 1. Usuário usa informação usada em outro cadastro (número de documento ou email)** <ol> <li> Usuário adiciona informação que já foi usada em outro cadastro e não pode se repetir <li> Usuário recebe feedback sobre isso e é avisado que enquanto não arrumar isso não conseguirá finalizar o cadastro </ol> |
+
+<div style="text-align: center">
+<p> Tabela 8: Especificação do caso de uso: Criação de conta. (Fonte: autores, 2023).</p>
+</div>
+
+### UC09. Finalizar carrinho
+
+|          UC09           |                                                                                                                                                                                                                                          Finalizar carrinho                                                                                                                                                                                                                                          |
+| :---------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|       **Atores**        |                                                                                                                                                                                                                                            <li> Comprador                                                                                                                                                                                                                                            |
+|  **Frequência de uso**  |                                                                                                                                                                                                                                                 Alta                                                                                                                                                                                                                                                 |
+|     **Requisitos**      |                                                                                                                                                                                                                    Acesso a internet, conta criada, carrinho com ao menos um item                                                                                                                                                                                                                    |
+| **Condição de entrada** |                                                                                                                                                                                                                             Usuário clica no botão de finalizar compra.                                                                                                                                                                                                                              |
+|   **Fluxo principal**   |                                                                                          <ol> <li> Usuário clica no botão de finalizar compra. <li> Sistema valida se todos os itens do carrinho ainda estão disponíveis <li> Usuário procede para inserção de informações de pagamento <li> Usuário clica em confirmar pedido <li> Carrinho é finalizado e processo de construção do pedido iniciado </ol>                                                                                          |
+| **Fluxos alternativos** |                                                         **Fluxo 1. Usuário já possui método de pagamento registrado** <ol> <li> Usuário clica no botão de finalizar compra. <li> Sistema valida se todos os itens do carrinho ainda estão disponíveis <li> Usuário seleciona método de pagamento previamente cadastrado <li> Usuário clica em confirmar pedido <li> Carrinho é finalizado e processo de construção do pedido iniciado </ol>                                                          |
+|  **Fluxos de exceção**  | **Fluxo 1. Sem internet** <ol> <li> Usuário clica no botão de finalizar compra <li> Usuário é redirecionado para página explicando que ele está sem sinal e deve se reconectar para finalizar o pedido. </ol> **Fluxo 2. Itens do carrinho não estão mais disponíveis** <ol> <li> Usuário clica no botão de finalizar compra <li> Sistema verifica se todos os pedidos estão disponíveis <li> Usuário é informado que determinados itens não estão mais disponíveis e serão portanto removidos </ol> |
+
+<div style="text-align: center">
+<p> Tabela 9: Especificação do caso de uso: Finalizar carrinho. (Fonte: autores, 2023).</p>
+</div>
 
 # Brainstorm
 
