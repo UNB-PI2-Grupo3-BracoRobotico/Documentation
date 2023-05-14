@@ -153,7 +153,7 @@ sequenceDiagram
 
 <center>
 
-<p> Figura 1: diagrama de sequência para o aplicativo de compras do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+<p> Figura 3: diagrama de sequência para o aplicativo de compras do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
 
 </center>
 
@@ -229,7 +229,7 @@ sequenceDiagram
 
 <center>
 
-<p> Figura 2: diagrama de sequência para o aplicativo de estoques do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+<p> Figura 4: diagrama de sequência para o aplicativo de estoques do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
 
 </center>
 
@@ -245,12 +245,24 @@ sequenceDiagram
     participant Sistema
 ```
 
-2. **Mensagens:** As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]
+<center>
+
+<p> Figura 5: exemplo de participante, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
+1. **Mensagens:** As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]
 
 ```mermaid
 sequenceDiagram
     Cliente->>Sistema: Seleciona itens da loja
 ```
+
+<center>
+
+<p> Figura 6: exemplo de mensagem, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 3. **Linhas de vida:** As linhas de vida representam o tempo durante o qual um participante está ativo no sistema.[4]
 
@@ -264,6 +276,12 @@ sequenceDiagram
     deactivate Sistema
 
 ```
+
+<center>
+
+<p> Figura 7: exemplo de linha de vida, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 4. **Ativação:** A ativação é usada para indicar quando um participante está executando uma tarefa específica em resposta a uma mensagem recebida.[4]
 
@@ -283,6 +301,12 @@ sequenceDiagram
 
 ```
 
+<center>
+
+<p> Figura 8: exemplo de ativação, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
 5. **Desvios de condição:** Desvios de condição são usados para indicar fluxos alternativos na sequência de mensagens, dependendo das condições específicas que ocorrem durante a interação.[4]
 
 ```mermaid
@@ -301,6 +325,12 @@ sequenceDiagram
 
 ```
 
+<center>
+
+<p> Figura 9: exemplo de desvio de condicional, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
 6. **Anotações:** As anotações são usadas para adicionar informações adicionais ao diagrama, como notas ou explicações sobre a interação.[4]
 
 ```mermaid
@@ -310,6 +340,12 @@ sequenceDiagram
     Cliente->>Sistema: Seleciona itens da loja
     note right of Sistema: Adiciona itens ao carrinho
 ```
+
+<center>
+
+<p> Figura 10: exemplo de anotações, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 <!--Bibitex para referencia
 
