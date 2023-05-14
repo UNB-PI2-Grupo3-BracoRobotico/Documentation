@@ -150,39 +150,67 @@ O brainstorm é uma técnica utilizada para levantar requisitos e aprender sobre
 | :-------------------: |
 |   Mauricio Machado    |
 
-O identificador de cada requisito é formado por 'B' + um número, sendo 'B' uma abreviação de Brainstorm, e o tipo de requisito refere-se à classificação entre requisitos funcionais (RF) e não funcionais (RNF).
+O identificador de cada requisito é formado por 'B' mais uma letra entre 'C' ou 'E' para indicar consumidor ou estoque, e mais um número, sendo 'B' uma abreviação de Brainstorm, e o tipo de requisito refere-se à classificação entre requisitos funcionais (RF) e não funcionais (RNF).
 
 Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos funcionais e não funcionais representados na Tabela 1.
 
-| Identificador | Requisito                                                                                                                                                                                            | Tipo |
-| :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: |
-|      B1       | Usuário deve conseguir visualizar quantas unidades um determinado produto possui disponível.                                                                                                         |  RF  |
-|      B2       | Usuário deve poder visualizar a lista de todos os produtos.                                                                                                                                          |  RF  |
-|      B3       | Usuário pode fazer o pagamento com cartão digital (débito).                                                                                                                                          |  RF  |
-|      B4       | Usuário pode fazer o pagamento com cartão digital (crédito).                                                                                                                                         |  RF  |
-|      B5       | Usuário pode fazer o pagamento via PIX.                                                                                                                                                              |  RF  |
-|      B6       | Usuário deve se identificar via cpf para finalizar a compra.                                                                                                                                         |  RF  |
-|      B7       | Usuário deve ser capaz de navegar para uma tela anterior.                                                                                                                                            |  RF  |
-|      B8       | Usuário pode adicionar produtos na lista de compras.                                                                                                                                                 |  RF  |
-|      B9       | Usuário pode remover produtos da lista de compras.                                                                                                                                                   |  RF  |
-|      B10      | Usuário pode optar por incluir cpf na nota fiscal.                                                                                                                                                   |  RF  |
-|      B11      | Usuário pode pesquisar um produto por seu nome.                                                                                                                                                      |  RF  |
-|      B12      | Usuário deve conseguir filtrar pesquisas com base na: categoria e preço.                                                                                                                             |  RF  |
-|      B13      | Produtos devem conter uma descrição.                                                                                                                                                                 |  RF  |
-|      B14      | O sistema deve ter um botão de ajuda para ensinar o usuário a como operar o sistema em caso de dúvidas.                                                                                              |  RF  |
-|      B15      | Produtos sem estoque devem ser mostrados e diferenciados de produtos com estoque.                                                                                                                    |  RF  |
-|      B16      | Sistema deve ter acesso a energia.                                                                                                                                                                   | RNF  |
-|      B17      | Sistema deve ter conexão a internet.                                                                                                                                                                 | RNF  |
-|      B18      | Sistema deve apresentar produtos populares.                                                                                                                                                          | RNF  |
-|      B19      | A aplicação deve limitar a 5s o tempo de interação de uma tela e a resposta, em caso de múltiplas ocorrência do mesmo erroo uma mensagem deve ser mostrada, com exceção do uso de serviços externos. | RNF  |
-|      B20      | Sistema deve permitir usuário selecionar o tipo de pagamento do pedido.                                                                                                                              | RNF  |
-|      B21      | Sistema deve fornecer feedback contínuo sobre o status das operações em andamento, como o progresso do braço robótico ou o status de um processamento de pagamento.                                  | RNF  |
-|      B22      | Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.                                                                                                      | RNF  |
-|      B23      | Sistema deve assegurar conformidade de dados com LGPD.                                                                                                                                               | RNF  |
-|      B24      | Sistema não deve ter produtos com restrição de venda.                                                                                                                                                | RNF  |
-|      B25      | Sistema deve registrar as vendas e atualizar o estoque automaticamente após cada transação.                                                                                                          | RNF  |
-|      B26      | Sistema deve ajudar o usuário a reconhecer, diagnosticar e recuperar-se de erros.                                                                                                                    | RNF  |
-|      B27      | o sistema deve fornecer uma interface amigável e intuitiva para que os usuários possam pesquisar, selecionar e comprar medicamentos.                                                                 | RNF  |
+| Identificador | Requisito                                                                                                                                                | Tipo |
+| :-----------: | -------------------------------------------------------------------------------------------------------------------------------------------------------- | :--: |
+|      BE1      | Usuário deve conseguir visualizar a quantidade dos produtos no estoque.                                                                                  |  RF  |
+|      BE2      | Usuário deve conseguir solicitar retirada de produtos do estoque.                                                                                        |  RF  |
+|      BE3      | Usuário deve ser capaz de registrar produtos no estoque.                                                                                                 |  RF  |
+|      BE4      | Usuário deve ser capaz de editar produtos presentes no estoque.                                                                                          |  RF  |
+|      BE5      | Usuário pode emitir um relatório de venda dos produtos.                                                                                                  |  RF  |
+|      BE6      | Usuário pode customizar alertas sobre itens cujo o estoque esteja acabando.                                                                              |  RF  |
+|      BE7      | Usuário deve ser capaz de registrar o estoque disponível no aplicativo.                                                                                  |  RF  |
+|      BE8      | Usuário deve ser capaz de verificar a performance de vendas em períodos de tempo selecionados.                                                           |  RF  |
+|      BE9      | Usuário deve ser informado sobre valor total do estoque.                                                                                                 |  RF  |
+|     BE10      | Usuário deve ser informado qual seu produto mais performático em um período de tempo selecionado.                                                        |  RF  |
+|     BE11      | Usuário deve logar toda adição de itens ao estoque.                                                                                                      |  RF  |
+|     BE11      | Usuário pode verificar hisórico de adições no estoque.                                                                                                   |  RF  |
+|     BE12      | Usuário pode verificar histórico de vendas.                                                                                                              |  RF  |
+|     BE13      | Usuário pode visualizar o mapeamento dos produtos de cada prateleira.                                                                                    |  RF  |
+|     BE14      | Usuário deve ter acesso ao status de operação da máquina.                                                                                                |  RF  |
+|     BE15      | Usuário pode sobreescrever o status de operação da máquina.                                                                                              |  RF  |
+|     BE16      | Sistema deve ter acesso a energia.                                                                                                                       | RNF  |
+|     BE17      | Sistema deve ter conexão a internet.                                                                                                                     | RNF  |
+|     BE18      | Sistema deve apresentar produtos populares.                                                                                                              | RNF  |
+|     BE19      | Sistema deve dar feedback de interação em até 5 segundos.                                                                                                | RNF  |
+|     BE20      | Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.                                                          | RNF  |
+|     BE21      | Sistema deve registrar as vendas e atualizar o estoque automaticamente após cada transação.                                                              | RNF  |
+|     BE23      | Sistema deve assegurar conformidade de dados com LGPD.                                                                                                   | RNF  |
+|     BE24      | Aplicativo deve estar disponível em Android.                                                                                                             | RNF  |
+|     BE25      | Sistema deve cessar operação quando uma pessoa estiver presente no mesmo recinto que a máquina.                                                          | RNF  |
+|     BE26      | Sistema deve enfileirar pedidos em caso de indisponibilidade de pontos de entrega.                                                                       | RNF  |
+|      BP1      | Usuário pode filtrar a lista de produtos.                                                                                                                |  RF  |
+|      BP2      | Usuário deve poder visualizar a lista de todos os produtos.                                                                                              |  RF  |
+|      BP3      | Usuário pode fazer o pagamento com cartão digital (débito).                                                                                              |  RF  |
+|      BP4      | Usuário pode fazer o pagamento com cartão digital (crédito).                                                                                             |  RF  |
+|      BP5      | Usuário pode fazer o pagamento via PIX.                                                                                                                  |  RF  |
+|      BP6      | Usuário deve realizar cadastro.                                                                                                                          |  RF  |
+|      BP7      | Usuário pode adicionar produtos ao carrinho.                                                                                                             |  RF  |
+|      BP8      | Usuário deve validar identidade.                                                                                                                         |  RF  |
+|      BP9      | Usuário deve validar identidade.                                                                                                                         |  RF  |
+|     BP10      | Usuário pode pesquisar um produto.                                                                                                                       |  RF  |
+|     BP11      | Usuário pode verificar o status do pedido.                                                                                                               |  RF  |
+|     BP12      | Usuário pode iniciar um chat em tempo real.                                                                                                              |  RF  |
+|     BP13      | Usuário pode acessar área FAQ e chat.                                                                                                                    |  RF  |
+|     BP14      | Usuário deve ter acesso ao valor total da sua compra.                                                                                                    |  RF  |
+|     BP15      | Usuário pode fazer compras em grupo.                                                                                                                     |  RF  |
+|     BP16      | Usuário recebe notificações.                                                                                                                             |  RF  |
+|     BP17      | Usuário pode fazer informações do produto serem lidas para ele.                                                                                          |  RF  |
+|     BP18      | Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.                                                          | RNF  |
+|     BP19      | Sistema deve ter conexão a internet.                                                                                                                     | RNF  |
+|     BP20      | Sistema deve ter contraste adequado entre a fonte de texto e a cor de fundo de modo que usuários com distúrbios de visão possam ler as informações.      | RNF  |
+|     BP21      | Sistema deve guardar informações em conformidade com a LGPD.                                                                                             | RNF  |
+|     BP22      | Sistema deve ser disponível para plataformas Mobile Android.                                                                                             | RNF  |
+|     BP23      | Em sua primeira compra, 65% dos usuários devem ser capazes de efetivar sem precisar de entrar em contato com o suporte.                                  | RNF  |
+|     BP24      | Sistema  deve reembolsar o usuário que cancelar a compra sem justificativa em até 5 minutos.                                                             | RNF  |
+|     BP25      | Sistema deve ser capaz de identificar se cpf é válido.                                                                                                   | RNF  |
+|     BP26      | Sistema deve validar identidade facial do usuário e sua relação com o cpf cadastrado.                                                                    | RNF  |
+|     BP27      | Sistema deve ser desenvolvido de forma responsiva, adaptando a aparência e funcionalidade do sistema às diferentes telas e tamanhos de dispositivos.     | RNF  |
+|     BP28      | O aplicativo deve ser intuitivo, sendo consistente em toda a interface de usuário, garantindo que o usuário possa prever o que acontecerá em cada etapa. | RNF  |
+|     BP29      | Sistema deve dar feedback de interação em até 5 segundos.                                                                                                | RNF  |
 
 ## Requisitos Elicitados
 
@@ -233,7 +261,7 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 | I21 | O aplicativo deve ser intuitivo, sendo consistente em toda a interface de usuário, garantindo que o usuário possa prever o que acontecerá em cada etapa                                                                                                                                                                                          | RNF               |
 | I22 | O aplicativo deve fornecer feedback instantâneo sobre as ações do usuário, permitindo que o usuário saiba o que está acontecendo em tempo real                                                                                                                                                                                                | RNF               |
 | I23 | O sistema deve impedir o funcionamento enquanto o usuário estiver pegando seu produto.                                                                                                                                         | RNF               |
-| I24 | O sistema Sistema deve ter um manual de operação/usuário.                                                                                                                               | RNF               |
+| I24 | O Sistema deve ter um manual de operação/usuário.                                                                                                                               | RNF               |
 | I25 |O sistema deve possuir uma  cobertura de teste de pelo menos 75% a fim de ajudar na manutenção do código.                                                                                                                               | RNF               |
 
 <h6 align = "center">Tabela 1: Tabela contendo os requisitos levantados pela introspecção</h6>
@@ -274,4 +302,6 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 | 1.1    | 23/04/2023 | Adição do diagrama de casos de uso e sua explicação | Mauricio Machado                                         |
 | 1.2    | 26/04/2023 | Adição dos requisitos via brainstorm                | Mauricio Machado, Davi Matheus, Filipe Machado, Natanael |
 | 1.3    | 27/04/2023 | Adição dos requisitos via introspecção              | Davi Matheus                                             |
-| 2.0     | 10/05/2023 | Melhoramento e adequação da introspecção de acordo com o novo escopo | Davi Matheus, Natanael                        |
+| 1.4     | 10/05/2023 | Melhoramento e adequação da introspecção de acordo com o novo escopo | Davi Matheus, Natanael                        |
+| 1.5    | 12/05/2023 | Refatoração requisitos de brainstorm                | Mauricio Machado, Davi Matheus, Natanael, Pedro Henrique |
+
