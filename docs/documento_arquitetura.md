@@ -112,7 +112,7 @@ sequenceDiagram
 
     Loja->>Cliente: Cadastro concluído
 
-    Cliente->>Loja: Fazer login
+    Cliente->>Loja: Acessar área logada
     activate Loja
 
     loop Enquanto logado
