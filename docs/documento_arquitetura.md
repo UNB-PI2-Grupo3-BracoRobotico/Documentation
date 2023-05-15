@@ -87,45 +87,163 @@ Tem a responsabilidade de armazenar os testes unitários e de integração do si
 
 Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
 
+
+### Diagrama do aplicativo de compras
+
 ```mermaid
 sequenceDiagram
     participant Cliente
-    participant Sistema
+    participant Loja
+    participant Carrinho
+    participant Pagamento
+    participant Grupo
 
-    Cliente->>Sistema: Seleciona itens da farmácia
-    Sistema->>Sistema: Adiciona itens ao carrinho de compra
-    Cliente->>Sistema: Entra no fluxo de pagamento
-    alt CPF vinculado
-        Cliente->>Sistema: Seleciona vincular CPF
-        Sistema->>Cliente: Solicita CPF
-        Cliente->>Sistema: Informa CPF
-    end
-    Cliente->>Sistema: Informa endereço de entrega
-    Cliente->>Sistema: Seleciona tipo de pagamento
-    alt Pagamento com PIX
-        Cliente->>Sistema: Seleciona PIX
-    else Pagamento com cartão digital
-        Cliente->>Sistema: Seleciona cartão digital
-    end
-    Cliente->>Sistema: Envia solicitação de compra
-    Sistema->>Cliente: Confirmação de compra
+    activate Cliente
 
-    alt Item fora de estoque
-        Cliente->>Sistema: Seleciona item
-        Sistema->>Cliente: Retorna que item está fora de estoque
-    else
-        Cliente->>Sistema: Solicita itens
-        Sistema->>Sistema: Remove itens do carrinho
-        Cliente->>Sistema: Envia solicitação de compra
-        Sistema->>Cliente: Confirmação de compra
+    Cliente->>Loja: Fazer cadastro
+    Loja->>Cliente: Solicitar nome completo
+    Cliente->>Loja: Enviar nome completo
+    Loja->>Cliente: Solicitar CPF
+    Cliente->>Loja: Enviar CPF
+    Loja->>Cliente: Solicitar confirmação por foto de documento
+    Cliente->>Loja: Enviar foto de documento
+    Loja->>Cliente: Solicitar endereço
+    Cliente->>Loja: Enviar endereço
+
+    Loja->>Cliente: Cadastro concluído
+
+    Cliente->>Loja: Acessar área logada
+    activate Loja
+
+    loop Enquanto logado
+        Cliente->>Loja: Gerenciar carrinho
+        Loja->>Carrinho: Adicionar/Remover produtos
+        Loja->>Cliente: Carrinho atualizado
+
+        Cliente->>Loja: Juntar-se a um grupo de compra
+        Loja->>Cliente: Grupos disponíveis
+        activate Grupo
+        Grupo-->>Cliente: Lista de grupos
+
+        Cliente->>Grupo: Escolher grupo
+        Grupo->>Loja: Solicitar entrada no grupo
+        Loja->>Grupo: Verificar disponibilidade e aprovar entrada
+        alt Entrada aprovada
+            Loja-->>Cliente: Entrada aprovada no grupo
+            Cliente->>Loja: Carrinho compartilhado do grupo
+
+            Cliente->>Loja: Efetuar compra
+            Loja->>Cliente: Oferecer formas de pagamento
+            Cliente->>Loja: Seleciona forma de pagamento
+            activate Pagamento
+
+            Pagamento-->>Cliente: Escolher forma de pagamento
+
+
+            alt Pedido confirmado
+                Loja-->>Cliente: Pedido em processamento
+                Loja-->>Cliente: Pedido a caminho
+                Loja-->>Cliente: Pedido finalizado
+            else Pedido cancelado
+                Loja-->>Cliente: Pedido cancelado
+            end
+
+            deactivate Pagamento
+            Loja->>Cliente: Compra realizada com sucesso
+        else Entrada negada
+            Loja-->>Cliente: Entrada negada no grupo
+        end
+
+        deactivate Grupo
     end
+
+    deactivate Loja
+    deactivate Cliente
 ```
 
 <center>
 
-<p> Figura 1: diagrama de sequência do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+<p> Figura 3: diagrama de sequência para o aplicativo de compras do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
 
 </center>
+
+Descrevendo o fluxo apresentado, o cliente começa fazendo o cadastro, fornecendo informações como nome completo, CPF, confirmação por foto de documento e endereço. Após o cadastro, o cliente faz login na loja e pode gerenciar seu carrinho de compras, adicionando ou removendo produtos. Em seguida, o cliente pode escolher efetuar a compra, onde são oferecidas três formas de pagamento: cartão de crédito, cartão de débito e Pix. Além disso, o diagrama foi atualizado para incluir a funcionalidade de compra em grupo, onde o cliente pode se juntar a outros usuários para realizar uma compra conjunta, compartilhando o carrinho de compras. A loja verifica a disponibilidade e aprova a entrada do cliente no grupo, permitindo que a compra seja concluída.
+
+### Diagrama do aplicativo de estoque
+
+```mermaid
+sequenceDiagram
+    participant Usuario
+    participant Aplicativo
+    participant Estoque
+    participant Prateleira
+    participant Pedido
+    participant Relatorio
+    participant Dashboard
+    participant Notificacoes
+
+    activate Usuario
+
+    Usuario->>Aplicativo: Fazer cadastro
+    Aplicativo->>Usuario: Cadastro concluído
+
+    Usuario->>Aplicativo: Fazer login
+    activate Aplicativo
+
+    loop Enquanto logado
+        
+        Usuario->>Aplicativo: Vincular prateleira autônoma
+        Aplicativo->>Prateleira: Vincular prateleira ao estoque
+        Prateleira-->>Aplicativo: Prateleira vinculada com sucesso
+
+        Usuario->>Aplicativo: Gerenciar produtos em estoque
+        Aplicativo->>Estoque: Consultar produtos em estoque
+        Estoque-->>Aplicativo: Lista de produtos
+
+        Usuario->>Aplicativo: Adicionar produto em estoque
+        Aplicativo->>Estoque: Cadastrar novo produto
+        Estoque-->>Aplicativo: Produto adicionado com sucesso
+
+        Usuario->>Aplicativo: Atualizar produto em estoque
+        Aplicativo->>Estoque: Atualizar informações do produto
+        Estoque-->>Aplicativo: Produto atualizado com sucesso
+
+        Usuario->>Aplicativo: Remover produto em estoque
+        Aplicativo->>Estoque: Remover produto do estoque
+        Estoque-->>Aplicativo: Produto removido com sucesso
+
+        Usuario->>Aplicativo: Acessar status de pedidos
+        Aplicativo->>Pedido: Consultar status de pedidos
+        Pedido-->>Aplicativo: Lista de status de pedidos
+
+        Usuario->>Aplicativo: Gerar relatório de vendas
+        Aplicativo->>Relatorio: Gerar relatório em PDF
+        Relatorio-->>Aplicativo: Relatório gerado com sucesso
+
+        Usuario->>Aplicativo: Acessar dashboard de vendas
+        Aplicativo->>Dashboard: Exibir dashboard de vendas
+        Dashboard-->>Aplicativo: Dashboard exibido
+
+        Usuario->>Aplicativo: Personalizar notificações
+        Aplicativo->>Notificacoes: Configurar preferências de notificação
+        Notificacoes-->>Aplicativo: Notificações personalizadas configuradas
+
+        Usuario->>Aplicativo: Solicitar alteração de status da prateleira autônoma
+        Aplicativo->>Prateleira: Alterar status da prateleira
+        Prateleira-->>Aplicativo: Novo status de funcionamento da prateleira
+
+    end
+
+    deactivate Aplicativo
+```
+
+<center>
+
+<p> Figura 4: diagrama de sequência para o aplicativo de estoques do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+
+</center>
+
+Descrevendo o fluxo apresentando na figura, O usuário realiza o cadastro e faz login no aplicativo. Em seguida, o usuário pode vincular uma prateleira autônoma ao aplicativo do estoque. Após a vinculação, o usuário pode gerenciar os produtos em estoque, realizando ações como adicionar, consultar, atualizar e remover produtos. O usuário também pode acessar o status dos pedidos existentes. Além disso, o aplicativo permite a geração de relatórios de vendas em formato PDF e exibe um dashboard de vendas. O usuário pode personalizar as notificações de acordo com suas preferências. Por fim, o usuário pode solicitar a alteração do status de funcionamento da prateleira autônoma, e o aplicativo informa o status atual conforme necessário.
 
 ### Composição do Diagrama de Sequência
 
@@ -137,12 +255,24 @@ sequenceDiagram
     participant Sistema
 ```
 
-2. **Mensagens:** As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]
+<center>
+
+<p> Figura 5: exemplo de participante, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
+1. **Mensagens:** As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]
 
 ```mermaid
 sequenceDiagram
-    Cliente->>Sistema: Seleciona itens da farmácia
+    Cliente->>Sistema: Seleciona itens da loja
 ```
+
+<center>
+
+<p> Figura 6: exemplo de mensagem, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 3. **Linhas de vida:** As linhas de vida representam o tempo durante o qual um participante está ativo no sistema.[4]
 
@@ -150,12 +280,18 @@ sequenceDiagram
 sequenceDiagram
     participant Cliente
     participant Sistema
-    Cliente->>Sistema: Seleciona itens da farmácia
+    Cliente->>Sistema: Seleciona itens da loja
     activate Sistema
     Sistema->>Sistema: Adiciona itens ao carrinho de compra
     deactivate Sistema
 
 ```
+
+<center>
+
+<p> Figura 7: exemplo de linha de vida, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 4. **Ativação:** A ativação é usada para indicar quando um participante está executando uma tarefa específica em resposta a uma mensagem recebida.[4]
 
@@ -175,6 +311,12 @@ sequenceDiagram
 
 ```
 
+<center>
+
+<p> Figura 8: exemplo de ativação, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
 5. **Desvios de condição:** Desvios de condição são usados para indicar fluxos alternativos na sequência de mensagens, dependendo das condições específicas que ocorrem durante a interação.[4]
 
 ```mermaid
@@ -193,15 +335,27 @@ sequenceDiagram
 
 ```
 
+<center>
+
+<p> Figura 9: exemplo de desvio de condicional, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
 6. **Anotações:** As anotações são usadas para adicionar informações adicionais ao diagrama, como notas ou explicações sobre a interação.[4]
 
 ```mermaid
 sequenceDiagram
     participant Cliente
     participant Sistema
-    Cliente->>Sistema: Seleciona itens da farmácia
+    Cliente->>Sistema: Seleciona itens da loja
     note right of Sistema: Adiciona itens ao carrinho
 ```
+
+<center>
+
+<p> Figura 10: exemplo de anotações, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 <!--Bibitex para referencia
 
