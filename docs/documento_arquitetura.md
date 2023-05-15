@@ -134,9 +134,19 @@ sequenceDiagram
 
             Cliente->>Loja: Efetuar compra
             Loja->>Cliente: Oferecer formas de pagamento
+            Cliente->>Loja: Seleciona forma de pagamento
             activate Pagamento
 
             Pagamento-->>Cliente: Escolher forma de pagamento
+
+
+            alt Pedido confirmado
+                Loja-->>Cliente: Pedido em processamento
+                Loja-->>Cliente: Pedido a caminho
+                Loja-->>Cliente: Pedido finalizado
+            else Pedido cancelado
+                Loja-->>Cliente: Pedido cancelado
+            end
 
             deactivate Pagamento
             Loja->>Cliente: Compra realizada com sucesso
