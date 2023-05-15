@@ -230,23 +230,27 @@ Os diagramas de classes são usados para descrever a estrutura de um sistema ori
 
 As classes são representadas como retângulos, com o nome da classe no topo do retângulo. Os atributos são listados abaixo do nome da classe, enquanto os métodos são listados abaixo dos atributos.
 
-## v1.0
+## v2.0
 
-![Diagrama de classes Modelo v1.0](./assets/documento_arquitetura/diagrama_classe_v1.png)
+![Diagrama de classes Modelo v2.0](./assets/documento_arquitetura/diagrama_classe_V2.png)
 
 O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que represemtam as funções do sistema.
 
 ## Classes
 
-Inventário: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
+Prateleiras: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
 
-Estoque: representa uma lista de objetos do tipo Inventário.
+Estoque: representa uma lista de objetos do tipo prateleiras.
 
-Produto: representa um Produto do Inventário, com um id, nome, descrição e preço.
+Produto: representa um Produto da Prateleira, com um id, nome, descrição e preço.
 
 Pagamento: representa o pagamento de um cliente, com um id, um valor total, um status (concluído ou não), e uma informação do cliente.
 
 Braço: representa o controlador do braço robótico, com um objeto do tipo Estoque, que controla a lista de itens, uma localização atual e um status (ocupado ou livre). Tem métodos para receber a localização, pegar um Produto e entrega-lo em uma posição.
+
+Carrinho Compra: representa os itens e valores dos produtos que o cliente escolheu, com objeto do tipo produto que controla a lista de produto, uma quantidade e o total.
+
+Cliente: Uma classe cliente que representa todo o cadastro do publico que utilizar o sistema.
 
 # Diagrama de entidade relacional
 
@@ -340,3 +344,4 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 | 1.5    | 28/04/2023 | Adição do diagrama de sequência           | Natanael Filho   |
 | 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral    | Davi Mateus      |
 | 1.7    | 28/04/2023 | Adição do diagrama de implementação       | Sávio Cunha      |
+| 2.0    | 15/05/2023 | Adição do diagrama de classes V2      | Samuel Macedo      |
