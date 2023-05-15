@@ -254,7 +254,7 @@ Um Diagrama de Entidade-Relacionamento (DER) é uma representação gráfica que
 
 # v1.0
 
-![Diagrama de entidade relacional v1.0](assets/documento_arquitetura/diagrama_entidade_relacional.png)
+![Diagrama de entidade relacional v1.0](assets/documento_arquitetura/diagrama_endidade_relacional.png)
 
 O diagrama indica a estrutura do banco que será utilizado no projeto, sendo dividido em 3 tabelas (Produto,Inventario,Transações) onde cada uma contem as colunas nescessarias para o controle do estoque e compra de cada produto.
 
@@ -262,10 +262,15 @@ O diagrama indica a estrutura do banco que será utilizado no projeto, sendo div
 
 Produto: representa os produtos oferecidos e contém os atributos id (identificador único do produto), nome, categoria, valor, descrição.
 
-Inventario: representa as informações de cada produto e contém os atributos de idInventario (identificador único do produto dentro do inventario), x-Localização (posição no eixo x do produto), y-Localização (posição no eixo y do produto),quantidade, produto.
+Pratileira: representa as informações de cada produto e contém os atributos de idInventario (identificador único do produto dentro do inventario), x-Localização (posição no eixo x do produto), y-Localização (posição no eixo y do produto),quantidade, produto.
 
 Transação: representa as informações de transações feitas e contém os atributos id(identificador único do produto), total, data, cpf, produtos (lista com todos os produtos da compra), status.
 
+Usuário: representa as informações referentes ao usuário que efetuar a compra do produto contém os atributos nome(nome do usuário), cpf, data-nascimento, telefone.
+
+Pedidos: representa o pedido feito pelo usuário pra controle da fila de vendas, contém os atributos produtos (lista com todos os produtos da compra), status.
+
+Vendas: representa as informações de todas as vendas feitas, contpem os atributos vendas, total, produtos (lista de produtos da compra), data (data que foi feita a compra)
 # Modelo Relacional
 
 O modelo relacional é uma representação do banco de dados utilizando tabelas, colunas e chaves primárias e estrangeiras, que permitem armazenar e relacionar informações de forma organizada e eficiente.
