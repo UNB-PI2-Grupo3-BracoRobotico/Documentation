@@ -234,15 +234,15 @@ As classes são representadas como retângulos, com o nome da classe no topo do 
 
 ![Diagrama de classes Modelo v2.0](./assets/documento_arquitetura/diagrama_classes_V2.png)
 
-O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que represemtam as funções do sistema.
+O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que representam as funções do sistema.
 
 ## Classes
 
-inventario: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
+Inventário: representa a quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
 
-Estoque: representa uma lista de objetos do tipo inventario.
+Estoque: representa uma lista de objetos do tipo inventário.
 
-Produto: representa um Produto da Prateleira, com um id, nome, descrição e preço.
+Produto: representa um Produto do Inventario, com um id, nome, descrição e preço.
 
 Pagamento: representa o pagamento de um cliente, com um id, um valor total, um status (concluído ou não), e uma informação do cliente.
 
@@ -254,9 +254,9 @@ Pedidos: Uma classe pedidos que é responsável de fazer o controle de todos os 
 
 Usuário: Uma classe pai cliente que representa todo o cadastro do publico que utilizar o sistema.
 
-UsuárioConsumidor: Uma classe filho da classe Usuário com objeto de controlar o Carrinho e o pagamento.
+Consumidor: Uma classe filho da classe Usuário com objeto de controlar o Carrinho e o pagamento.
 
-UsuárioEstoquista: Uma classe filho da classe Usuário responsável de fazer o controle do Estoque, como um usuário Administrador.
+Estoquista: Uma classe filho da classe Usuário responsável de fazer o controle do Estoque, como um usuário Administrador.
 
 # Diagrama de entidade relacional
 
