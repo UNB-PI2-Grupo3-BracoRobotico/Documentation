@@ -391,3 +391,4 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 | 1.2    | 26/04/2023 | Adição dos requisitos via brainstorm                | Mauricio Machado, Davi Matheus, Filipe Machado, Natanael |
 | 1.3    | 27/04/2023 | Adição dos requisitos via introspecção              | Davi Matheus                                             |
 | 1.4    | 12/05/2023 | Refatoração requisitos de brainstorm                | Mauricio Machado, Davi Matheus, Natanael, Pedro Henrique |
+| 1.5    | 17/05/2023 | Refatoração requisitos casos de uso                 | Mauricio Machado                                         |
