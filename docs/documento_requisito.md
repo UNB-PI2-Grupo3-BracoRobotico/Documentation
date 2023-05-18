@@ -337,20 +337,33 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
     Dessa forma, foram detectados os seguintes requisitos:
 </p>
 
-| ID  | Descrição                                                                                                                                                                                                                       | Tipo de Requisito |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| I01 | O sistema deverá identificar a localização inicial do serviço                                                                                                                                                                   | RF                |
-| I02 | O sistema deverá indicar quais produtos estão fora do inventário </a>                                                                                                                                                           | RF                |
-| I03 | O sistema deve ser capaz de integrar-se a outros sistemas ou plataformas, como mídias sociais, serviços de pagamento ou serviços de entrega. O sistema deve fornecer documentação técnica ou APIs para facilitar a integração.> | RF                |
-| I04 | O usuário poderá acompanhar o status do andamento do serviço                                                                                                                                                                    | RF                |
-| I05 | O sistema deve permitir que os usuários comparem produtos ou serviços com base em critérios específicos, como preço, qualidade ou recursos                                                                                      | RF                |
-| I06 | O sistema deve permitir que os usuários vejam o histórico de pedidos e o status atual de cada pedido                                                                                                                            | RF                |
-| I07 | O sistema deve permitir que os usuários concluam uma compra, inserindo informações de pagamento e endereço de entrega                                                                                                           | RF                |
-| I08 | O sistema deve ser flexível o suficiente para acomodar mudanças futuras, incluindo a adição ou remoção de recursos, funcionalidades e requisitos                                                                                | RF                |
-| I9  | O sistema deverá preservar energia e reiniciar automaticamente quando não estiver em uso                                                                                                                                        | RNF               |
-| I10 | O sistema deve ser responsivo                                                                                                                                                                                                   | RNF               |
-| I11 | O aplicativo deve ser intuitivo                                                                                                                                                                                                 | RNF               |
-| I12 | O aplicativo deve ser acessível                                                                                                                                                                                                 | RNF               |
+| ID  | Descrição                                                                                                                                                                                                                      | Tipo de Requisito |
+|-----|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| I01 | O sistema deverá identificar a localização inicial do produto                                                                                                                                                                  | RF                |
+| I02 | O sistema deverá indicar quais produtos estão sem estoque                                                                                                                                                               | RF                |
+| I03 | O sistema deve ser capaz de integrar-se a mídias sociais, sendo elas o google ou o Facebook.  | RF                |
+| I04 | O usuário poderá acompanhar o status do pedido                                                                                                                                                                | RF                |
+| I05 | O sistema deve permitir que os usuários comparem produtos ou serviços com base no seu preço e  na sua qualidade.                                                                                   | RF                |
+| I06 |  O sistema deve permitir que os usuários vejam o histórico de pedidos.                                                                                                                      | RF                |
+| I07 | O usuário deve criar uma conta para poder verificar os produtos e realizar compras no aplicativo | RF                |
+| I08 | O usuário para poder iniciar um processo de compra ele deve ter o status de validação de identidade como aprovado| RF                | 
+| I09 | O usuário durante a criação da conta,  deve informar: seu email, cpf e senha| RF                |
+| I10 | O sistema deve validar a identidade facial do usuário com o número de documento inserido durante o cadastro.                                                                                                                                                             | RF                |
+| I11 |  O aplicativo deve fornecer um canal de suporte ao cliente para resolver quaisquer problemas ou dúvidas relacionadas ao pedido sendo necessário incluir um chat em tempo real.                                      | RF                |
+| I12 |  O aplicativo deve fornecer uma sessão de FQ para que os usuarios possam ter suas perguntas respondidas.                                    | RF                |
+| I13 | O usuário poderá visualizar via dashboard qual é o produto que mais vende no seu estoque num determinado período de tempo.                                                                                                                                       | RF                |
+| I14 | O sistema deve permitir que os usuários concluam uma compra, inserindo informações de pagamento e endereço de entrega                                                                                                          | RF                |
+| I15 | O sistema deverá informar para o Usuário quando os itens em estoque estejam acabando.                                                                                                                                        | RF                |
+| I16 | O sistema deve identificar a profundidade de um produto através de um QR Code presente em cada caixa que irá conter os produtos.                                                                                                                                                 | RF                |
+| I17 | O sistema deve fornecer ao estoquista os itens mais vendidos do estoque                                                                                                                                                        | RF                |
+| I18 | O usuário poderá fazer o cancelamento do pedido no período de 5 minutos, após esse período o reembolso só acontecerá caso o usuário houver uma justificativa.                                                                                     | RNF               |
+| I19| O sistema deve impedir o funcionamento do sistema enquanto estiver sendo feito a reposição de estoque                                                                                                                          | RNF               |
+| I20 | O sistema deve ser responsivo  se adaptando  às diferentes telas e tamanhos de dispositivos.                                                                                                                                                                                                | RNF               |
+| I21 | O aplicativo deve ser intuitivo, sendo consistente em toda a interface de usuário, garantindo que o usuário possa prever o que acontecerá em cada etapa                                                                                                                                                                                          | RNF               |
+| I22 | O aplicativo deve fornecer feedback instantâneo sobre as ações do usuário, permitindo que o usuário saiba o que está acontecendo em tempo real                                                                                                                                                                                                | RNF               |
+| I23 | O sistema deve impedir o funcionamento enquanto o usuário estiver pegando seu produto.                                                                                                                                         | RNF               |
+| I24 | O Sistema deve ter um manual de operação/usuário.                                                                                                                               | RNF               |
+| I25 |O sistema deve possuir uma  cobertura de teste de pelo menos 75% a fim de ajudar na manutenção do código.                                                                                                                               | RNF               |
 
 <h6 align = "center">Tabela 1: Tabela contendo os requisitos levantados pela introspecção</h6>
 <h6 align = "center">Fonte: Autor</h6>
@@ -381,6 +394,7 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 [5] - SERRANO, Maurício; SERRANO, Milene. Disponível em: Requisitos - Aula 07. 1º/2019. 50 slides. Material apresentado para a disciplina de Requisitos de Software no curso de Engenharia de Software da UnB, FGA.
 
 [6] - ANDRADE DE MORAIS, E. Utilização de uma estratégia para Identificação de fontes de informação na fase de Elicitação. Doutorado—[s.l.] Pontifícia Universidade Católica Do Rio De Janeiro, 2021.
+| 1.4     | 10/05/2023 | Melhoramento e adequação da introspecção de acordo com o novo escopo | Davi Matheus, Natanael                        |
 
 ## Histórico de Versão<br>
 
@@ -390,5 +404,7 @@ A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginaç
 | 1.1    | 23/04/2023 | Adição do diagrama de casos de uso e sua explicação | Mauricio Machado                                         |
 | 1.2    | 26/04/2023 | Adição dos requisitos via brainstorm                | Mauricio Machado, Davi Matheus, Filipe Machado, Natanael |
 | 1.3    | 27/04/2023 | Adição dos requisitos via introspecção              | Davi Matheus                                             |
-| 1.4    | 12/05/2023 | Refatoração requisitos de brainstorm                | Mauricio Machado, Davi Matheus, Natanael, Pedro Henrique |
-| 1.5    | 17/05/2023 | Refatoração requisitos casos de uso                 | Mauricio Machado                                         |
+| 1.4    | 10/05/2023 | Melhoramento e adequação da introspecção de acordo com o novo escopo | Davi Matheus, Natanael                  |
+| 1.5    | 12/05/2023 | Refatoração requisitos de brainstorm                | Mauricio Machado, Davi Matheus, Natanael, Pedro Henrique |
+| 1.6    | 17/05/2023 | Refatoração requisitos casos de uso                 | Mauricio Machado                                         |
+
