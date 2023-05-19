@@ -232,7 +232,7 @@ As classes são representadas como retângulos, com o nome da classe no topo do 
 
 ## v2.0
 
-![Diagrama de classes Modelo v2.0](./assets/documento_arquitetura/diagrama_classes_V2.png)
+![Diagrama de classes Modelo v2.0](/docs/assets/documento_arquitetura/diagrama_classe_V2.png)
 
 O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que representam as funções do sistema.
 
