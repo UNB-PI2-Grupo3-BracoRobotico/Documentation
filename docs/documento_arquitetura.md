@@ -408,7 +408,7 @@ Um Diagrama de Entidade-Relacionamento (DER) é uma representação gráfica que
 
 # v1.0
 
-![Diagrama de entidade relacional v1.0](assets/documento_arquitetura/diagrama_entidade_relacional.png)
+![Diagrama de entidade relacional v1.0](assent/documento_arquitetura/../../assets/documento_arquitetura/diagrama_entidade_relacinalV2.png)
 
 O diagrama indica a estrutura do banco que será utilizado no projeto, sendo dividido em 3 tabelas (Produto,Inventario,Transações) onde cada uma contem as colunas nescessarias para o controle do estoque e compra de cada produto.
 
@@ -416,9 +416,24 @@ O diagrama indica a estrutura do banco que será utilizado no projeto, sendo div
 
 Produto: representa os produtos oferecidos e contém os atributos id (identificador único do produto), nome, categoria, valor, descrição.
 
-Inventario: representa as informações de cada produto e contém os atributos de idInventario (identificador único do produto dentro do inventario), x-Localização (posição no eixo x do produto), y-Localização (posição no eixo y do produto),quantidade, produto.
+Inventario: representa as informações de cada produto e contém os atributos de id (identificador único do produto dentro do inventario), x-
+LocalizaçãoX (posição no eixo x do produto), LocalizaçãoY (posição no eixo y do produto),quantidade.
 
-Transação: representa as informações de transações feitas e contém os atributos id(identificador único do produto), total, data, cpf, produtos (lista com todos os produtos da compra), status.
+Carrinho: representa os produtos que o usuário separa para compra e contém os atributos produto, quantdade, total (valor total da compra).
+
+CarrinhoGrupo: representa uma lista de compras feitas por varias pessoas e contém o atibuto usuarioGrupo (são as informações de compra dos usuário).
+
+Pagamento: representa as transações feitas pelo usuário contém os atributos id (identificador único de produto do inventario), total (valor total da compra), tipoPagamento (forma como foi pago a compra),
+status (status da compra), consumidor.
+
+Pedidos: representa a lista de produtos feita pelo usuário e contém os atributos de tipo (tipo do prosuto), pagamento, quantidade, usuário, data.
+
+Usuário: representa as informações do usuário e contém os atributos cpf, nome, login, senha.
+
+Estoquista: representa as informações do estoquista e contém o atributo de controleEstoque.
+
+Consumidor: representa as informações do consumidor e contém os atributos de carrinho, pagamento.
+
 
 # Modelo Relacional
 
