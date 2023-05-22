@@ -441,7 +441,7 @@ O modelo relacional é uma representação do banco de dados utilizando tabelas,
 
 # v1.0
 
-![Modelo Relacional v1.0](assets/documento_arquitetura/modelagem%20relacional.png)
+![Modelo Relacional v1.0](assents/../assets/documento_arquitetura/modelagem_relacionalV2.png)
 
 # Tabelas
 
@@ -449,31 +449,59 @@ O modelo relacional é uma representação do banco de dados utilizando tabelas,
 
 - idProduto (chave primária)
 - nome
-- valor
-- categoria
+- preço
 - descrição
 
 # Inventário
 
 - idInventario (chave primária)
-- idProduto (chave estranjeira)
+- idProduto (chave estrangeira)
 - xLocalização
 - yLocalização
 - quantidade
 
-# Transações
+# Carrinho
 
-- idTransação (chave primária)
+- idProduto (chave estrangeira)
+- quantidade
 - total
-- data
-- cpf
+
+# CarrinhoGrupo
+
+- usuárioGrupo
+
+# Pagamento
+
+- idPagamento (chave primária)
+- total
+- tipoPagamento
+- consumidor
 - status
 
-# Itens_da_compra
+# Pedidos
 
-- idItens (chave primária)
-- idTransação (chave estranjeira)
-- idProduto (chave estranjeira)
+- tipo
+- pagamento
+- quantidade
+- usuário
+- data
+
+# Usuário
+
+- nome (chave primaria)
+- cpf
+- login
+- senha
+
+# Consumidor
+
+- carrinho (chave estrangeira)
+- pagamento (chave estrangeira)
+- idConsumidor (chave primaria)
+
+# Estoquista
+
+- controleEstoque (chave primaria)
 
 Cada tabela possui uma chave primária para identificar cada registro de forma única.
 
@@ -509,3 +537,5 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 | 1.5    | 28/04/2023 | Adição do diagrama de sequência           | Natanael Filho   |
 | 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral    | Davi Mateus      |
 | 1.7    | 28/04/2023 | Adição do diagrama de implementação       | Sávio Cunha      |
+| 1.8    | 19/05/2023 | Alteração do diagrama de entidade relacional | Pedro Moraes  |
+| 1.9    | 22/05/2023 | Alteração no diagrama de modelagem relacional | Pedro Moraes |
