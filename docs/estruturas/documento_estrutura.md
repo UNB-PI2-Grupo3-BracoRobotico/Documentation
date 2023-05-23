@@ -1,9 +1,11 @@
-# Definição Estrutura
+# Documento de Estrutura
+
+## Definição Estrutura
 
 Visando buscar remédios organizados em prateleiras, o braço robótico será construído para se mover horizontal e verticalmente até a coordenada do remédio selecionado para que, em seguida, sua garra possa pegar e retirar a caixa de remédio da prateleira e a depositar em um local fixo para sua retirada.</br>
 Para isso, o projeto constará de dois motores responsáveis pela movimentação da garra ao longo da prateleira, sendo um para o eixo x e outro para o eixo y, e a garra possuirá mais dois motores para executar sua função, um para o eixo z e outro para o movimento de abrir e fechar. Sendo assim, a estrutura do projeto terá o objetivo de acomodar os motores e fazer com que o braço execute seus movimentos da forma mais simples, segura e rápida possível.</br>
 
-# Descrição Detalhada das partes da estrutura
+## Descrição Detalhada das partes da estrutura
 
 O braço robótico se baseará em movimentações simples em três dimensões, logo, existirão três motores e três mecanismos de movimentação principais.A parte superior da estrutura possuirá duas barras horizontais, a primeira possuirá a função de deixar a estrutura mais estável e equilibrada em relação seus esforços. A segunda, além de servir de sustentação do robô, será a responsável por manter fixa o mecanismo de movimentação horizontal.</br>
 A barra voltada para a projeção da garra, isto é, a barra mais próxima dos remédios a serem pegados, estará diretamente conectada com a estrutura de movimentação vertical. Desse modo, será um elemento da estrutura que provavelmente terá que ser reforçado, pois pode haver uma concentração de esforços verticais e devido a barra estar na horizontal pode ser apresentado um certo tipo de deflexão.</br>
@@ -16,15 +18,15 @@ Todavia, destacam-se outras duas porções móveis da estrutura, uma garra e uma
 A barra será conectada a um mecanismo que possibilitará sua projeção e sua retração em uma extremidade e noutra estará a garra.No entanto, ela deverá ter um tamanho suficiente para que ao ser projetada uma parcela de seu comprimento situe-se anterior ao mecanismo de movimentação nesse eixo.A medida é proposta com o intuito de reduzir o momento fletor.</br>
 As duas barras na parte inferior da estrutura servirão para a fixar melhor, reduzindo balanços e deslocamentos indesejados.Ademais, os dois componentes laterais servirão de apoio, sendo os principais na integridade estrutural e na fixação de componentes eletrônicos.Ambas estruturas estarão em contato com o solo ou com uma superfície livre no seu ambiente de execução.
 
-# Materiais
+## Materiais
 
 O material escolhido para a estrutura é o alumínio devido a diversos fatores. A densidade do metal é uma das menores se comparada a de outros metais, ao passo que sua densidade é de 2,70 g/cm3, materiais como o aço e cobre possuem densidade por volta de 7,86 g/cm3 e 8,92 g/cm3, respectivamente. Ademais, a facilidade em seu uso apresenta-se como outra vantagem, pois a ductilidade do alumínio é elevada, facilitando processos de montagem e possibilitando a previsão de rompimento. Além disso, devido à existência de um fornecedor conhecido pelo grupo, seu preço torna-se acessível.</br>
 
-# Dimensões Gerais
+## Dimensões Gerais
 
 A estrutura possuirá um metro de comprimento, um metro de largura e 22 cm de profundidade. Além disso, a barra a qual a garra está conectada possuirá o comprimento de 52 cm para reduzir o momento, visto que, a profundidade máxima de projeção da garra será 30 cm.</br>
 
-# Desenhos
+## Desenhos
 
 ![Visão 3D](assets/desenho_visao_3d.png)
 
@@ -32,7 +34,7 @@ A estrutura possuirá um metro de comprimento, um metro de largura e 22 cm de pr
 
 ![Visão 3D](assets/desenho_visao_vertical.png)
 
-# Histórico de Versionamento
+## Histórico de Versionamento
 
 | Versão | Data       | Descrição                          | Autor            |
 | ------ | ---------- | ---------------------------------- | ---------------- |
