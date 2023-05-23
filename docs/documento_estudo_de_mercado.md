@@ -18,6 +18,18 @@ Melhorar a satisfação e a fidelização dos clientes, oferecendo entregas mais
 Acompanhar as tendências e as exigências do mercado, que demanda cada vez mais agilidade, eficiência e inovação.
 Portanto, automatizar um processo de venda utilizando braços robóticos e um aplicativo para interação com o usuário é uma forma de implementar a Logística 4.0 na empresa e obter vantagens competitivas no mercado.
 
+## Empresas consolidadas na automação
+
+Existem duas empresas já consolidadas na área de automação que vale a pena mencionar sua atuação no mercado, são elas a Yamaha e a Universal Robots.
+
+Uma visão geral das iniciativas de automação da Yamaha e Universal Robots:
+
+A Yamaha possui uma divisão de robótica, a Yamaha Robotics, que oferece uma variedade de soluções de automação. Seu portfólio inclui braços robóticos, robôs SCARA, robôs cartesianos, controladores e outros dispositivos de automação. Os robôs da Yamaha são conhecidos por sua precisão, velocidade e confiabilidade, sendo utilizados em diversas indústrias, como automotiva, eletrônica, alimentícia, entre outras.
+
+A Universal Robots, por outro lado, é especializada em robôs colaborativos, também conhecidos como cobots. Esses robôs são projetados para trabalhar ao lado de humanos em ambientes industriais. Eles são altamente flexíveis e fáceis de programar, o que permite que sejam utilizados em uma variedade de aplicações, incluindo montagem, embalagem, inspeção de qualidade e muito mais.
+
+Ambas as empresas estão na vanguarda da automação industrial e contribuem significativamente para o avanço da Indústria 4.0, que visa integrar tecnologias digitais e físicas para criar sistemas de produção mais eficientes e flexíveis.
+
 ## Análise SWOT
 
 Forças:
