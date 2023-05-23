@@ -94,6 +94,70 @@ Tem a responsabilidade de armazenar os testes unitários e de integração do si
 
 ![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v2.png)
 
+O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte, 
+e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
+
+A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas. 
+É aqui que os microsserviços baseados em eventos são mais importantes.
+Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
+O microsserviço SSOT emite eventos sempre que os dados são alterados. 
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados. 
+Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.
+
+## Estruturas em comuns entre os pacotes
+
+#### kafka_middleware
+
+Essa estrutura contempla conexão com o servidor Kafka, onde terá um objeto `Consumer` que irá consumir dados dos tópicos, terá `Producer` que irá publicar dados nos tópicos e o `Processor` que irá chamar os pacotes relacionados às regras de negócio.
+
+### Models
+
+Contempla os modelos de dados a serem utilizados pelos pacotes.
+
+#### Exceptions
+
+Contempla excessões para um melhor tratamento e identificação de erros.
+
+## Descrição dos pacotes
+
+#### user_service
+
+Contempla todas as operações que envolvam ações do usuário com seu prório perfil, autenticação e/ou histórico de compras.
+
+#### order_service
+
+Contempla todas as operações que envolvam ordem de pedidos.
+
+#### robotic_arm_service
+
+Contempla todas as operações necessárias para obter as informações pertinentes a serem enviadas ao braço robótico, como por exemplo
+a localização dos itens que o braço robótico irá pegar.
+
+#### admin_service
+
+Contempla todas as operações e requisições que o administrador do sistema realiza no sistema.
+Operações como verificação e atualização do estoque, obtenção de dados estatísticos das vendas e gerenciamento de usuários.
+
+#### ServerProvider
+
+Contempla uma API REST para acesso às operações de administrador.
+
+#### DatabaseController
+
+Contempla funções necessárias para acesso ao banco de dados que serão utilizadas por outros pacotes, que não precisarão ter sua própria forma de acesso ao banco.
+
+#### Tests
+
+Contempla os testes que serão executados no sistema.
+
+##### Fixtures
+
+Contempla dados preparados para serem utilizados como input os testes.
+
+#### config
+
+Contempla valores padrão de configurações que poderão ser sobrescritos por variáveis de ambiente.
 
 ## Diagrama de Sequência
 
