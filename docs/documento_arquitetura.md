@@ -1,6 +1,24 @@
-# Introdução
+# Documento de Arquitetura
 
 <!-- Adicionar explicação do que é o documento de arquitetura e sua finalidade -->
+
+# Diagrama de implementação
+
+O Diagrama de Implementação é uma representação visual que mostra a estrutura física da arquitetura de um sistema de software. Ele se concentra na organização do ambiente físico em que o software será implantado e executado, incluindo o hardware necessário, como computadores pessoais e servidores que suportarão o sistema. O diagrama é a visão mais tangível da UML e ajuda a entender como os diferentes componentes do sistema se relacionam entre si em termos físicos.
+
+O Diagrama de Implementação será usado para descrever a conexão das máquinas e os protocolos de comunicação utilizados para transferir informações. O objetivo é obter uma visão clara da implementação do software, o que facilita o processo de desenvolvimento, uma vez que a modelagem é focada em um nível arquitetural mais específico em relação ao hardware. Com o Diagrama de Implementação, é possível entender como os componentes do sistema se interconectam fisicamente e quais recursos de hardware são necessários para executar o software. Dessa forma, é possível identificar e resolver problemas de desempenho ou escalabilidade antes de implementar o sistema, o que pode economizar tempo e recursos. O diagrama também ajuda a comunicar a arquitetura do sistema para as partes interessadas de forma clara e eficaz.
+
+## v1.0
+
+![Versão v1.0 do diagrama de implementação](./assets/documento_arquitetura/diagrama_implementacao.png)
+
+A primeira versão desse diagrama se concentrou em um nível de desenvolvimento e tangibilizou uma implantação mais simples. Partindo dessa perspectiva, temos o servidor da aplicação englobando o ambiente do Front End, Back End e o Banco de Dados rodando localmente.
+
+## v2.0
+
+![Versão v1.0 do diagrama de implementação](./assets/documento_arquitetura/diagrama_implementacaoV2.png)
+
+A segunda versão desse diagrama apresenta todos os ambientes estão dentro do container do Docker. O acesso é feito pelo protocolo HTTP a partir de navegadores e do protocolo TCP/IP para comunicação com o Banco de Dados.
 
 # Diagrama de Pacote (Front-End)
 
@@ -69,45 +87,163 @@ Tem a responsabilidade de armazenar os testes unitários e de integração do si
 
 Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
 
+
+### Diagrama do aplicativo de compras
+
 ```mermaid
 sequenceDiagram
     participant Cliente
-    participant Sistema
+    participant Loja
+    participant Carrinho
+    participant Pagamento
+    participant Grupo
 
-    Cliente->>Sistema: Seleciona itens da farmácia
-    Sistema->>Sistema: Adiciona itens ao carrinho de compra
-    Cliente->>Sistema: Entra no fluxo de pagamento
-    alt CPF vinculado
-        Cliente->>Sistema: Seleciona vincular CPF
-        Sistema->>Cliente: Solicita CPF
-        Cliente->>Sistema: Informa CPF
-    end
-    Cliente->>Sistema: Informa endereço de entrega
-    Cliente->>Sistema: Seleciona tipo de pagamento
-    alt Pagamento com PIX
-        Cliente->>Sistema: Seleciona PIX
-    else Pagamento com cartão digital
-        Cliente->>Sistema: Seleciona cartão digital
-    end
-    Cliente->>Sistema: Envia solicitação de compra
-    Sistema->>Cliente: Confirmação de compra
+    activate Cliente
 
-    alt Item fora de estoque
-        Cliente->>Sistema: Seleciona item
-        Sistema->>Cliente: Retorna que item está fora de estoque
-    else
-        Cliente->>Sistema: Solicita itens
-        Sistema->>Sistema: Remove itens do carrinho
-        Cliente->>Sistema: Envia solicitação de compra
-        Sistema->>Cliente: Confirmação de compra
+    Cliente->>Loja: Fazer cadastro
+    Loja->>Cliente: Solicitar nome completo
+    Cliente->>Loja: Enviar nome completo
+    Loja->>Cliente: Solicitar CPF
+    Cliente->>Loja: Enviar CPF
+    Loja->>Cliente: Solicitar confirmação por foto de documento
+    Cliente->>Loja: Enviar foto de documento
+    Loja->>Cliente: Solicitar endereço
+    Cliente->>Loja: Enviar endereço
+
+    Loja->>Cliente: Cadastro concluído
+
+    Cliente->>Loja: Acessar área logada
+    activate Loja
+
+    loop Enquanto logado
+        Cliente->>Loja: Gerenciar carrinho
+        Loja->>Carrinho: Adicionar/Remover produtos
+        Loja->>Cliente: Carrinho atualizado
+
+        Cliente->>Loja: Juntar-se a um grupo de compra
+        Loja->>Cliente: Grupos disponíveis
+        activate Grupo
+        Grupo-->>Cliente: Lista de grupos
+
+        Cliente->>Grupo: Escolher grupo
+        Grupo->>Loja: Solicitar entrada no grupo
+        Loja->>Grupo: Verificar disponibilidade e aprovar entrada
+        alt Entrada aprovada
+            Loja-->>Cliente: Entrada aprovada no grupo
+            Cliente->>Loja: Carrinho compartilhado do grupo
+
+            Cliente->>Loja: Efetuar compra
+            Loja->>Cliente: Oferecer formas de pagamento
+            Cliente->>Loja: Seleciona forma de pagamento
+            activate Pagamento
+
+            Pagamento-->>Cliente: Escolher forma de pagamento
+
+
+            alt Pedido confirmado
+                Loja-->>Cliente: Pedido em processamento
+                Loja-->>Cliente: Pedido a caminho
+                Loja-->>Cliente: Pedido finalizado
+            else Pedido cancelado
+                Loja-->>Cliente: Pedido cancelado
+            end
+
+            deactivate Pagamento
+            Loja->>Cliente: Compra realizada com sucesso
+        else Entrada negada
+            Loja-->>Cliente: Entrada negada no grupo
+        end
+
+        deactivate Grupo
     end
+
+    deactivate Loja
+    deactivate Cliente
 ```
 
 <center>
 
-<p> Figura 1: diagrama de sequência do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+<p> Figura 3: diagrama de sequência para o aplicativo de compras do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
 
 </center>
+
+Descrevendo o fluxo apresentado, o cliente começa fazendo o cadastro, fornecendo informações como nome completo, CPF, confirmação por foto de documento e endereço. Após o cadastro, o cliente faz login na loja e pode gerenciar seu carrinho de compras, adicionando ou removendo produtos. Em seguida, o cliente pode escolher efetuar a compra, onde são oferecidas três formas de pagamento: cartão de crédito, cartão de débito e Pix. Além disso, o diagrama foi atualizado para incluir a funcionalidade de compra em grupo, onde o cliente pode se juntar a outros usuários para realizar uma compra conjunta, compartilhando o carrinho de compras. A loja verifica a disponibilidade e aprova a entrada do cliente no grupo, permitindo que a compra seja concluída.
+
+### Diagrama do aplicativo de estoque
+
+```mermaid
+sequenceDiagram
+    participant Usuario
+    participant Aplicativo
+    participant Estoque
+    participant Prateleira
+    participant Pedido
+    participant Relatorio
+    participant Dashboard
+    participant Notificacoes
+
+    activate Usuario
+
+    Usuario->>Aplicativo: Fazer cadastro
+    Aplicativo->>Usuario: Cadastro concluído
+
+    Usuario->>Aplicativo: Fazer login
+    activate Aplicativo
+
+    loop Enquanto logado
+        
+        Usuario->>Aplicativo: Vincular prateleira autônoma
+        Aplicativo->>Prateleira: Vincular prateleira ao estoque
+        Prateleira-->>Aplicativo: Prateleira vinculada com sucesso
+
+        Usuario->>Aplicativo: Gerenciar produtos em estoque
+        Aplicativo->>Estoque: Consultar produtos em estoque
+        Estoque-->>Aplicativo: Lista de produtos
+
+        Usuario->>Aplicativo: Adicionar produto em estoque
+        Aplicativo->>Estoque: Cadastrar novo produto
+        Estoque-->>Aplicativo: Produto adicionado com sucesso
+
+        Usuario->>Aplicativo: Atualizar produto em estoque
+        Aplicativo->>Estoque: Atualizar informações do produto
+        Estoque-->>Aplicativo: Produto atualizado com sucesso
+
+        Usuario->>Aplicativo: Remover produto em estoque
+        Aplicativo->>Estoque: Remover produto do estoque
+        Estoque-->>Aplicativo: Produto removido com sucesso
+
+        Usuario->>Aplicativo: Acessar status de pedidos
+        Aplicativo->>Pedido: Consultar status de pedidos
+        Pedido-->>Aplicativo: Lista de status de pedidos
+
+        Usuario->>Aplicativo: Gerar relatório de vendas
+        Aplicativo->>Relatorio: Gerar relatório em PDF
+        Relatorio-->>Aplicativo: Relatório gerado com sucesso
+
+        Usuario->>Aplicativo: Acessar dashboard de vendas
+        Aplicativo->>Dashboard: Exibir dashboard de vendas
+        Dashboard-->>Aplicativo: Dashboard exibido
+
+        Usuario->>Aplicativo: Personalizar notificações
+        Aplicativo->>Notificacoes: Configurar preferências de notificação
+        Notificacoes-->>Aplicativo: Notificações personalizadas configuradas
+
+        Usuario->>Aplicativo: Solicitar alteração de status da prateleira autônoma
+        Aplicativo->>Prateleira: Alterar status da prateleira
+        Prateleira-->>Aplicativo: Novo status de funcionamento da prateleira
+
+    end
+
+    deactivate Aplicativo
+```
+
+<center>
+
+<p> Figura 4: diagrama de sequência para o aplicativo de estoques do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+
+</center>
+
+Descrevendo o fluxo apresentando na figura, O usuário realiza o cadastro e faz login no aplicativo. Em seguida, o usuário pode vincular uma prateleira autônoma ao aplicativo do estoque. Após a vinculação, o usuário pode gerenciar os produtos em estoque, realizando ações como adicionar, consultar, atualizar e remover produtos. O usuário também pode acessar o status dos pedidos existentes. Além disso, o aplicativo permite a geração de relatórios de vendas em formato PDF e exibe um dashboard de vendas. O usuário pode personalizar as notificações de acordo com suas preferências. Por fim, o usuário pode solicitar a alteração do status de funcionamento da prateleira autônoma, e o aplicativo informa o status atual conforme necessário.
 
 ### Composição do Diagrama de Sequência
 
@@ -119,12 +255,24 @@ sequenceDiagram
     participant Sistema
 ```
 
-2. **Mensagens:** As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]
+<center>
+
+<p> Figura 5: exemplo de participante, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
+1. **Mensagens:** As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]
 
 ```mermaid
 sequenceDiagram
-    Cliente->>Sistema: Seleciona itens da farmácia
+    Cliente->>Sistema: Seleciona itens da loja
 ```
+
+<center>
+
+<p> Figura 6: exemplo de mensagem, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 3. **Linhas de vida:** As linhas de vida representam o tempo durante o qual um participante está ativo no sistema.[4]
 
@@ -132,12 +280,18 @@ sequenceDiagram
 sequenceDiagram
     participant Cliente
     participant Sistema
-    Cliente->>Sistema: Seleciona itens da farmácia
+    Cliente->>Sistema: Seleciona itens da loja
     activate Sistema
     Sistema->>Sistema: Adiciona itens ao carrinho de compra
     deactivate Sistema
 
 ```
+
+<center>
+
+<p> Figura 7: exemplo de linha de vida, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 4. **Ativação:** A ativação é usada para indicar quando um participante está executando uma tarefa específica em resposta a uma mensagem recebida.[4]
 
@@ -157,6 +311,12 @@ sequenceDiagram
 
 ```
 
+<center>
+
+<p> Figura 8: exemplo de ativação, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
 5. **Desvios de condição:** Desvios de condição são usados para indicar fluxos alternativos na sequência de mensagens, dependendo das condições específicas que ocorrem durante a interação.[4]
 
 ```mermaid
@@ -175,15 +335,27 @@ sequenceDiagram
 
 ```
 
+<center>
+
+<p> Figura 9: exemplo de desvio de condicional, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
+
 6. **Anotações:** As anotações são usadas para adicionar informações adicionais ao diagrama, como notas ou explicações sobre a interação.[4]
 
 ```mermaid
 sequenceDiagram
     participant Cliente
     participant Sistema
-    Cliente->>Sistema: Seleciona itens da farmácia
+    Cliente->>Sistema: Seleciona itens da loja
     note right of Sistema: Adiciona itens ao carrinho
 ```
+
+<center>
+
+<p> Figura 10: exemplo de anotações, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+</center>
 
 <!--Bibitex para referencia
 
@@ -212,25 +384,33 @@ Os diagramas de classes são usados para descrever a estrutura de um sistema ori
 
 As classes são representadas como retângulos, com o nome da classe no topo do retângulo. Os atributos são listados abaixo do nome da classe, enquanto os métodos são listados abaixo dos atributos.
 
-## v1.0
+## v2.0
 
-![Diagrama de classes Modelo v1.0](../docs/assets/documento_arquitetura/diagrama_classe_v1.png)
+![Diagrama de classes Modelo v2.0](/docs/assets/documento_arquitetura/diagrama_classe_V2.png)
 
-O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que represemtam as funções do sistema.
+O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que representam as funções do sistema.
 
 ## Classes
 
-Inventário: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
+Inventário: representa a quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
 
-Estoque: representa uma lista de objetos do tipo Inventário.
+Estoque: representa uma lista de objetos do tipo inventário.
 
-Produto: representa um Produto do Inventário, com um id, nome, descrição e preço.
+Produto: representa um Produto do Inventario, com um id, nome, descrição e preço.
 
 Pagamento: representa o pagamento de um cliente, com um id, um valor total, um status (concluído ou não), e uma informação do cliente.
 
-Braço: representa o controlador do braço robótico, com um objeto do tipo Estoque, que controla a lista de itens, uma localização atual e um status (ocupado ou livre). Tem métodos para receber a localização, pegar um Produto e entrega-lo em uma posição.
+Carrinho: representa os itens e valores dos produtos que o cliente escolheu, com objeto do tipo produto que controla a lista de produto, uma quantidade e o total.
 
-# <<<<<<< HEAD
+CarrinhoGrupo: Representa uma classe filho da Carrinho com as caracteristicas para compras em grupo.
+
+Pedidos: Uma classe pedidos que é responsável de fazer o controle de todos os pedidos feitos no sistema.
+
+Usuário: Uma classe pai cliente que representa todo o cadastro do publico que utilizar o sistema.
+
+Consumidor: Uma classe filho da classe Usuário com objeto de controlar o Carrinho e o pagamento.
+
+Estoquista: Uma classe filho da classe Usuário responsável de fazer o controle do Estoque, como um usuário Administrador.
 
 # Diagrama de entidade relacional
 
@@ -308,6 +488,9 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 - [8] - Booch, G., Rumbaugh, J., & Jacobson, I. (1999). UML - Guia do Usuário. Bookman.
 - [9] - TEORY, T. LIGHTSTONE, S., NADEAU, T. and JAGADISH, H. V. Database Modeling and Design: Logical Design. USA: Morgan Kaufmann, 2005
 - [10] - SILBERSCHATZ, A., KORTH, H. F. e SUDARSHAN, S. Sistemas de Bancos de Dados. Editora Campus. 2006.
+- [11] -Diagramas de Implementação. Disponível em: https://www.ibm.com/docs/pt-br/rsas/7.5.0?topic=topologies-deployment-diagrams. Acesso em: 26 de abr. 2022
+- [12] - Diagrama de Implantação .Disponível em: https://creately.com/blog/pt/diagrama/tutorial-do-diagrama-de-implantacao/. Acesso em: 26 de abr. 2022
+- [13] - VISUAL PARADIGM. UML Deployment Diagram. Disponível em: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-deployment-diagram/. Acesso em: 27 abr. 2023.
 
 ## Versionamento
 
@@ -320,3 +503,5 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 | 1.4    | 27/04/2023 | Adição do modelo relacional               | Pedro Moraes     |
 | 1.5    | 28/04/2023 | Adição do diagrama de sequência           | Natanael Filho   |
 | 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral    | Davi Mateus      |
+| 1.7    | 28/04/2023 | Adição do diagrama de implementação       | Sávio Cunha      |
+| 2.0    | 15/05/2023 | Adição do diagrama de classes V2          | Samuel Macedo    |
