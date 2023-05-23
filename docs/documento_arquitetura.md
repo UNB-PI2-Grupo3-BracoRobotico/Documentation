@@ -51,6 +51,10 @@ Diagrama de pacotes são diagramas estruturais comumente usados para simplificar
 
 ![Diagrama de Pacote Back-End v1.0](./assets/documento_arquitetura/diagrama_pacote_backend_v1.png)
 
+Esta versão do diagrama de pacotes v1.0 foi refeita para contemplar conceitos que envolvam o administrador do sistema.
+
+<details>
+    
 Os componentes com o sufixo 'Consumer' e 'Producer' são respectivamente responsáveis por se conectarem com o sistema Apache Kafka para enviar e receber mensagens de outros sistemas e/ou pacotes.
 
 Os componentes com o sufixo 'Processor' têm a responsabilidade de implementar a lógica do pacote, sem se preocupar em como a comunicação com outros sistemas e/ou pacotes é feita.
@@ -82,6 +86,14 @@ Tem a responsabilidade de armazenar valores de configurações do sistema.
 ### tests
 
 Tem a responsabilidade de armazenar os testes unitários e de integração do sistema.
+
+    
+</details>
+
+## v2.0
+
+![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v2.png)
+
 
 ## Diagrama de Sequência
 
