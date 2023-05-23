@@ -2,7 +2,7 @@
 
 ## Introdução
 
-TBD
+O objetivo de automatizar o processo de estocagem e venda é aumentar a venda, fazendo que aumente-se o lucro diminuindo o custo com mão de obra.
 
 ## Tendências
 
