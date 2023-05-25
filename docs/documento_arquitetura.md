@@ -1,6 +1,31 @@
 # Documento de Arquitetura
 
-<!-- Adicionar explicação do que é o documento de arquitetura e sua finalidade -->
+O documento de arquitetura tem como objetivo apresentar e justificar as decisões em volta da implementação do sistema de software, contemplando o banco de dados, o _backend_, o _frontend_ e as comunicações com outros sistemas como o de eletrônica.
+
+# Definição de Stacks
+
+A implementação do _frontend_ será feita via uso do frmaework Flutter. O Flutter é um framework de código aberto desenvolvido pelo Google que permite criar aplicativos nativos para dispositivos móveis, web e desktop a partir de uma única base de código. Ele utiliza a linguagem de programação Dart. Os benefícios do uso de tal framework são os seguintes:
+
+- Desenvolvimento rápido de UI: O Flutter possui um conjunto abrangente de widgets personalizáveis que permitem criar interfaces de usuário bonitas e responsivas de forma rápida e eficiente. Além disso, as alterações na interface podem ser visualizadas em tempo real, o que acelera o ciclo de desenvolvimento.
+- Performance nativa: Ao contrário dos frameworks híbridos, o Flutter permite o desenvolvimento de aplicativos com desempenho nativo. Ele utiliza um mecanismo de renderização próprio que elimina a necessidade de uma camada de ponte entre o código Flutter e as APIs nativas do dispositivo, resultando em um desempenho rápido e suave.
+- Código compartilhado: Com o Flutter, é possível escrever o código uma vez e executá-lo em várias plataformas. Isso significa que você pode criar aplicativos para iOS e Android a partir de uma única base de código, economizando tempo e esforço de desenvolvimento.
+
+A implementação do banco de dados será mediante por meio do sistema de gerenciamento de banco de dados relacional, PostgreSQL. A utilização de um banco relacional ao invés de um não relacional foi decidida pelos seguintes motivos:
+
+- Estrutura de dados complexa: Dados do aplicativo têm uma estrutura complexa e relacionamentos bem definidos, um banco de dados relacional é uma escolha adequada. Os bancos de dados relacionais usam tabelas, linhas e colunas para organizar e representar dados relacionados. Eles são ideais para casos em que as relações entre as entidades são importantes, como em sistemas de gerenciamento de conteúdo ou sistemas financeiros.
+- Transações ACID: Aplicativo requer transações complexas com garantia de consistência e integridade dos dados, um banco de dados relacional é uma opção sólida. Os bancos de dados relacionais seguem o conceito ACID (Atomicidade, Consistência, Isolamento e Durabilidade), que garante que as transações sejam executadas corretamente, mesmo em cenários de falha.
+- Escalabilidade vertical: Os bancos de dados relacionais são adequados para escalabilidade vertical, ou seja, aumentar a capacidade de processamento do servidor, como melhorar o desempenho por meio de hardware mais poderoso ou otimizações de consultas.
+
+Além disso, a utilização de PostgreeSQL ao invés de outro sistema de gerenciamento se deve aos seguintes fatores:
+
+- Modelagem de dados relacional: O PostgreSQL suporta o modelo relacional, permitindo que você defina tabelas, colunas e relacionamentos entre elas. Você pode criar esquemas complexos e aplicar restrições de integridade para garantir a consistência dos dados.
+- Suporte a consultas complexas: O PostgreSQL oferece suporte a consultas SQL poderosas e sofisticadas, permitindo realizar operações complexas de junção, agregação e filtragem de dados. Ele também suporta funções, subconsultas, junções externas e outros recursos avançados para manipulação de dados.
+- Extensibilidade: O PostgreSQL permite estender suas funcionalidades por meio de extensões. Isso significa que você pode adicionar recursos personalizados, tipos de dados, funções e até mesmo criar suas próprias linguagens de programação procedurais, como PL/pgSQL, PL/Python, PL/Java, entre outras.
+- Confiabilidade e escalabilidade: O PostgreSQL é conhecido por sua robustez e estabilidade. Ele é projetado para ser resiliente a falhas, oferece suporte a replicação síncrona e assíncrona para alta disponibilidade e pode lidar com grandes volumes de dados e cargas de trabalho intensivas.
+- Segurança avançada: O PostgreSQL oferece uma série de recursos de segurança, incluindo autenticação de usuário, criptografia de dados em trânsito e em repouso, controle de acesso baseado em papéis (RBAC) e auditoria de eventos.
+- Suporte a tipos de dados avançados: Além dos tipos de dados padrão, o PostgreSQL oferece suporte a tipos de dados avançados, como arrays, JSON, geometria espacial (PostGIS), dados binários e outros tipos personalizados.
+
+<!-- Escrever aqui sobre a stack do backend: linguagem e motivos do uso da linguagem como pacotes que oferecem suporte a comunicação com rasp - explicação de decisões sobre implementação (uso de kafka, MVC e afins devem ser feitas na parte de Justificativa de decisões) Não esquecer de falar sobre docker no backend -->
 
 # Diagrama de implementação
 
@@ -87,22 +112,21 @@ Tem a responsabilidade de armazenar valores de configurações do sistema.
 
 Tem a responsabilidade de armazenar os testes unitários e de integração do sistema.
 
-    
 </details>
 
 ## v2.0
 
 ![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v2.png)
 
-O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte, 
+O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
 e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
 
 A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
-Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas. 
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas.
 É aqui que os microsserviços baseados em eventos são mais importantes.
 Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
-O microsserviço SSOT emite eventos sempre que os dados são alterados. 
-Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados. 
+O microsserviço SSOT emite eventos sempre que os dados são alterados.
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados.
 Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.
 
 ## Estruturas em comuns entre os pacotes
@@ -162,7 +186,6 @@ Contempla valores padrão de configurações que poderão ser sobrescritos por v
 ## Diagrama de Sequência
 
 Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
-
 
 ### Diagrama do aplicativo de compras
 
@@ -267,7 +290,7 @@ sequenceDiagram
     activate Aplicativo
 
     loop Enquanto logado
-        
+
         Usuario->>Aplicativo: Vincular prateleira autônoma
         Aplicativo->>Prateleira: Vincular prateleira ao estoque
         Prateleira-->>Aplicativo: Prateleira vinculada com sucesso
@@ -552,6 +575,16 @@ Chaves Estrangeiras:
 
 As chaves estrangeiras são utilizadas para relacionar informações entre as tabelas. As chaves estrangeiras são definidas em uma tabela e referenciam a chave primária de outra tabela.
 
+# Justificativa de Decisões
+
+Utilizar a Clean Architecture (Arquitetura Limpa) em um projeto frontend traz diversos benefícios, especialmente em relação a testes e encapsulamento do domínio da aplicação. Os benefícios são:
+
+- Testabilidade: A Clean Architecture promove a testabilidade do código. Ao separar claramente as responsabilidades em camadas distintas, como a camada de domínio, a camada de aplicação e a camada de interface do usuário, é mais fácil isolar e testar cada uma dessas camadas de forma independente. Isso permite que você escreva testes unitários mais granulares, sem depender de componentes externos ou do ambiente de execução.
+- Encapsulamento do domínio: A Clean Architecture enfatiza o encapsulamento do domínio da aplicação. A camada de domínio contém as regras de negócio e lógica de negócio essenciais para o funcionamento da aplicação. Ao manter essa camada isolada e independente das camadas externas, como a camada de interface do usuário e a camada de infraestrutura, você garante que as regras de negócio permaneçam coesas, independentes e mais fáceis de serem modificadas sem afetar outras partes do sistema.
+- Baixo acoplamento: A Clean Architecture busca minimizar o acoplamento entre as diferentes camadas do sistema. Ao definir interfaces claras e utilizar inversão de dependência (Dependency Inversion Principle), as camadas de mais alto nível dependem apenas de abstrações, não de implementações concretas. Isso promove uma maior flexibilidade, pois você pode substituir componentes facilmente sem afetar outras partes do sistema.
+- Facilidade de evolução e manutenção: Com a Clean Architecture, é mais fácil evoluir e manter o sistema ao longo do tempo. A separação clara de responsabilidades e o baixo acoplamento permitem que você faça alterações em uma camada sem afetar outras partes do sistema. Isso reduz o risco de efeitos colaterais indesejados e torna a manutenção e a evolução do código mais simples e seguras.
+- Reaproveitamento de código: A Clean Architecture facilita o reaproveitamento de código. Com a separação das responsabilidades em camadas distintas, você pode reutilizar componentes, como regras de negócio ou serviços, em diferentes partes do sistema ou até mesmo em outros projetos, sem a necessidade de modificá-los. Isso aumenta a produtividade e a consistência do desenvolvimento.
+
 # Referências
 
 - [1] - Clean architecture in flutter part 1. Disponível em: <https://devmuaz.medium.com/flutter-clean-architecture-series-part-1-d2d4c2e75c47>. Acesso em 23 de Abril de 2023.
@@ -581,3 +614,4 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 | 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral    | Davi Mateus      |
 | 1.7    | 28/04/2023 | Adição do diagrama de implementação       | Sávio Cunha      |
 | 2.0    | 15/05/2023 | Adição do diagrama de classes V2          | Samuel Macedo    |
+| 2.1    | 25/05/2023 | Adição justificativa diagramas            | Mauricio Machado |
