@@ -27,6 +27,20 @@ Além disso, a utilização de PostgreeSQL ao invés de outro sistema de gerenci
 
 <!-- Escrever aqui sobre a stack do backend: linguagem e motivos do uso da linguagem como pacotes que oferecem suporte a comunicação com rasp - explicação de decisões sobre implementação (uso de kafka, MVC e afins devem ser feitas na parte de Justificativa de decisões) Não esquecer de falar sobre docker no backend -->
 
+A implementação do *backend* será seguindo uma arquitetura de microsserviços baseados em eventos. Para isso decidimos utilizar Python como linguagem de desenvolvimento e Apache Kafka para fazer a comunicação baseada em eventos entre microsserviços.
+
+A arquitetura de microsserviços permite que você dimensione e gerencie componentes independentemente uns dos outros, além de oferecer uma maior disponibilidade do sistema. Python possui bibliotecas e ferramentas como o asyncio e o gevent, que permitem criar microsserviços assíncronos e escaláveis. Além disso, a natureza independente dos microsserviços em Python ajuda a tornar todo o sistema mais resiliente, pois uma falha em um serviço não afeta diretamente os outros.
+
+Cada microsserviço será responsável por ser sua única fonte de verdade ou _Single Source of Truth_ (SSOT), ou seja, eles serão responsáveis por gerenciar os dados dentro de suas responsabilidades para garantir a confiabilidade dos mesmos. Para atender a esse requisito arquitetural, todos os microsserviços irão utilizar o mesmo banco de dados.
+
+Python é conhecido por sua capacidade de se integrar bem com outras tecnologias e sistemas. Você pode usar bibliotecas Python para se comunicar com bancos de dados, sistemas de mensageria e serviços de armazenamento em nuvem por exemplo.
+
+Em relação à comunicação de microsserviços baseados em eventos, foi escolhido Apache Kafka para realizar a comunicação pois é um software _open-source_ que implementa sistemas distribuidos para _streaming_ de dados para múltiplas plataformas. Fazendo assim que haja uma comunicação em tempo-real entre _front-end_, os microsserviços e o software embarcado ao braço robótico. 
+
+O Apache Kafka soluciona um grande problema relacionado à processamento de dados que ocorrem de forma assíncrona: essa tecnologia funciona de forma similar a uma fila de mensagens, e por isso é possível manter uma consistência entre os dados independente do momento em que foram modificados, pois os pacotes de dados não se perdem caso ocorra algum erro, fazendo assim que os microsserviços possam tentar obter a mesma mensagem multiplas vezes caso algum erro ocorra como por exemplo algum microsserviço no ecossistema não estar funcionando.
+
+Um dos microsserviços não atuará baseado em eventos pois não haverá necessidade em transição de dados a ponto que os outros microsserviços precisam atualizar seus estados em tempo real. Este irá implementar uma API REST utilizando o framework FastAPI.
+
 # Diagrama de implementação
 
 O Diagrama de Implementação é uma representação visual que mostra a estrutura física da arquitetura de um sistema de software. Ele se concentra na organização do ambiente físico em que o software será implantado e executado, incluindo o hardware necessário, como computadores pessoais e servidores que suportarão o sistema. O diagrama é a visão mais tangível da UML e ajuda a entender como os diferentes componentes do sistema se relacionam entre si em termos físicos.
