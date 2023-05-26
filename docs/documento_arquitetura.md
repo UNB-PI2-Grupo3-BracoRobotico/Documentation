@@ -25,7 +25,6 @@ Além disso, a utilização de PostgreeSQL ao invés de outro sistema de gerenci
 - Segurança avançada: O PostgreSQL oferece uma série de recursos de segurança, incluindo autenticação de usuário, criptografia de dados em trânsito e em repouso, controle de acesso baseado em papéis (RBAC) e auditoria de eventos.
 - Suporte a tipos de dados avançados: Além dos tipos de dados padrão, o PostgreSQL oferece suporte a tipos de dados avançados, como arrays, JSON, geometria espacial (PostGIS), dados binários e outros tipos personalizados.
 
-<!-- Escrever aqui sobre a stack do backend: linguagem e motivos do uso da linguagem como pacotes que oferecem suporte a comunicação com rasp - explicação de decisões sobre implementação (uso de kafka, MVC e afins devem ser feitas na parte de Justificativa de decisões) Não esquecer de falar sobre docker no backend -->
 
 A implementação do *backend* será seguindo uma arquitetura de microsserviços baseados em eventos. Para isso decidimos utilizar Python como linguagem de desenvolvimento e Apache Kafka para fazer a comunicação baseada em eventos entre microsserviços.
 
