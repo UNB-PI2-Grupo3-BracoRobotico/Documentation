@@ -51,6 +51,10 @@ Diagrama de pacotes são diagramas estruturais comumente usados para simplificar
 
 ![Diagrama de Pacote Back-End v1.0](./assets/documento_arquitetura/diagrama_pacote_backend_v1.png)
 
+Esta versão do diagrama de pacotes v1.0 foi refeita para contemplar conceitos que envolvam o administrador do sistema.
+
+<details>
+    
 Os componentes com o sufixo 'Consumer' e 'Producer' são respectivamente responsáveis por se conectarem com o sistema Apache Kafka para enviar e receber mensagens de outros sistemas e/ou pacotes.
 
 Os componentes com o sufixo 'Processor' têm a responsabilidade de implementar a lógica do pacote, sem se preocupar em como a comunicação com outros sistemas e/ou pacotes é feita.
@@ -83,10 +87,80 @@ Tem a responsabilidade de armazenar valores de configurações do sistema.
 
 Tem a responsabilidade de armazenar os testes unitários e de integração do sistema.
 
+</details>
+
+## v2.0
+
+![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v2.png)
+
+O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
+e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
+
+A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas.
+É aqui que os microsserviços baseados em eventos são mais importantes.
+Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
+O microsserviço SSOT emite eventos sempre que os dados são alterados.
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados.
+Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.
+
+## Estruturas em comuns entre os pacotes
+
+#### kafka_middleware
+
+Essa estrutura contempla conexão com o servidor Kafka, onde terá um objeto `Consumer` que irá consumir dados dos tópicos, terá `Producer` que irá publicar dados nos tópicos e o `Processor` que irá chamar os pacotes relacionados às regras de negócio.
+
+#### Models
+
+Contempla os modelos de dados a serem utilizados pelos pacotes.
+
+#### Exceptions
+
+Contempla excessões para um melhor tratamento e identificação de erros.
+
+## Descrição dos pacotes
+
+#### user_service
+
+Contempla todas as operações que envolvam ações do usuário com seu prório perfil, autenticação e/ou histórico de compras.
+
+#### order_service
+
+Contempla todas as operações que envolvam ordem de pedidos.
+
+#### robotic_arm_service
+
+Contempla todas as operações necessárias para obter as informações pertinentes a serem enviadas ao braço robótico, como por exemplo
+a localização dos itens que o braço robótico irá pegar.
+
+#### admin_service
+
+Contempla todas as operações e requisições que o administrador do sistema realiza no sistema.
+Operações como verificação e atualização do estoque, obtenção de dados estatísticos das vendas e gerenciamento de usuários.
+
+#### ServerProvider
+
+Contempla uma API REST para acesso às operações de administrador.
+
+#### DatabaseController
+
+Contempla funções necessárias para acesso ao banco de dados que serão utilizadas por outros pacotes, que não precisarão ter sua própria forma de acesso ao banco.
+
+#### Tests
+
+Contempla os testes que serão executados no sistema.
+
+##### Fixtures
+
+Contempla dados preparados para serem utilizados como input os testes.
+
+#### config
+
+Contempla valores padrão de configurações que poderão ser sobrescritos por variáveis de ambiente.
+
 ## Diagrama de Sequência
 
 Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
-
 
 ### Diagrama do aplicativo de compras
 
@@ -191,7 +265,7 @@ sequenceDiagram
     activate Aplicativo
 
     loop Enquanto logado
-        
+
         Usuario->>Aplicativo: Vincular prateleira autônoma
         Aplicativo->>Prateleira: Vincular prateleira ao estoque
         Prateleira-->>Aplicativo: Prateleira vinculada com sucesso
@@ -384,23 +458,33 @@ Os diagramas de classes são usados para descrever a estrutura de um sistema ori
 
 As classes são representadas como retângulos, com o nome da classe no topo do retângulo. Os atributos são listados abaixo do nome da classe, enquanto os métodos são listados abaixo dos atributos.
 
-## v1.0
+## v2.0
 
-![Diagrama de classes Modelo v1.0](./assets/documento_arquitetura/diagrama_classe_v1.png)
+![Diagrama de classes Modelo v2.0](/docs/assets/documento_arquitetura/diagrama_classe_V2.png)
 
-O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que represemtam as funções do sistema.
+O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que representam as funções do sistema.
 
 ## Classes
 
-Inventário: representa uma quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
+Inventário: representa a quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.
 
-Estoque: representa uma lista de objetos do tipo Inventário.
+Estoque: representa uma lista de objetos do tipo inventário.
 
-Produto: representa um Produto do Inventário, com um id, nome, descrição e preço.
+Produto: representa um Produto do Inventario, com um id, nome, descrição e preço.
 
 Pagamento: representa o pagamento de um cliente, com um id, um valor total, um status (concluído ou não), e uma informação do cliente.
 
-Braço: representa o controlador do braço robótico, com um objeto do tipo Estoque, que controla a lista de itens, uma localização atual e um status (ocupado ou livre). Tem métodos para receber a localização, pegar um Produto e entrega-lo em uma posição.
+Carrinho: representa os itens e valores dos produtos que o cliente escolheu, com objeto do tipo produto que controla a lista de produto, uma quantidade e o total.
+
+CarrinhoGrupo: Representa uma classe filho da Carrinho com as caracteristicas para compras em grupo.
+
+Pedidos: Uma classe pedidos que é responsável de fazer o controle de todos os pedidos feitos no sistema.
+
+Usuário: Uma classe pai cliente que representa todo o cadastro do publico que utilizar o sistema.
+
+Consumidor: Uma classe filho da classe Usuário com objeto de controlar o Carrinho e o pagamento.
+
+Estoquista: Uma classe filho da classe Usuário responsável de fazer o controle do Estoque, como um usuário Administrador.
 
 # Diagrama de entidade relacional
 
@@ -418,7 +502,7 @@ Produto: representa os produtos oferecidos e contém os atributos id_Produto (id
 
 Inventario: representa as informações de cada produto e contém os atributos de id_Inventario (identificador único do produto dentro do inventario),id_Produto (identificador único do produto), LocalizaçãoX (posição no eixo x do produto), LocalizaçãoY (posição no eixo y do produto),quantidade.
 
-Carrinho: representa os produtos que o usuário separa para compra e contém os atributos id_Carrinho (identificado único do carrinho), produto* (produtos do carrinho), quantidadeProd (quantidade de produtos no carriho), total (total do valor da compra), isGroup (identificaodr de compras em grupo). 
+Carrinho: representa os produtos que o usuário separa para compra e contém os atributos id_Carrinho (identificado único do carrinho), produto\* (produtos do carrinho), quantidadeProd (quantidade de produtos no carriho), total (total do valor da compra), isGroup (identificaodr de compras em grupo).
 
 Pagamento: representa as transações feitas pelo usuário contém os atributos id_Pagamento (identificador único do pagamento),id_Carrinho,
 tipoPagamento (forma como os produtos foram pagos), status, consumidor.
@@ -430,7 +514,6 @@ Usuário: representa as informações do usuário e contém os atributos cpf, no
 Estoquista: representa as informações do estoquista e contém o atributo de id_Estoquista,controleEstoque.
 
 Consumidor: representa as informações do consumidor e contém os atributos de id_Consumidor,id_Carrinho,id_Pagamento.
-
 
 # Modelo Relacional
 
@@ -533,15 +616,16 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 
 ## Versionamento
 
-| Versão | Data       | Descrição                                 | Autor(es)        |
-| ------ | ---------- | ----------------------------------------- | ---------------- |
-| 1.0    | 23/04/2023 | Criação do documento                      | Mauricio Machado |
-| 1.1    | 23/04/2023 | Adição do diagrama de pacotes             | Mauricio Machado |
-| 1.2    | 27/04/2023 | Adição do diagrama de classes             | Samuel Macedo    |
-| 1.3    | 27/04/2023 | Adição do diagrama de entidade relacional | Pedro Moraes     |
-| 1.4    | 27/04/2023 | Adição do modelo relacional               | Pedro Moraes     |
-| 1.5    | 28/04/2023 | Adição do diagrama de sequência           | Natanael Filho   |
-| 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral    | Davi Mateus      |
-| 1.7    | 28/04/2023 | Adição do diagrama de implementação       | Sávio Cunha      |
-| 1.8    | 19/05/2023 | Alteração do diagrama de entidade relacional | Pedro Moraes  |
-| 1.9    | 22/05/2023 | Alteração no diagrama de modelagem relacional | Pedro Moraes |
+| Versão | Data       | Descrição                                     | Autor(es)        |
+| ------ | ---------- | --------------------------------------------- | ---------------- |
+| 1.0    | 23/04/2023 | Criação do documento                          | Mauricio Machado |
+| 1.1    | 23/04/2023 | Adição do diagrama de pacotes                 | Mauricio Machado |
+| 1.2    | 27/04/2023 | Adição do diagrama de classes                 | Samuel Macedo    |
+| 1.3    | 27/04/2023 | Adição do diagrama de entidade relacional     | Pedro Moraes     |
+| 1.4    | 27/04/2023 | Adição do modelo relacional                   | Pedro Moraes     |
+| 1.5    | 28/04/2023 | Adição do diagrama de sequência               | Natanael Filho   |
+| 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral        | Davi Mateus      |
+| 1.7    | 28/04/2023 | Adição do diagrama de implementação           | Sávio Cunha      |
+| 2.0    | 15/05/2023 | Adição do diagrama de classes V2              | Samuel Macedo    |
+| 2.1    | 19/05/2023 | Alteração do diagrama de entidade relacional  | Pedro Moraes     |
+| 2.2    | 22/05/2023 | Alteração no diagrama de modelagem relacional | Pedro Moraes     |
