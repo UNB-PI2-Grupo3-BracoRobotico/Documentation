@@ -598,6 +598,38 @@ Chaves Estrangeiras:
 
 As chaves estrangeiras são utilizadas para relacionar informações entre as tabelas. As chaves estrangeiras são definidas em uma tabela e referenciam a chave primária de outra tabela.
 
+# Protótipos
+
+## Protótipo de Baixa Fidelidade
+
+Abaixo temos as imagens referentes aos protótipos de baixa fidelidade do aplicativo de estoque e do aplicativo do consumidor.
+
+### Aplicativo do Estoquista (v1.0)
+
+<img src="./assets/documento_arquitetura/app_estoquista_pg1_v1.jpeg"  width="600">
+
+<img src="./assets/documento_arquitetura/app_estoquista_pg2_v1.jpeg"  width="600">
+
+<img src="./assets/documento_arquitetura/app_estoquista_pg3_v1.jpeg"  width="600">
+
+### Aplicativo do Consumidor (v1.0)
+
+<img src="./assets/documento_arquitetura/app_consumidor_pg1_v1.jpeg"  width="600">
+
+<img src="./assets/documento_arquitetura/app_consumidor_pg2_v1.jpeg"  width="600">
+
+<img src="./assets/documento_arquitetura/app_consumidor_pg3_v1.jpeg"  width="600">
+
+## Protótipo de Alta Fidelidade
+
+### Aplicativo do Estoquista
+
+```figma
+https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&node-id=0%3A1&t=bib8M4Q1HCwNWA0t-1
+```
+
+[Link to figma](https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&node-id=0%3A1&t=bib8M4Q1HCwNWA0t-1)
+
 # Referências
 
 - [1] - Clean architecture in flutter part 1. Disponível em: <https://devmuaz.medium.com/flutter-clean-architecture-series-part-1-d2d4c2e75c47>. Acesso em 23 de Abril de 2023.
@@ -629,3 +661,4 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 | 2.0    | 15/05/2023 | Adição do diagrama de classes V2              | Samuel Macedo    |
 | 2.1    | 19/05/2023 | Alteração do diagrama de entidade relacional  | Pedro Moraes     |
 | 2.2    | 22/05/2023 | Alteração no diagrama de modelagem relacional | Pedro Moraes     |
+| 2.3    | 27/05/2023 | Adição dos protótipos                         | Mauricio Machado |
