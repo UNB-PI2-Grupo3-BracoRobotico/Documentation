@@ -87,22 +87,21 @@ Tem a responsabilidade de armazenar valores de configurações do sistema.
 
 Tem a responsabilidade de armazenar os testes unitários e de integração do sistema.
 
-    
 </details>
 
 ## v2.0
 
 ![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v2.png)
 
-O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte, 
+O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
 e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
 
 A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
-Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas. 
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas.
 É aqui que os microsserviços baseados em eventos são mais importantes.
 Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
-O microsserviço SSOT emite eventos sempre que os dados são alterados. 
-Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados. 
+O microsserviço SSOT emite eventos sempre que os dados são alterados.
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados.
 Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.
 
 ## Estruturas em comuns entre os pacotes
@@ -162,7 +161,6 @@ Contempla valores padrão de configurações que poderão ser sobrescritos por v
 ## Diagrama de Sequência
 
 Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
-
 
 ### Diagrama do aplicativo de compras
 
@@ -267,7 +265,7 @@ sequenceDiagram
     activate Aplicativo
 
     loop Enquanto logado
-        
+
         Usuario->>Aplicativo: Vincular prateleira autônoma
         Aplicativo->>Prateleira: Vincular prateleira ao estoque
         Prateleira-->>Aplicativo: Prateleira vinculada com sucesso
@@ -494,17 +492,28 @@ Um Diagrama de Entidade-Relacionamento (DER) é uma representação gráfica que
 
 # v1.0
 
-![Diagrama de entidade relacional v1.0](assets/documento_arquitetura/diagrama_entidade_relacional.png)
+![Diagrama de entidade relacional v1.0](assets/documento_arquitetura/diagrama_entidade_relacionalV2.png)
 
 O diagrama indica a estrutura do banco que será utilizado no projeto, sendo dividido em 3 tabelas (Produto,Inventario,Transações) onde cada uma contem as colunas nescessarias para o controle do estoque e compra de cada produto.
 
 ## Entidades
 
-Produto: representa os produtos oferecidos e contém os atributos id (identificador único do produto), nome, categoria, valor, descrição.
+Produto: representa os produtos oferecidos e contém os atributos id_Produto (identificador único do produto), nome, preço, descrição.
 
-Inventario: representa as informações de cada produto e contém os atributos de idInventario (identificador único do produto dentro do inventario), x-Localização (posição no eixo x do produto), y-Localização (posição no eixo y do produto),quantidade, produto.
+Inventario: representa as informações de cada produto e contém os atributos de id_Inventario (identificador único do produto dentro do inventario),id_Produto (identificador único do produto), LocalizaçãoX (posição no eixo x do produto), LocalizaçãoY (posição no eixo y do produto),quantidade.
 
-Transação: representa as informações de transações feitas e contém os atributos id(identificador único do produto), total, data, cpf, produtos (lista com todos os produtos da compra), status.
+Carrinho: representa os produtos que o usuário separa para compra e contém os atributos id_Carrinho (identificado único do carrinho), produto\* (produtos do carrinho), quantidadeProd (quantidade de produtos no carriho), total (total do valor da compra), isGroup (identificaodr de compras em grupo).
+
+Pagamento: representa as transações feitas pelo usuário contém os atributos id_Pagamento (identificador único do pagamento),id_Carrinho,
+tipoPagamento (forma como os produtos foram pagos), status, consumidor.
+
+Pedidos: representa a lista de produtos feita pelo usuário e contém os atributos de id_Pedido(identificador único do pedido), tipo, id_Pagamento, id_Carrinho, id_Usuário, data.
+
+Usuário: representa as informações do usuário e contém os atributos cpf, nome, login, senha.
+
+Estoquista: representa as informações do estoquista e contém o atributo de id_Estoquista,controleEstoque.
+
+Consumidor: representa as informações do consumidor e contém os atributos de id_Consumidor,id_Carrinho,id_Pagamento.
 
 # Modelo Relacional
 
@@ -512,39 +521,76 @@ O modelo relacional é uma representação do banco de dados utilizando tabelas,
 
 # v1.0
 
-![Modelo Relacional v1.0](assets/documento_arquitetura/modelagem%20relacional.png)
+![Modelo Relacional v1.0](assets/documento_arquitetura/modelagem_relacionalV2.png)
 
 # Tabelas
 
 ## Produto
 
-- idProduto (chave primária)
+- id_Produto (chave primária)
 - nome
-- valor
-- categoria
+- preço
 - descrição
 
 # Inventário
 
-- idInventario (chave primária)
-- idProduto (chave estranjeira)
+- id_Inventario (chave primária)
+- id_Produto (chave estrangeira)
 - xLocalização
 - yLocalização
 - quantidade
 
-# Transações
+# Carrinho
 
-- idTransação (chave primária)
+- id_Carrinho (chave primária)
+- id_Inventario (chave estrangeira)
+- id_Itens (chave estrangeira)
 - total
-- data
-- cpf
-- status
+- grupo
 
 # Itens_da_compra
 
-- idItens (chave primária)
-- idTransação (chave estranjeira)
-- idProduto (chave estranjeira)
+- id_Itens (chave primária)
+- id_Carrinho (chave estrangeira)
+- id_Produto (chave estrangeira)
+
+# Pagamento
+
+- id_Pagamento (chave primária)
+- id_Carrinho (chave estrangeira)
+- status
+- consumidor
+- tipoPagamento
+
+# Pedidos
+
+- id_Pedido (chave primaria)
+- id_Pagamento (chave estrangeira)
+- id_Carrinho (chave estrangeira)
+- id_Usuário (chave estrangeira)
+- usuário
+- data
+- tipo
+
+# Usuário
+
+- cpf (chave primaria)
+- login
+- senha
+- nome
+
+# Consumidor
+
+- id_COnsumidor (chave primária)
+- cpf (chave estrangeira)
+- id_Carrinho (chave estrangeira)
+- id_Pagamento (chave estrangeira)
+
+# Estoquista
+
+- id_Estoquista (chave primaria)
+- cpf (chave estrangeira)
+- controleEstoque
 
 Cada tabela possui uma chave primária para identificar cada registro de forma única.
 
@@ -570,14 +616,16 @@ As chaves estrangeiras são utilizadas para relacionar informações entre as ta
 
 ## Versionamento
 
-| Versão | Data       | Descrição                                 | Autor(es)        |
-| ------ | ---------- | ----------------------------------------- | ---------------- |
-| 1.0    | 23/04/2023 | Criação do documento                      | Mauricio Machado |
-| 1.1    | 23/04/2023 | Adição do diagrama de pacotes             | Mauricio Machado |
-| 1.2    | 27/04/2023 | Adição do diagrama de classes             | Samuel Macedo    |
-| 1.3    | 27/04/2023 | Adição do diagrama de entidade relacional | Pedro Moraes     |
-| 1.4    | 27/04/2023 | Adição do modelo relacional               | Pedro Moraes     |
-| 1.5    | 28/04/2023 | Adição do diagrama de sequência           | Natanael Filho   |
-| 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral    | Davi Mateus      |
-| 1.7    | 28/04/2023 | Adição do diagrama de implementação       | Sávio Cunha      |
-| 2.0    | 15/05/2023 | Adição do diagrama de classes V2          | Samuel Macedo    |
+| Versão | Data       | Descrição                                     | Autor(es)        |
+| ------ | ---------- | --------------------------------------------- | ---------------- |
+| 1.0    | 23/04/2023 | Criação do documento                          | Mauricio Machado |
+| 1.1    | 23/04/2023 | Adição do diagrama de pacotes                 | Mauricio Machado |
+| 1.2    | 27/04/2023 | Adição do diagrama de classes                 | Samuel Macedo    |
+| 1.3    | 27/04/2023 | Adição do diagrama de entidade relacional     | Pedro Moraes     |
+| 1.4    | 27/04/2023 | Adição do modelo relacional                   | Pedro Moraes     |
+| 1.5    | 28/04/2023 | Adição do diagrama de sequência               | Natanael Filho   |
+| 1.6    | 28/04/2023 | Correção e Revisaão do Documento Geral        | Davi Mateus      |
+| 1.7    | 28/04/2023 | Adição do diagrama de implementação           | Sávio Cunha      |
+| 2.0    | 15/05/2023 | Adição do diagrama de classes V2              | Samuel Macedo    |
+| 2.1    | 19/05/2023 | Alteração do diagrama de entidade relacional  | Pedro Moraes     |
+| 2.2    | 22/05/2023 | Alteração no diagrama de modelagem relacional | Pedro Moraes     |
