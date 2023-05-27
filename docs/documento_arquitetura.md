@@ -408,31 +408,28 @@ Um Diagrama de Entidade-Relacionamento (DER) é uma representação gráfica que
 
 # v1.0
 
-![Diagrama de entidade relacional v1.0](assent/documento_arquitetura/../../assets/documento_arquitetura/diagrama_entidade_relacinalV2.png)
+![Diagrama de entidade relacional v1.0](assets/documento_arquitetura/diagrama_entidade_relacionalV2.png)
 
 O diagrama indica a estrutura do banco que será utilizado no projeto, sendo dividido em 3 tabelas (Produto,Inventario,Transações) onde cada uma contem as colunas nescessarias para o controle do estoque e compra de cada produto.
 
 ## Entidades
 
-Produto: representa os produtos oferecidos e contém os atributos id (identificador único do produto), nome, categoria, valor, descrição.
+Produto: representa os produtos oferecidos e contém os atributos id_Produto (identificador único do produto), nome, preço, descrição.
 
-Inventario: representa as informações de cada produto e contém os atributos de id (identificador único do produto dentro do inventario), x-
-LocalizaçãoX (posição no eixo x do produto), LocalizaçãoY (posição no eixo y do produto),quantidade.
+Inventario: representa as informações de cada produto e contém os atributos de id_Inventario (identificador único do produto dentro do inventario),id_Produto (identificador único do produto), LocalizaçãoX (posição no eixo x do produto), LocalizaçãoY (posição no eixo y do produto),quantidade.
 
-Carrinho: representa os produtos que o usuário separa para compra e contém os atributos produto, quantdade, total (valor total da compra).
+Carrinho: representa os produtos que o usuário separa para compra e contém os atributos id_Carrinho (identificado único do carrinho), produto* (produtos do carrinho), quantidadeProd (quantidade de produtos no carriho), total (total do valor da compra), isGroup (identificaodr de compras em grupo). 
 
-CarrinhoGrupo: representa uma lista de compras feitas por varias pessoas e contém o atibuto usuarioGrupo (são as informações de compra dos usuário).
+Pagamento: representa as transações feitas pelo usuário contém os atributos id_Pagamento (identificador único do pagamento),id_Carrinho,
+tipoPagamento (forma como os produtos foram pagos), status, consumidor.
 
-Pagamento: representa as transações feitas pelo usuário contém os atributos id (identificador único de produto do inventario), total (valor total da compra), tipoPagamento (forma como foi pago a compra),
-status (status da compra), consumidor.
-
-Pedidos: representa a lista de produtos feita pelo usuário e contém os atributos de tipo (tipo do prosuto), pagamento, quantidade, usuário, data.
+Pedidos: representa a lista de produtos feita pelo usuário e contém os atributos de id_Pedido(identificador único do pedido), tipo, id_Pagamento, id_Carrinho, id_Usuário, data.
 
 Usuário: representa as informações do usuário e contém os atributos cpf, nome, login, senha.
 
-Estoquista: representa as informações do estoquista e contém o atributo de controleEstoque.
+Estoquista: representa as informações do estoquista e contém o atributo de id_Estoquista,controleEstoque.
 
-Consumidor: representa as informações do consumidor e contém os atributos de carrinho, pagamento.
+Consumidor: representa as informações do consumidor e contém os atributos de id_Consumidor,id_Carrinho,id_Pagamento.
 
 
 # Modelo Relacional
@@ -441,67 +438,76 @@ O modelo relacional é uma representação do banco de dados utilizando tabelas,
 
 # v1.0
 
-![Modelo Relacional v1.0](assents/../assets/documento_arquitetura/modelagem_relacionalV2.png)
+![Modelo Relacional v1.0](assets/documento_arquitetura/modelagem_relacionalV2.png)
 
 # Tabelas
 
 ## Produto
 
-- idProduto (chave primária)
+- id_Produto (chave primária)
 - nome
 - preço
 - descrição
 
 # Inventário
 
-- idInventario (chave primária)
-- idProduto (chave estrangeira)
+- id_Inventario (chave primária)
+- id_Produto (chave estrangeira)
 - xLocalização
 - yLocalização
 - quantidade
 
 # Carrinho
 
-- idProduto (chave estrangeira)
-- quantidade
+- id_Carrinho (chave primária)
+- id_Inventario (chave estrangeira)
+- id_Itens (chave estrangeira)
 - total
+- grupo
 
-# CarrinhoGrupo
+# Itens_da_compra
 
-- usuárioGrupo
+- id_Itens (chave primária)
+- id_Carrinho (chave estrangeira)
+- id_Produto (chave estrangeira)
 
 # Pagamento
 
-- idPagamento (chave primária)
-- total
-- tipoPagamento
-- consumidor
+- id_Pagamento (chave primária)
+- id_Carrinho (chave estrangeira)
 - status
+- consumidor
+- tipoPagamento
 
 # Pedidos
 
-- tipo
-- pagamento
-- quantidade
+- id_Pedido (chave primaria)
+- id_Pagamento (chave estrangeira)
+- id_Carrinho (chave estrangeira)
+- id_Usuário (chave estrangeira)
 - usuário
 - data
+- tipo
 
 # Usuário
 
-- nome (chave primaria)
-- cpf
+- cpf (chave primaria)
 - login
 - senha
+- nome
 
 # Consumidor
 
-- carrinho (chave estrangeira)
-- pagamento (chave estrangeira)
-- idConsumidor (chave primaria)
+- id_COnsumidor (chave primária)
+- cpf (chave estrangeira)
+- id_Carrinho (chave estrangeira)
+- id_Pagamento (chave estrangeira)
 
 # Estoquista
 
-- controleEstoque (chave primaria)
+- id_Estoquista (chave primaria)
+- cpf (chave estrangeira)
+- controleEstoque
 
 Cada tabela possui uma chave primária para identificar cada registro de forma única.
 
