@@ -643,27 +643,25 @@ Abaixo temos as imagens referentes aos protótipos de baixa fidelidade do aplica
 
 ### Aplicativo do Estoquista (v1.0)
 
-<img src="./assets/documento_arquitetura/app_estoquista_pg1_v1.jpeg"  width="600">
+![Aplicativo do Estoquista Página 1](./assets/documento_arquitetura/app_estoquista_pg1_v1.jpeg)
 
-<img src="./assets/documento_arquitetura/app_estoquista_pg2_v1.jpeg"  width="600">
+![Aplicativo do Estoquista Página 2](./assets/documento_arquitetura/app_estoquista_pg2_v1.jpeg)
 
-<img src="./assets/documento_arquitetura/app_estoquista_pg3_v1.jpeg"  width="600">
+![Aplicativo do Estoquista Página 3](./assets/documento_arquitetura/app_estoquista_pg3_v1.jpeg)
 
 ### Aplicativo do Consumidor (v1.0)
 
-<img src="./assets/documento_arquitetura/app_consumidor_pg1_v1.jpeg"  width="600">
+![Aplicativo do Consumidor Página 1](./assets/documento_arquitetura/app_consumidor_pg1_v1.jpeg)
 
-<img src="./assets/documento_arquitetura/app_consumidor_pg2_v1.jpeg"  width="600">
+![Aplicativo do Consumidor Página 2](./assets/documento_arquitetura/app_consumidor_pg2_v1.jpeg)
 
-<img src="./assets/documento_arquitetura/app_consumidor_pg3_v1.jpeg"  width="600">
+![Aplicativo do Consumidor Página 3](./assets/documento_arquitetura/app_consumidor_pg3_v1.jpeg)
 
 ## Protótipo de Alta Fidelidade
 
 ### Aplicativo do Estoquista
 
-```figma
-https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&node-id=0%3A1&t=bib8M4Q1HCwNWA0t-1
-```
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&node-id=0%3A1&t=bib8M4Q1HCwNWA0t-1" allowfullscreen></iframe>
 
 [Link to figma](https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&node-id=0%3A1&t=bib8M4Q1HCwNWA0t-1)
 
