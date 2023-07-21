@@ -1,0 +1,1103 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../documento_requisito/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>Documento de Arquitetura - Med Grabber</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-arquitetura" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Med Grabber" class="md-header__button md-logo" aria-label="Med Grabber" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Med Grabber
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Arquitetura
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Tema escuro"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Tema escuro" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Tema claro"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Tema claro" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Med Grabber" class="md-nav__button md-logo" aria-label="Med Grabber" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Med Grabber
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Sobre o Projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Documento de Arquitetura
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_requisito/" class="md-nav__link">
+        Documento de Requisitos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_vis%C3%A3o/" class="md-nav__link">
+        Documento de Visão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estruturas/documento_estrutura/" class="md-nav__link">
+        Estruturas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="documento-de-arquitetura">Documento de Arquitetura</h1>
+<p>O documento de arquitetura tem como objetivo apresentar e justificar as decisões em volta da implementação do sistema de software, contemplando o banco de dados, o <em>backend</em>, o <em>frontend</em> e as comunicações com outros sistemas como o de eletrônica.</p>
+<h1 id="definicao-de-stacks">Definição de Stacks</h1>
+<p>A implementação do <em>frontend</em> será feita via uso do frmaework Flutter. O Flutter é um framework de código aberto desenvolvido pelo Google que permite criar aplicativos nativos para dispositivos móveis, web e desktop a partir de uma única base de código. Ele utiliza a linguagem de programação Dart. Os benefícios do uso de tal framework são os seguintes:</p>
+<ul>
+<li>Desenvolvimento rápido de UI: O Flutter possui um conjunto abrangente de widgets personalizáveis que permitem criar interfaces de usuário bonitas e responsivas de forma rápida e eficiente. Além disso, as alterações na interface podem ser visualizadas em tempo real, o que acelera o ciclo de desenvolvimento.</li>
+<li>Performance nativa: Ao contrário dos frameworks híbridos, o Flutter permite o desenvolvimento de aplicativos com desempenho nativo. Ele utiliza um mecanismo de renderização próprio que elimina a necessidade de uma camada de ponte entre o código Flutter e as APIs nativas do dispositivo, resultando em um desempenho rápido e suave.</li>
+<li>Código compartilhado: Com o Flutter, é possível escrever o código uma vez e executá-lo em várias plataformas. Isso significa que você pode criar aplicativos para iOS e Android a partir de uma única base de código, economizando tempo e esforço de desenvolvimento.</li>
+</ul>
+<p>A implementação do banco de dados será mediante por meio do sistema de gerenciamento de banco de dados relacional, PostgreSQL. A utilização de um banco relacional ao invés de um não relacional foi decidida pelos seguintes motivos:</p>
+<ul>
+<li>Estrutura de dados complexa: Dados do aplicativo têm uma estrutura complexa e relacionamentos bem definidos, um banco de dados relacional é uma escolha adequada. Os bancos de dados relacionais usam tabelas, linhas e colunas para organizar e representar dados relacionados. Eles são ideais para casos em que as relações entre as entidades são importantes, como em sistemas de gerenciamento de conteúdo ou sistemas financeiros.</li>
+<li>Transações ACID: Aplicativo requer transações complexas com garantia de consistência e integridade dos dados, um banco de dados relacional é uma opção sólida. Os bancos de dados relacionais seguem o conceito ACID (Atomicidade, Consistência, Isolamento e Durabilidade), que garante que as transações sejam executadas corretamente, mesmo em cenários de falha.</li>
+<li>Escalabilidade vertical: Os bancos de dados relacionais são adequados para escalabilidade vertical, ou seja, aumentar a capacidade de processamento do servidor, como melhorar o desempenho por meio de hardware mais poderoso ou otimizações de consultas.</li>
+</ul>
+<p>Além disso, a utilização de PostgreeSQL ao invés de outro sistema de gerenciamento se deve aos seguintes fatores:</p>
+<ul>
+<li>Modelagem de dados relacional: O PostgreSQL suporta o modelo relacional, permitindo que você defina tabelas, colunas e relacionamentos entre elas. Você pode criar esquemas complexos e aplicar restrições de integridade para garantir a consistência dos dados.</li>
+<li>Suporte a consultas complexas: O PostgreSQL oferece suporte a consultas SQL poderosas e sofisticadas, permitindo realizar operações complexas de junção, agregação e filtragem de dados. Ele também suporta funções, subconsultas, junções externas e outros recursos avançados para manipulação de dados.</li>
+<li>Extensibilidade: O PostgreSQL permite estender suas funcionalidades por meio de extensões. Isso significa que você pode adicionar recursos personalizados, tipos de dados, funções e até mesmo criar suas próprias linguagens de programação procedurais, como PL/pgSQL, PL/Python, PL/Java, entre outras.</li>
+<li>Confiabilidade e escalabilidade: O PostgreSQL é conhecido por sua robustez e estabilidade. Ele é projetado para ser resiliente a falhas, oferece suporte a replicação síncrona e assíncrona para alta disponibilidade e pode lidar com grandes volumes de dados e cargas de trabalho intensivas.</li>
+<li>Segurança avançada: O PostgreSQL oferece uma série de recursos de segurança, incluindo autenticação de usuário, criptografia de dados em trânsito e em repouso, controle de acesso baseado em papéis (RBAC) e auditoria de eventos.</li>
+<li>Suporte a tipos de dados avançados: Além dos tipos de dados padrão, o PostgreSQL oferece suporte a tipos de dados avançados, como arrays, JSON, geometria espacial (PostGIS), dados binários e outros tipos personalizados.</li>
+</ul>
+<p>A implementação do <em>backend</em> será seguindo uma arquitetura de microsserviços baseados em eventos. Para isso decidimos utilizar Python como linguagem de desenvolvimento e Apache Kafka para fazer a comunicação baseada em eventos entre microsserviços.</p>
+<p>A arquitetura de microsserviços permite que você dimensione e gerencie componentes independentemente uns dos outros, além de oferecer uma maior disponibilidade do sistema. Python possui bibliotecas e ferramentas como o asyncio e o gevent, que permitem criar microsserviços assíncronos e escaláveis. Além disso, a natureza independente dos microsserviços em Python ajuda a tornar todo o sistema mais resiliente, pois uma falha em um serviço não afeta diretamente os outros.</p>
+<p>Cada microsserviço será responsável por ser sua única fonte de verdade ou <em>Single Source of Truth</em> (SSOT), ou seja, eles serão responsáveis por gerenciar os dados dentro de suas responsabilidades para garantir a confiabilidade dos mesmos. Para atender a esse requisito arquitetural, todos os microsserviços irão utilizar o mesmo banco de dados.</p>
+<p>Python é conhecido por sua capacidade de se integrar bem com outras tecnologias e sistemas. Você pode usar bibliotecas Python para se comunicar com bancos de dados, sistemas de mensageria e serviços de armazenamento em nuvem por exemplo.</p>
+<p>Em relação à comunicação de microsserviços baseados em eventos, foi escolhido Apache Kafka para realizar a comunicação pois é um software <em>open-source</em> que implementa sistemas distribuidos para <em>streaming</em> de dados para múltiplas plataformas. Fazendo assim que haja uma comunicação em tempo-real entre <em>front-end</em>, os microsserviços e o software embarcado ao braço robótico.</p>
+<p>O Apache Kafka soluciona um grande problema relacionado à processamento de dados que ocorrem de forma assíncrona: essa tecnologia funciona de forma similar a uma fila de mensagens, e por isso é possível manter uma consistência entre os dados independente do momento em que foram modificados, pois os pacotes de dados não se perdem caso ocorra algum erro, fazendo assim que os microsserviços possam tentar obter a mesma mensagem multiplas vezes caso algum erro ocorra como por exemplo algum microsserviço no ecossistema não estar funcionando.</p>
+<p>Um dos microsserviços não atuará baseado em eventos pois não haverá necessidade em transição de dados a ponto que os outros microsserviços precisam atualizar seus estados em tempo real. Este irá implementar uma API REST utilizando o framework FastAPI.</p>
+<h1 id="diagrama-de-implementacao">Diagrama de implementação</h1>
+<p>O Diagrama de Implementação é uma representação visual que mostra a estrutura física da arquitetura de um sistema de software. Ele se concentra na organização do ambiente físico em que o software será implantado e executado, incluindo o hardware necessário, como computadores pessoais e servidores que suportarão o sistema. O diagrama é a visão mais tangível da UML e ajuda a entender como os diferentes componentes do sistema se relacionam entre si em termos físicos.</p>
+<p>O Diagrama de Implementação será usado para descrever a conexão das máquinas e os protocolos de comunicação utilizados para transferir informações. O objetivo é obter uma visão clara da implementação do software, o que facilita o processo de desenvolvimento, uma vez que a modelagem é focada em um nível arquitetural mais específico em relação ao hardware. Com o Diagrama de Implementação, é possível entender como os componentes do sistema se interconectam fisicamente e quais recursos de hardware são necessários para executar o software. Dessa forma, é possível identificar e resolver problemas de desempenho ou escalabilidade antes de implementar o sistema, o que pode economizar tempo e recursos. O diagrama também ajuda a comunicar a arquitetura do sistema para as partes interessadas de forma clara e eficaz.</p>
+<h2 id="v10">v1.0</h2>
+<p><img alt="Versão v1.0 do diagrama de implementação" src="../assets/documento_arquitetura/diagrama_implementacao.png" /></p>
+<p>A primeira versão desse diagrama se concentrou em um nível de desenvolvimento e tangibilizou uma implantação mais simples. Partindo dessa perspectiva, temos o servidor da aplicação englobando o ambiente do Front End, Back End e o Banco de Dados rodando localmente.</p>
+<h2 id="v20">v2.0</h2>
+<p><img alt="Versão v1.0 do diagrama de implementação" src="../assets/documento_arquitetura/diagrama_implementacaoV2.png" /></p>
+<p>A segunda versão desse diagrama apresenta todos os ambientes estão dentro do container do Docker. O acesso é feito pelo protocolo HTTP a partir de navegadores e do protocolo TCP/IP para comunicação com o Banco de Dados.</p>
+<h1 id="diagrama-de-pacote-front-end">Diagrama de Pacote (Front-End)</h1>
+<p>Diagramas de pacotes são diagramas estruturais comumente usados para simplificar os diagramas de classe complexos e organizar as classes em pacotes. Um grande benefício desse artefato é a visibilidade de alto nível do sistema a ser desenvolvido. Abaixo o grupo criou o diagrama de pacotes referente a aplicação front-end com estruturação na <em>Clean Architecture</em>.</p>
+<h2 id="v10_1">v1.0</h2>
+<p><img alt="Diagrama de Pacote Front-End v1.0" src="../assets/documento_arquitetura/diagrama_pacote_frontend_v1.png" /></p>
+<p>O diagrama indica a estrutura do projeto, sendo divida em features, onde cada feature possui as seguintes camadas: infra, data, domain, presentation. Essa estrutura possui diversas classes abstratas, o que entra em acordo com a pasta de testes onde o criamos mocks a partir dessas classes abstratas. A arquitetura do projeto será a <em>Clean Architecture</em>, filosofia para design de software, ela separa os elementos do software em anéis de acesso.<br>
+Isso tem como objetivo organizar o código a fim de encapsular as regras de negócio. A principal regra dessa metodologia de design é que anéis mais externos podem ter conhecimento de anéis internos, porém o inverso não é verdade, dessa forma, camadas internas, não conhecem funções/ métodos de camadas externas.</p>
+<h3 id="infra">Infra</h3>
+<p>Camada que faz o intermédio com à api do sistema, tem a responsabilidade de fazer a request e receber o dado "cru" sem nenhuma tratativa.</p>
+<h3 id="data">Data</h3>
+<p>Camada responsável por tratar o dado adquirido pela infra e passá-lo ao domínio já estruturado como é requisitado. Caso o dado não esteja como esperado, será essa camada que levantará uma exceção que irá ser tratada no domínio da aplicação.</p>
+<h3 id="domain">Domain</h3>
+<p>Camada encapsulado do sistema frontend que não é afetada por mudanças fora dessa camada (com exceções de mudanças na regra do negócio). Nessa camada que é definida os usecases, entidades e falhas específicas do domínio. No caso de necessidade de vários usecases pode-se criar uma rotina que faz uso de um agrupamento de usecases.</p>
+<h1 id="diagrama-de-pacote-back-end">Diagrama de Pacote (Back-end)</h1>
+<p>Diagrama de pacotes são diagramas estruturais comumente usados para simplificar os diagramas de classe complexos e organizar as classes em pacotes. Um grande benefício desse artefato é a visibilidade de alto nível do sistema a ser desenvolvido. Abaixo o grupo criou o diagrama de pacotes referente a aplicação back-end com estruturação na <em>Clean Architecture</em>.</p>
+<h2 id="v10_2">v1.0</h2>
+<p><img alt="Diagrama de Pacote Back-End v1.0" src="../assets/documento_arquitetura/diagrama_pacote_backend_v1.png" /></p>
+<p>Esta versão do diagrama de pacotes v1.0 foi refeita para contemplar conceitos que envolvam o administrador do sistema.</p>
+<details>
+
+Os componentes com o sufixo 'Consumer' e 'Producer' são respectivamente responsáveis por se conectarem com o sistema Apache Kafka para enviar e receber mensagens de outros sistemas e/ou pacotes.
+
+Os componentes com o sufixo 'Processor' têm a responsabilidade de implementar a lógica do pacote, sem se preocupar em como a comunicação com outros sistemas e/ou pacotes é feita.
+
+Os pacotes 'Models' são responsáveis por modelos de objetos a serem utilizados.
+
+Os pacotes 'Exceptions' são responsáveis por especificar excessões para que erros não sejam tratados de forma genérica.
+
+### order_manager
+
+Tem a responsabilidade de gerenciar as ordens de compra, fazendo a comunicação com o banco de dados e com o sistema de pagamento.
+
+### payment_manager
+
+Tem a responsabilidade de gerenciar e verificar os pagamentos.
+
+### robotic_arm_controller
+
+Tem a responsabilidade de gerar e enviar os comandos para o braço robótico.
+
+### database_manager
+
+Tem a responsabilidade de realizar operações de leitura, registro, atualização e remoção de dados no banco de dados.
+
+### config
+
+Tem a responsabilidade de armazenar valores de configurações do sistema.
+
+### tests
+
+Tem a responsabilidade de armazenar os testes unitários e de integração do sistema.
+
+</details>
+
+<h2 id="v20_1">v2.0</h2>
+<p>Esta versão do diagrama de pacotes v2.0 foi refeita para contemplar conceitos que foram adicionados e modificados durante a fase de desenvolvimento.</p>
+<p><img alt="Diagrama de Pacote Back-End v2.0" src="../assets/documento_arquitetura/diagrama_pacote_backend_v2.png" /></p>
+<details>
+
+O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
+e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
+
+A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas.
+É aqui que os microsserviços baseados em eventos são mais importantes.
+Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
+O microsserviço SSOT emite eventos sempre que os dados são alterados.
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados.
+Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.
+
+## Estruturas em comuns entre os pacotes
+
+#### kafka_middleware
+
+Essa estrutura contempla conexão com o servidor Kafka, onde terá um objeto `Consumer` que irá consumir dados dos tópicos, terá `Producer` que irá publicar dados nos tópicos e o `Processor` que irá chamar os pacotes relacionados às regras de negócio.
+
+#### Models
+
+Contempla os modelos de dados a serem utilizados pelos pacotes.
+
+#### Exceptions
+
+Contempla excessões para um melhor tratamento e identificação de erros.
+
+## Descrição dos pacotes
+
+#### user_service
+
+Contempla todas as operações que envolvam ações do usuário com seu prório perfil, autenticação e/ou histórico de compras.
+
+#### order_service
+
+Contempla todas as operações que envolvam ordem de pedidos.
+
+#### robotic_arm_service
+
+Contempla todas as operações necessárias para obter as informações pertinentes a serem enviadas ao braço robótico, como por exemplo
+a localização dos itens que o braço robótico irá pegar.
+
+#### admin_service
+
+Contempla todas as operações e requisições que o administrador do sistema realiza no sistema.
+Operações como verificação e atualização do estoque, obtenção de dados estatísticos das vendas e gerenciamento de usuários.
+
+#### ServerProvider
+
+Contempla uma API REST para acesso às operações de administrador.
+
+#### DatabaseController
+
+Contempla funções necessárias para acesso ao banco de dados que serão utilizadas por outros pacotes, que não precisarão ter sua própria forma de acesso ao banco.
+
+#### Tests
+
+Contempla os testes que serão executados no sistema.
+
+##### Fixtures
+
+Contempla dados preparados para serem utilizados como input os testes.
+
+#### config
+
+Contempla valores padrão de configurações que poderão ser sobrescritos por variáveis de ambiente.
+
+## Diagrama de Sequência
+
+Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
+
+</details>
+
+<h2 id="v30">v3.0</h2>
+<p><img alt="Diagrama de Pacote Back-End v2.0" src="../assets/documento_arquitetura/diagrama_pacote_backend_v3.png" /></p>
+<p>O diagrama de pacotes do backend foi pensado para respeitar uma estrutura <strong>Single Source of Truth</strong> (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
+e por isso todos os pacotes irão utilizar o pacote <code>DatabaseController</code> para se conectar e realizar as operações necessárias no banco de dados.</p>
+<p>A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas.
+É aqui que os microsserviços baseados em eventos são mais importantes.
+Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
+O microsserviço SSOT emite eventos sempre que os dados são alterados.
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados.
+Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.</p>
+<h2 id="estruturas-em-comuns-entre-os-pacotes">Estruturas em comuns entre os pacotes</h2>
+<h4 id="kafka_middleware">kafka_middleware</h4>
+<p>Essa estrutura contempla conexão com o servidor Kafka, onde terá um objeto <code>Consumer</code> que irá consumir dados dos tópicos, terá <code>Producer</code> que irá publicar dados nos tópicos e o <code>Processor</code> que irá chamar os pacotes relacionados às regras de negócio.</p>
+<h4 id="models">Models</h4>
+<p>Contempla os modelos de dados a serem utilizados pelos pacotes.</p>
+<h2 id="descricao-dos-pacotes">Descrição dos pacotes</h2>
+<h4 id="order_service">order_service</h4>
+<p>Serviço que contempla todas as operações que envolvam ordem de pedidos.</p>
+<h4 id="robotic_arm_service">robotic_arm_service</h4>
+<p>Contempla todas as operações necessárias para obter as informações pertinentes a serem enviadas ao braço robótico, como por exemplo
+a localização dos itens que o braço robótico irá pegar.</p>
+<h4 id="api">api</h4>
+<p>Contempla uma API REST para acesso às operações de administrador.
+A API é responsável por processar os dados e enviá-los ao Kafka.</p>
+<h4 id="databasecontroller">DatabaseController</h4>
+<p>Contempla funções necessárias para acesso ao banco de dados que serão utilizadas por outros pacotes, que não precisarão ter sua própria forma de acesso ao banco.</p>
+<h4 id="tests">Tests</h4>
+<p>Contempla os testes que serão executados no sistema.</p>
+<h5 id="fixtures">Fixtures</h5>
+<p>Contempla dados preparados para serem utilizados como input os testes.</p>
+<h4 id="config">config</h4>
+<p>Contempla valores padrão de configurações que poderão ser sobrescritos por variáveis de ambiente.</p>
+<h2 id="diagrama-de-sequencia">Diagrama de Sequência</h2>
+<p>Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.</p>
+<h3 id="diagrama-do-aplicativo-de-compras">Diagrama do aplicativo de compras</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Loja
+    participant Carrinho
+    participant Pagamento
+    participant Grupo
+
+    activate Cliente
+
+    Cliente-&gt;&gt;Loja: Fazer cadastro
+    Loja-&gt;&gt;Cliente: Solicitar nome completo
+    Cliente-&gt;&gt;Loja: Enviar nome completo
+    Loja-&gt;&gt;Cliente: Solicitar CPF
+    Cliente-&gt;&gt;Loja: Enviar CPF
+    Loja-&gt;&gt;Cliente: Solicitar confirmação por foto de documento
+    Cliente-&gt;&gt;Loja: Enviar foto de documento
+    Loja-&gt;&gt;Cliente: Solicitar endereço
+    Cliente-&gt;&gt;Loja: Enviar endereço
+
+    Loja-&gt;&gt;Cliente: Cadastro concluído
+
+    Cliente-&gt;&gt;Loja: Acessar área logada
+    activate Loja
+
+    loop Enquanto logado
+        Cliente-&gt;&gt;Loja: Gerenciar carrinho
+        Loja-&gt;&gt;Carrinho: Adicionar/Remover produtos
+        Loja-&gt;&gt;Cliente: Carrinho atualizado
+
+        Cliente-&gt;&gt;Loja: Juntar-se a um grupo de compra
+        Loja-&gt;&gt;Cliente: Grupos disponíveis
+        activate Grupo
+        Grupo--&gt;&gt;Cliente: Lista de grupos
+
+        Cliente-&gt;&gt;Grupo: Escolher grupo
+        Grupo-&gt;&gt;Loja: Solicitar entrada no grupo
+        Loja-&gt;&gt;Grupo: Verificar disponibilidade e aprovar entrada
+        alt Entrada aprovada
+            Loja--&gt;&gt;Cliente: Entrada aprovada no grupo
+            Cliente-&gt;&gt;Loja: Carrinho compartilhado do grupo
+
+            Cliente-&gt;&gt;Loja: Efetuar compra
+            Loja-&gt;&gt;Cliente: Oferecer formas de pagamento
+            Cliente-&gt;&gt;Loja: Seleciona forma de pagamento
+            activate Pagamento
+
+            Pagamento--&gt;&gt;Cliente: Escolher forma de pagamento
+
+
+            alt Pedido confirmado
+                Loja--&gt;&gt;Cliente: Pedido em processamento
+                Loja--&gt;&gt;Cliente: Pedido a caminho
+                Loja--&gt;&gt;Cliente: Pedido finalizado
+            else Pedido cancelado
+                Loja--&gt;&gt;Cliente: Pedido cancelado
+            end
+
+            deactivate Pagamento
+            Loja-&gt;&gt;Cliente: Compra realizada com sucesso
+        else Entrada negada
+            Loja--&gt;&gt;Cliente: Entrada negada no grupo
+        end
+
+        deactivate Grupo
+    end
+
+    deactivate Loja
+    deactivate Cliente</code></pre>
+<p><center></p>
+<p> Figura 3: diagrama de sequência para o aplicativo de compras do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<p>Descrevendo o fluxo apresentado, o cliente começa fazendo o cadastro, fornecendo informações como nome completo, CPF, confirmação por foto de documento e endereço. Após o cadastro, o cliente faz login na loja e pode gerenciar seu carrinho de compras, adicionando ou removendo produtos. Em seguida, o cliente pode escolher efetuar a compra, onde são oferecidas três formas de pagamento: cartão de crédito, cartão de débito e Pix. Além disso, o diagrama foi atualizado para incluir a funcionalidade de compra em grupo, onde o cliente pode se juntar a outros usuários para realizar uma compra conjunta, compartilhando o carrinho de compras. A loja verifica a disponibilidade e aprova a entrada do cliente no grupo, permitindo que a compra seja concluída.</p>
+<h3 id="diagrama-do-aplicativo-de-estoque">Diagrama do aplicativo de estoque</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Usuario
+    participant Aplicativo
+    participant Estoque
+    participant Prateleira
+    participant Pedido
+    participant Relatorio
+    participant Dashboard
+    participant Notificacoes
+
+    activate Usuario
+
+    Usuario-&gt;&gt;Aplicativo: Fazer cadastro
+    Aplicativo-&gt;&gt;Usuario: Cadastro concluído
+
+    Usuario-&gt;&gt;Aplicativo: Fazer login
+    activate Aplicativo
+
+    loop Enquanto logado
+
+        Usuario-&gt;&gt;Aplicativo: Vincular prateleira autônoma
+        Aplicativo-&gt;&gt;Prateleira: Vincular prateleira ao estoque
+        Prateleira--&gt;&gt;Aplicativo: Prateleira vinculada com sucesso
+
+        Usuario-&gt;&gt;Aplicativo: Gerenciar produtos em estoque
+        Aplicativo-&gt;&gt;Estoque: Consultar produtos em estoque
+        Estoque--&gt;&gt;Aplicativo: Lista de produtos
+
+        Usuario-&gt;&gt;Aplicativo: Adicionar produto em estoque
+        Aplicativo-&gt;&gt;Estoque: Cadastrar novo produto
+        Estoque--&gt;&gt;Aplicativo: Produto adicionado com sucesso
+
+        Usuario-&gt;&gt;Aplicativo: Atualizar produto em estoque
+        Aplicativo-&gt;&gt;Estoque: Atualizar informações do produto
+        Estoque--&gt;&gt;Aplicativo: Produto atualizado com sucesso
+
+        Usuario-&gt;&gt;Aplicativo: Remover produto em estoque
+        Aplicativo-&gt;&gt;Estoque: Remover produto do estoque
+        Estoque--&gt;&gt;Aplicativo: Produto removido com sucesso
+
+        Usuario-&gt;&gt;Aplicativo: Acessar status de pedidos
+        Aplicativo-&gt;&gt;Pedido: Consultar status de pedidos
+        Pedido--&gt;&gt;Aplicativo: Lista de status de pedidos
+
+        Usuario-&gt;&gt;Aplicativo: Gerar relatório de vendas
+        Aplicativo-&gt;&gt;Relatorio: Gerar relatório em PDF
+        Relatorio--&gt;&gt;Aplicativo: Relatório gerado com sucesso
+
+        Usuario-&gt;&gt;Aplicativo: Acessar dashboard de vendas
+        Aplicativo-&gt;&gt;Dashboard: Exibir dashboard de vendas
+        Dashboard--&gt;&gt;Aplicativo: Dashboard exibido
+
+        Usuario-&gt;&gt;Aplicativo: Personalizar notificações
+        Aplicativo-&gt;&gt;Notificacoes: Configurar preferências de notificação
+        Notificacoes--&gt;&gt;Aplicativo: Notificações personalizadas configuradas
+
+        Usuario-&gt;&gt;Aplicativo: Solicitar alteração de status da prateleira autônoma
+        Aplicativo-&gt;&gt;Prateleira: Alterar status da prateleira
+        Prateleira--&gt;&gt;Aplicativo: Novo status de funcionamento da prateleira
+
+    end
+
+    deactivate Aplicativo</code></pre>
+<p><center></p>
+<p> Figura 4: diagrama de sequência para o aplicativo de estoques do Projeto Integrador 2, Med Grabber(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<p>Descrevendo o fluxo apresentando na figura, O usuário realiza o cadastro e faz login no aplicativo. Em seguida, o usuário pode vincular uma prateleira autônoma ao aplicativo do estoque. Após a vinculação, o usuário pode gerenciar os produtos em estoque, realizando ações como adicionar, consultar, atualizar e remover produtos. O usuário também pode acessar o status dos pedidos existentes. Além disso, o aplicativo permite a geração de relatórios de vendas em formato PDF e exibe um dashboard de vendas. O usuário pode personalizar as notificações de acordo com suas preferências. Por fim, o usuário pode solicitar a alteração do status de funcionamento da prateleira autônoma, e o aplicativo informa o status atual conforme necessário.</p>
+<h3 id="composicao-do-diagrama-de-sequencia">Composição do Diagrama de Sequência</h3>
+<ol>
+<li><strong>Participante:</strong> Os objetos ou atores envolvidos na interação são representados como participantes no diagrama.[4]</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Sistema</code></pre>
+<p><center></p>
+<p> Figura 5: exemplo de participante, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<ol>
+<li><strong>Mensagens:</strong> As mensagens representam a comunicação entre os participantes, indicando as informações trocadas e a ordem em que as mensagens são enviadas.[2]</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    Cliente-&gt;&gt;Sistema: Seleciona itens da loja</code></pre>
+<p><center></p>
+<p> Figura 6: exemplo de mensagem, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<ol>
+<li><strong>Linhas de vida:</strong> As linhas de vida representam o tempo durante o qual um participante está ativo no sistema.[4]</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Sistema
+    Cliente-&gt;&gt;Sistema: Seleciona itens da loja
+    activate Sistema
+    Sistema-&gt;&gt;Sistema: Adiciona itens ao carrinho de compra
+    deactivate Sistema
+</code></pre>
+<p><center></p>
+<p> Figura 7: exemplo de linha de vida, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<ol>
+<li><strong>Ativação:</strong> A ativação é usada para indicar quando um participante está executando uma tarefa específica em resposta a uma mensagem recebida.[4]</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Sistema
+    Cliente-&gt;&gt;Sistema: Entra no fluxo de pagamento
+    activate Cliente
+    Cliente-&gt;&gt;Sistema: Seleciona vincular CPF
+    activate Sistema
+    Sistema-&gt;&gt;Cliente: Solicita CPF
+    Cliente-&gt;&gt;Sistema: Informa CPF
+    deactivate Cliente
+    Sistema-&gt;&gt;Sistema: Processa pagamento
+    deactivate Sistema
+</code></pre>
+<p><center></p>
+<p> Figura 8: exemplo de ativação, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<ol>
+<li><strong>Desvios de condição:</strong> Desvios de condição são usados para indicar fluxos alternativos na sequência de mensagens, dependendo das condições específicas que ocorrem durante a interação.[4]</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Sistema
+    alt Item fora de estoque
+        Cliente-&gt;&gt;Sistema: Seleciona item
+        Sistema-&gt;&gt;Cliente: Retorna que item está fora de estoque
+    else
+        Cliente-&gt;&gt;Sistema: Solicita itens
+        Sistema-&gt;&gt;Sistema: Remove itens do carrinho
+        Cliente-&gt;&gt;Sistema: Envia solicitação de compra
+        Sistema-&gt;&gt;Cliente: Confirmação de compra
+    end
+</code></pre>
+<p><center></p>
+<p> Figura 9: exemplo de desvio de condicional, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<ol>
+<li><strong>Anotações:</strong> As anotações são usadas para adicionar informações adicionais ao diagrama, como notas ou explicações sobre a interação.[4]</li>
+</ol>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Sistema
+    Cliente-&gt;&gt;Sistema: Seleciona itens da loja
+    note right of Sistema: Adiciona itens ao carrinho</code></pre>
+<p><center></p>
+<p> Figura 10: exemplo de anotações, composição do diagrama de sequência(Fonte: autores, 2023).</p>
+
+<p></center></p>
+<!--Bibitex para referencia
+
+@article{LuLunjin2014Rbos,
+  title={Required behavior of sequence diagrams: Semantics and conformance},
+  author={Lu, Lunjin and Kim, Dae-Kyoo},
+  journal={ACM transactions on software engineering and methodology},
+  volume={23},
+  number={2},
+  pages={1--28},
+  year={2014}
+}
+
+@misc{IBM,
+  title={Sequence diagrams},
+  author={IBM},
+  howpublished={\url{https://www.ibm.com/docs/pt-br/rsm/7.5.0?topic=uml-sequence-diagrams}},
+  year={Acesso em: 27 abr. 2023},
+}
+
+-->
+
+<h1 id="diagrama-de-classes">Diagrama de Classes</h1>
+<p>Os diagramas de classes são usados para descrever a estrutura de um sistema orientado a objetos. Ele representa a estrutura estática do sistema em termos de classes, interfaces, atributos, métodos e relacionamentos entre eles.</p>
+<p>As classes são representadas como retângulos, com o nome da classe no topo do retângulo. Os atributos são listados abaixo do nome da classe, enquanto os métodos são listados abaixo dos atributos.</p>
+<h2 id="v20_2">v2.0</h2>
+<p><img alt="Diagrama de classes Modelo v2.0" src="/docs/assets/documento_arquitetura/diagrama_classe_V2.png" /></p>
+<p>O diagrama indica o modelo do projeto. Esse modelo possui diversas classes que representam as funções do sistema.</p>
+<h2 id="classes">Classes</h2>
+<p>Inventário: representa a quatidade de um tipo de produto e sua devida localização, com uma id e um objeto do tipo Produto e uma localização x e outra y para saber sua localidade exata.</p>
+<p>Estoque: representa uma lista de objetos do tipo inventário.</p>
+<p>Produto: representa um Produto do Inventario, com um id, nome, descrição e preço.</p>
+<p>Pagamento: representa o pagamento de um cliente, com um id, um valor total, um status (concluído ou não), e uma informação do cliente.</p>
+<p>Carrinho: representa os itens e valores dos produtos que o cliente escolheu, com objeto do tipo produto que controla a lista de produto, uma quantidade e o total.</p>
+<p>CarrinhoGrupo: Representa uma classe filho da Carrinho com as caracteristicas para compras em grupo.</p>
+<p>Pedidos: Uma classe pedidos que é responsável de fazer o controle de todos os pedidos feitos no sistema.</p>
+<p>Usuário: Uma classe pai cliente que representa todo o cadastro do publico que utilizar o sistema.</p>
+<p>Consumidor: Uma classe filho da classe Usuário com objeto de controlar o Carrinho e o pagamento.</p>
+<p>Estoquista: Uma classe filho da classe Usuário responsável de fazer o controle do Estoque, como um usuário Administrador.</p>
+<h1 id="diagrama-de-entidade-relacional">Diagrama de entidade relacional</h1>
+<p>Um Diagrama de Entidade-Relacionamento (DER) é uma representação gráfica que ilustra as entidades, atributos e relacionamentos entre as entidades de um modelo de dados.O DER permite que os desenvolvedores de banco de dados visualizem e compreendam as relações entre as diferentes entidades em um sistema, e isso pode ajudar a garantir que o modelo de dados seja completo, preciso e fácil de entender.</p>
+<h1 id="v10_3">v1.0</h1>
+<p><img alt="Diagrama de entidade relacional v1.0" src="../assets/documento_arquitetura/diagrama_entidade_relacionalV2.png" /></p>
+<p>O diagrama indica a estrutura do banco que será utilizado no projeto, sendo dividido em 3 tabelas (Produto,Inventario,Transações) onde cada uma contem as colunas nescessarias para o controle do estoque e compra de cada produto.</p>
+<h2 id="entidades">Entidades</h2>
+<p>Produto: representa os produtos oferecidos e contém os atributos id_Produto (identificador único do produto), nome, preço, descrição.</p>
+<p>Inventario: representa as informações de cada produto e contém os atributos de id_Inventario (identificador único do produto dentro do inventario),id_Produto (identificador único do produto), LocalizaçãoX (posição no eixo x do produto), LocalizaçãoY (posição no eixo y do produto),quantidade.</p>
+<p>Carrinho: representa os produtos que o usuário separa para compra e contém os atributos id_Carrinho (identificado único do carrinho), produto* (produtos do carrinho), quantidadeProd (quantidade de produtos no carriho), total (total do valor da compra), isGroup (identificaodr de compras em grupo).</p>
+<p>Pagamento: representa as transações feitas pelo usuário contém os atributos id_Pagamento (identificador único do pagamento),id_Carrinho,
+tipoPagamento (forma como os produtos foram pagos), status, consumidor.</p>
+<p>Pedidos: representa a lista de produtos feita pelo usuário e contém os atributos de id_Pedido(identificador único do pedido), tipo, id_Pagamento, id_Carrinho, id_Usuário, data.</p>
+<p>Usuário: representa as informações do usuário e contém os atributos cpf, nome, login, senha.</p>
+<p>Estoquista: representa as informações do estoquista e contém o atributo de id_Estoquista,controleEstoque.</p>
+<p>Consumidor: representa as informações do consumidor e contém os atributos de id_Consumidor,id_Carrinho,id_Pagamento.</p>
+<h1 id="modelo-relacional">Modelo Relacional</h1>
+<p>O modelo relacional é uma representação do banco de dados utilizando tabelas, colunas e chaves primárias e estrangeiras, que permitem armazenar e relacionar informações de forma organizada e eficiente.</p>
+<h1 id="v10_4">v1.0</h1>
+<p><img alt="Modelo Relacional v1.0" src="../assets/documento_arquitetura/modelagem_relacionalV2.png" /></p>
+<h1 id="tabelas">Tabelas</h1>
+<h2 id="produto">Produto</h2>
+<ul>
+<li>id_Produto (chave primária)</li>
+<li>nome</li>
+<li>preço</li>
+<li>descrição</li>
+</ul>
+<h1 id="inventario">Inventário</h1>
+<ul>
+<li>id_Inventario (chave primária)</li>
+<li>id_Produto (chave estrangeira)</li>
+<li>xLocalização</li>
+<li>yLocalização</li>
+<li>quantidade</li>
+</ul>
+<h1 id="carrinho">Carrinho</h1>
+<ul>
+<li>id_Carrinho (chave primária)</li>
+<li>id_Inventario (chave estrangeira)</li>
+<li>id_Itens (chave estrangeira)</li>
+<li>total</li>
+<li>grupo</li>
+</ul>
+<h1 id="itens_da_compra">Itens_da_compra</h1>
+<ul>
+<li>id_Itens (chave primária)</li>
+<li>id_Carrinho (chave estrangeira)</li>
+<li>id_Produto (chave estrangeira)</li>
+</ul>
+<h1 id="pagamento">Pagamento</h1>
+<ul>
+<li>id_Pagamento (chave primária)</li>
+<li>id_Carrinho (chave estrangeira)</li>
+<li>status</li>
+<li>consumidor</li>
+<li>tipoPagamento</li>
+</ul>
+<h1 id="pedidos">Pedidos</h1>
+<ul>
+<li>id_Pedido (chave primaria)</li>
+<li>id_Pagamento (chave estrangeira)</li>
+<li>id_Carrinho (chave estrangeira)</li>
+<li>id_Usuário (chave estrangeira)</li>
+<li>usuário</li>
+<li>data</li>
+<li>tipo</li>
+</ul>
+<h1 id="usuario">Usuário</h1>
+<ul>
+<li>cpf (chave primaria)</li>
+<li>login</li>
+<li>senha</li>
+<li>nome</li>
+</ul>
+<h1 id="consumidor">Consumidor</h1>
+<ul>
+<li>id_COnsumidor (chave primária)</li>
+<li>cpf (chave estrangeira)</li>
+<li>id_Carrinho (chave estrangeira)</li>
+<li>id_Pagamento (chave estrangeira)</li>
+</ul>
+<h1 id="estoquista">Estoquista</h1>
+<ul>
+<li>id_Estoquista (chave primaria)</li>
+<li>cpf (chave estrangeira)</li>
+<li>controleEstoque</li>
+</ul>
+<p>Cada tabela possui uma chave primária para identificar cada registro de forma única.</p>
+<p>Chaves Estrangeiras:</p>
+<p>As chaves estrangeiras são utilizadas para relacionar informações entre as tabelas. As chaves estrangeiras são definidas em uma tabela e referenciam a chave primária de outra tabela.</p>
+<h1 id="prototipos">Protótipos</h1>
+<h2 id="prototipo-de-baixa-fidelidade">Protótipo de Baixa Fidelidade</h2>
+<p>Abaixo temos as imagens referentes aos protótipos de baixa fidelidade do aplicativo de estoque e do aplicativo do consumidor.</p>
+<h3 id="aplicativo-do-estoquista-v10">Aplicativo do Estoquista (v1.0)</h3>
+<p><img alt="Aplicativo do Estoquista Página 1" src="../assets/documento_arquitetura/app_estoquista_pg1_v1.jpeg" /></p>
+<p><img alt="Aplicativo do Estoquista Página 2" src="../assets/documento_arquitetura/app_estoquista_pg2_v1.jpeg" /></p>
+<p><img alt="Aplicativo do Estoquista Página 3" src="../assets/documento_arquitetura/app_estoquista_pg3_v1.jpeg" /></p>
+<h3 id="aplicativo-do-consumidor-v10">Aplicativo do Consumidor (v1.0)</h3>
+<p><img alt="Aplicativo do Consumidor Página 1" src="../assets/documento_arquitetura/app_consumidor_pg1_v1.jpeg" /></p>
+<p><img alt="Aplicativo do Consumidor Página 2" src="../assets/documento_arquitetura/app_consumidor_pg2_v1.jpeg" /></p>
+<p><img alt="Aplicativo do Consumidor Página 3" src="../assets/documento_arquitetura/app_consumidor_pg3_v1.jpeg" /></p>
+<h2 id="prototipo-de-alta-fidelidade">Protótipo de Alta Fidelidade</h2>
+<h3 id="aplicativo-do-estoquista">Aplicativo do Estoquista</h3>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&node-id=0%3A1&t=bib8M4Q1HCwNWA0t-1" allowfullscreen></iframe>
+
+<p><a href="https://www.figma.com/file/En98dVrsDzcJWDpYWveyKZ/Apps?type=design&amp;node-id=0%3A1&amp;t=bib8M4Q1HCwNWA0t-1">Link to figma</a></p>
+<h1 id="justificativa-de-decisoes">Justificativa de Decisões</h1>
+<p>Utilizar a Clean Architecture (Arquitetura Limpa) em um projeto frontend traz diversos benefícios, especialmente em relação a testes e encapsulamento do domínio da aplicação. Os benefícios são:</p>
+<ul>
+<li>Testabilidade: A Clean Architecture promove a testabilidade do código. Ao separar claramente as responsabilidades em camadas distintas, como a camada de domínio, a camada de aplicação e a camada de interface do usuário, é mais fácil isolar e testar cada uma dessas camadas de forma independente. Isso permite que você escreva testes unitários mais granulares, sem depender de componentes externos ou do ambiente de execução.</li>
+<li>Encapsulamento do domínio: A Clean Architecture enfatiza o encapsulamento do domínio da aplicação. A camada de domínio contém as regras de negócio e lógica de negócio essenciais para o funcionamento da aplicação. Ao manter essa camada isolada e independente das camadas externas, como a camada de interface do usuário e a camada de infraestrutura, você garante que as regras de negócio permaneçam coesas, independentes e mais fáceis de serem modificadas sem afetar outras partes do sistema.</li>
+<li>Baixo acoplamento: A Clean Architecture busca minimizar o acoplamento entre as diferentes camadas do sistema. Ao definir interfaces claras e utilizar inversão de dependência (Dependency Inversion Principle), as camadas de mais alto nível dependem apenas de abstrações, não de implementações concretas. Isso promove uma maior flexibilidade, pois você pode substituir componentes facilmente sem afetar outras partes do sistema.</li>
+<li>Facilidade de evolução e manutenção: Com a Clean Architecture, é mais fácil evoluir e manter o sistema ao longo do tempo. A separação clara de responsabilidades e o baixo acoplamento permitem que você faça alterações em uma camada sem afetar outras partes do sistema. Isso reduz o risco de efeitos colaterais indesejados e torna a manutenção e a evolução do código mais simples e seguras.</li>
+<li>Reaproveitamento de código: A Clean Architecture facilita o reaproveitamento de código. Com a separação das responsabilidades em camadas distintas, você pode reutilizar componentes, como regras de negócio ou serviços, em diferentes partes do sistema ou até mesmo em outros projetos, sem a necessidade de modificá-los. Isso aumenta a produtividade e a consistência do desenvolvimento.</li>
+</ul>
+<h1 id="referencias">Referências</h1>
+<ul>
+<li>[1] - Clean architecture in flutter part 1. Disponível em: <a href="https://devmuaz.medium.com/flutter-clean-architecture-series-part-1-d2d4c2e75c47">https://devmuaz.medium.com/flutter-clean-architecture-series-part-1-d2d4c2e75c47</a>. Acesso em 23 de Abril de 2023.</li>
+<li>[2] - Designing Software Using Clean Architecture: Domain-Driven Design. Disponível em: <a href="https://betterprogramming.pub/how-to-design-in-clean-architecture-way-part-2-8524e76f2720">https://betterprogramming.pub/how-to-design-in-clean-architecture-way-part-2-8524e76f2720</a>. Acesso em 23 de Abril de 2023.</li>
+<li>[3] LU, L.; KIM, D.-K. Required behavior of sequence diagrams: Semantics and conformance. ACM Transactions on Software Engineering and Methodology, v. 23, n. 2, p. 1-28, 2014.</li>
+<li>[4] IBM. IBM Rational Software Modeler. Sequence diagrams. Disponível em: https://www.ibm.com/docs/pt-br/rsm/7.5.0?topic=uml-sequence-diagrams. Acesso em: 27 abr. 2023.</li>
+<li>[5] - Pilone, D., &amp; Pitman, N. (2005). UML 2.0 in a Nutshell. O'Reilly Media.</li>
+<li>[6] - Booch, G., Rumbaugh, J., &amp; Jacobson, I. (1999). UML - Guia do Usuário. Bookman.</li>
+<li>[7] - Pilone, D., &amp; Pitman, N. (2005). UML 2.0 in a Nutshell. O'Reilly Media.</li>
+<li>[8] - Booch, G., Rumbaugh, J., &amp; Jacobson, I. (1999). UML - Guia do Usuário. Bookman.</li>
+<li>[9] - TEORY, T. LIGHTSTONE, S., NADEAU, T. and JAGADISH, H. V. Database Modeling and Design: Logical Design. USA: Morgan Kaufmann, 2005</li>
+<li>[10] - SILBERSCHATZ, A., KORTH, H. F. e SUDARSHAN, S. Sistemas de Bancos de Dados. Editora Campus. 2006.</li>
+<li>[11] -Diagramas de Implementação. Disponível em: https://www.ibm.com/docs/pt-br/rsas/7.5.0?topic=topologies-deployment-diagrams. Acesso em: 26 de abr. 2022</li>
+<li>[12] - Diagrama de Implantação .Disponível em: https://creately.com/blog/pt/diagrama/tutorial-do-diagrama-de-implantacao/. Acesso em: 26 de abr. 2022</li>
+<li>[13] - VISUAL PARADIGM. UML Deployment Diagram. Disponível em: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-deployment-diagram/. Acesso em: 27 abr. 2023.</li>
+</ul>
+<h2 id="versionamento">Versionamento</h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>23/04/2023</td>
+<td>Criação do documento</td>
+<td>Mauricio Machado</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>23/04/2023</td>
+<td>Adição do diagrama de pacotes</td>
+<td>Mauricio Machado</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>27/04/2023</td>
+<td>Adição do diagrama de classes</td>
+<td>Samuel Macedo</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>27/04/2023</td>
+<td>Adição do diagrama de entidade relacional</td>
+<td>Pedro Moraes</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>27/04/2023</td>
+<td>Adição do modelo relacional</td>
+<td>Pedro Moraes</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>28/04/2023</td>
+<td>Adição do diagrama de sequência</td>
+<td>Natanael Filho</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>28/04/2023</td>
+<td>Correção e Revisaão do Documento Geral</td>
+<td>Davi Mateus</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td>28/04/2023</td>
+<td>Adição do diagrama de implementação</td>
+<td>Sávio Cunha</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>15/05/2023</td>
+<td>Adição do diagrama de classes V2</td>
+<td>Samuel Macedo</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>19/05/2023</td>
+<td>Alteração do diagrama de entidade relacional</td>
+<td>Pedro Moraes</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>22/05/2023</td>
+<td>Alteração no diagrama de modelagem relacional</td>
+<td>Pedro Moraes</td>
+</tr>
+<tr>
+<td>2.3</td>
+<td>27/05/2023</td>
+<td>Adição dos protótipos</td>
+<td>Mauricio Machado</td>
+</tr>
+<tr>
+<td>2.4</td>
+<td>27/05/2023</td>
+<td>Adição justificativa diagramas</td>
+<td>Mauricio Machado</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.section"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1573 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../documento_arquitetura/">
+      
+      
+        <link rel="next" href="../documento_vis%C3%A3o/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>Documento de Requisitos - Med Grabber</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-requisito" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Med Grabber" class="md-header__button md-logo" aria-label="Med Grabber" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Med Grabber
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Requisitos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Tema escuro"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Tema escuro" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Tema claro"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Tema claro" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Med Grabber" class="md-nav__button md-logo" aria-label="Med Grabber" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Med Grabber
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Sobre o Projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_arquitetura/" class="md-nav__link">
+        Documento de Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Documento de Requisitos
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_vis%C3%A3o/" class="md-nav__link">
+        Documento de Visão
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estruturas/documento_estrutura/" class="md-nav__link">
+        Estruturas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="documento-de-requisito">Documento de Requisito</h1>
+<!-- Adicionar explicação do que é o documento de requisito e sua finalidade -->
+
+<h1 id="diagrama-de-casos-de-uso">Diagrama de Casos de Uso</h1>
+<p>O diagrama de casos de uso [2] descreve um conjunto de ações, chamados de casos de uso, que um sistema desempenha, levando em consideração os usuários externos ao sistema. Ele pode ser usado para descrever as principais funcionalidades do sistema e a interação com os usuários. </br></p>
+<p>Para a criação desse artefato foi utilizado a abordagem tradicional, ou seja, representação os casos de uso através de uma diagrama UML[1]. A ferramenta utilizada para a criação do diagrama foi o LucidChart [3], um software online para criação de diagramas.</p>
+<h2 id="v20">v2.0</h2>
+<p><img alt="Diagrama de Casos de Uso Estoque v1.0" src="../assets/documento_requisito/casos_de_uso_comprador_v1.png" />
+<img alt="Diagrama de Casos de Uso Comprador v1.0" src="../assets/documento_requisito/casos_de_uso_estoque_v1.png" /></p>
+<h2 id="v10">v1.0</h2>
+<p><a href="../assets/documento_requisito/diagrama_caso_de_uso_v1.png">Diagrama de Casos de Uso v1.0</a></p>
+<p>A seguir, a especificação dos casos de uso identificados.</p>
+<h3 id="uc01-visualizar-lista-de-produtos">UC01. Visualizar lista de produtos</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC01</th>
+<th align="center">Visualizar lista de produtos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet e conta criada</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário com conta criada acessa o app. Ao entrar nele será apresentado na tela inicial, que conterá os produtos disponíveis para compra</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário abre o aplicativo <li> Usuário insere credenciais de acesso <li> Lista de produtos é carregada e apresentada ao usuário </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><ol> <li> Usuário sem conta abre o aplicativo <li> Usuário cria conta <li> Lista de Produtos é carregada e apresentada ao usuário </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário não possui conexão com internet ao acessar área logada</strong> <ol> <li> Usuário faz o processo de login <li> Usuário perde conexão com internet <li> Requisição tentar adquirir a lista de produtos <li> Requisição falha <li> Usuário é apresentado que está sem internet e por isso não foi possível carregar a lista de produtos</ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 1: Especificação do caso de uso: Visualizar lista de produtos. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc02-filtrar-lista-de-produtos">UC02. Filtrar lista de produtos</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC02</th>
+<th align="center">Filtrar lista de produtos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet e conta criada</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no ícone de adicionar filtro de buscas.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no ícone de adicionar filtro de buscas <li> Usuário seleciona alguns filtros <li> Usuário aplica os filtros <li> Usuário é apresentado com itens que condizem com os filtros aplicados </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Filtros não tem nenhum item correspondente</strong> <ol> <li> Usuário clica no ícone de adicionar filtro de buscas <li> Usuário seleciona alguns filtros <li> Usuário aplica os filtros <li> Nenhum produto é encontrado que seja condizente com o filtro <li> Usuário é apresentado com uma mensagem explicando que nenhum produto foi encontrado para essa busca</ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center">Não há</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 2: Especificação do caso de uso: Filtrar lista de produtos. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc03-pesquisar-produto">UC03. Pesquisar produto</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC03</th>
+<th align="center">Pesquisar produto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet e conta criada</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no botão de fazer busca.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no botão de buscas <li> Usuário digita o que está procurando <li> Itens com escrita similar serão apresentados </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Busca não encontra nenhum produto correspondente ou similar</strong> <ol> <li> Usuário clica no botão de buscas <li> Usuário digita o que está procurando <li> Nenhum item é encontrado <li> Usuário é apresentado com uma mensagem explicando que nenhum produto foi encontrado para essa busca </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário perde conexão de internet durante a busca</strong> <ol> <li> Usuário perde conexão ao tentar fazer uma busca <li> Usuário é informado de que está sem internet e deve se reconectar para continuar a busca </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 3: Especificação do caso de uso: Pesquisar produto. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc04-visualizar-produto">UC04. Visualizar produto</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC04</th>
+<th align="center">Visualizar produto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet e conta criada</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário seleciona em algum card de produto.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no card de produto <li> Usuário é apresentado com os detalhes do produto </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário acessa os detalhes de um produto via carrinho</strong> <ol> <li> Usuário acessa o carrinhos de compras <li> Usuário clica em algum dos card de produtos do seu carrinho <li> Usuário é apresentado com os detalhes do produto selecionado </ol> <strong>Fluxo 2. Produto tem estoque zerado enquanto usuário tenta acessar o produto</strong> <ol> <li> Usuário clica em card do produto <li> Usuário é apresentado que o produto não está mais disponível para compra pois está sem estoque </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Erro ao carregar informações do produto</strong> <ol> <li> Usuário clica no card de detalhes do produto <li> Erro acontece ao tentar carregar os detalhes <li> Usuário é apresentado tela dizendo que o processamento do carregamento do item teve um problema e que ele pode tentar carregar novamente </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 4: Especificação do caso de uso: Visualizar produto. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc05-adicionar-produto-ao-carrinho">UC05. Adicionar produto ao carrinho</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC05</th>
+<th align="center">Adicionar produto ao carrinho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada e estar numa página de detalhe de produtos</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica em adicionar produto ao carrinho.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica em adicionar produto ao carrinho <li> Usuário recebe feedback de sucesso ao adicionar item </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center">Não há</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Estoque inexistente ao clicar em adicionar</strong> <ol> <li> Usuário clica em adicionar produto ao carrinho <li> Usuário recebe feedback de que o produto não está mais disponível para compra pois seu estoque acabou</ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 5: Especificação do caso de uso: Adicionar produto ao carrinho. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc06-contatar-suporte">UC06. Contatar suporte</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC06</th>
+<th align="center">Contatar suporte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Média</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no botão de ajuda.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no botão de ajuda <li> Usuário é redirecionado para página de FAQ e abertura de chat </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center">Não há</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Sem internet</strong> <ol> <li> Usuário clica no botão de ajuda <li> Usuário é redirecionado para página apresentando que ele está sem internet e que deve se reconectar para poder obter ajuda </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 6: Especificação do caso de uso: Contatar suporte. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc07-realizar-compras-em-grupo">UC07. Realizar compras em grupo</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC07</th>
+<th align="center">Realizar compras em grupo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Média</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Pedir entrada em um grupo.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário pede acesso a um grupo de compra <li> Usuário é aceito e pode adicionar itens no carrinho da compra em grupo </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário tem acesso negado ao grupo</strong> <ol> <li> Usuário pede acesso a um grupo de compra <li> Acesso é negado e usuário recebe esse feedback via notificação push </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center">Não há</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 7: Especificação do caso de uso: Realizar compras em grupo. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc08-criacao-de-conta">UC08. Criação de conta</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC08</th>
+<th align="center">Criação de conta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, número de documento não utilizado no aplicativo</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no botão de cadastro.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário insere informações de usuário <li> Usuário faz a validação de identidade <li> Usuário é redirecionado para a home do aplicativo </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário tem acesso negado ao grupo</strong> <ol> <li> Usuário pede acesso a um grupo de compra <li> Acesso é negado e usuário recebe esse feedback via notificação push </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário usa informação usada em outro cadastro (número de documento ou email)</strong> <ol> <li> Usuário adiciona informação que já foi usada em outro cadastro e não pode se repetir <li> Usuário recebe feedback sobre isso e é avisado que enquanto não arrumar isso não conseguirá finalizar o cadastro </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 8: Especificação do caso de uso: Criação de conta. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc09-finalizar-carrinho">UC09. Finalizar carrinho</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC09</th>
+<th align="center">Finalizar carrinho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada, carrinho com ao menos um item</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no botão de finalizar compra.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no botão de finalizar compra. <li> Sistema valida se todos os itens do carrinho ainda estão disponíveis <li> Usuário procede para inserção de informações de pagamento <li> Usuário clica em confirmar pedido <li> Carrinho é finalizado e processo de construção do pedido iniciado </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Usuário já possui método de pagamento registrado</strong> <ol> <li> Usuário clica no botão de finalizar compra. <li> Sistema valida se todos os itens do carrinho ainda estão disponíveis <li> Usuário seleciona método de pagamento previamente cadastrado <li> Usuário clica em confirmar pedido <li> Carrinho é finalizado e processo de construção do pedido iniciado </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Sem internet</strong> <ol> <li> Usuário clica no botão de finalizar compra <li> Usuário é redirecionado para página explicando que ele está sem sinal e deve se reconectar para finalizar o pedido. </ol> <strong>Fluxo 2. Itens do carrinho não estão mais disponíveis</strong> <ol> <li> Usuário clica no botão de finalizar compra <li> Sistema verifica se todos os pedidos estão disponíveis <li> Usuário é informado que determinados itens não estão mais disponíveis e serão portanto removidos </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 9: Especificação do caso de uso: Finalizar carrinho. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc10-acompanhar-pedido">UC10. Acompanhar pedido</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC10</th>
+<th align="center">Acompanhar pedido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada, pedido em progresso</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica na aba dos pedidos.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no botão de finalizar compra. <li> Sistema valida se todos os itens do carrinho ainda estão disponíveis <li> Usuário procede para inserção de informações de pagamento <li> Usuário clica em confirmar pedido <li> Carrinho é finalizado e processo de construção do pedido iniciado </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Sem pedidos em andamento</strong> <ol> <li> Usuário clica na aba dos pedidos. <li> Usuário não possui pedidos em progresso <li> Usuário é apresentado uma tela com histórico de pedidos já finalizados </ol> <strong>Fluxo 2. Sem pedidos realizados</strong> <ol> <li> Usuário clica na aba dos pedidos. <li> Usuário não possui pedidos <li> Usuário é apresentado uma tela informando usuário que ele ainda não fez nenhum pedido </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center">Não há</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 10: Especificação do caso de uso: Acompanhar pedido. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc11-cancelar-pedido">UC11. Cancelar Pedido</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC11</th>
+<th align="center">Cancelar Pedido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Comprador</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada, pedido em progresso</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica na botão de cancelar o pedido.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica na botão de cancelar o pedido. <li> Usuário apresenta justificativa para cancelamento do pedido <li> Pedido é enviado ao sistema <li> Chat é aberto com suporte <li> Usuário conversa com analista o motivo do cancelamento </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center">Não há</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Impossibilidade de cancelar o pedido</strong> <ol> <li> Usuário clica em cancelar pedido <li> Usuário não possui conexão com Internet <li> Usuário é apresentado uma tela que informa que não possui conexão e que portanto o pedido de cancelamento não foi enviado </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 11: Especificação do caso de uso: Cancelar Pedido. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc12-configurar-estoque">UC12. Configurar Estoque</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC12</th>
+<th align="center">Configurar Estoque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Estoquista</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Baixa</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no botão de configurar máquina.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no botão de configurar máquina <li> Usuário faz o pareamento da máquina <li> Máquina é pareada <li> Usuário é instruído em montar a máquina nas estantes proprietárias <li> Usuário confirma que máquina está instalada <li> Sistema mapeia cubículos disponíveis <li> Mapemanto é concluído e usuário é informado que seu estoque está pronto para uso </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center">Não há</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Impossibilidade de parear máquina</strong> <ol> <li> Usuário clica no botão de configurar máquina <li> Usuário não consegue parear com máquina <li> Usuário é informado sobre falha no pareamento e instruído a ler a documentação para ajudá-lo <li> Usuário é redirecionado a um FAQ sobre pareamento da máquina <li> </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 12: Especificação do caso de uso: Configurar Estoque. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc13-gerenciar-estoque">UC13. Gerenciar Estoque</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC13</th>
+<th align="center">Gerenciar Estoque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Estoquista</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Alta</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada, estoque configurado</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário clica no mapa bidimensional do estoque e escolhe um dos cubículos.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário clica no mapa bidimensional do estoque e escolhe um dos cubículos. <li> Usuário edita as informações do produto naquele cubículo <li> Usuário clica no botão de salvar alterações </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center"><strong>Fluxo 1. Adicionar item</strong> <ol> <li> Usuário clica no mapa bidimensional do estoque e escolhe um dos cubículos. <li> Cubículo está vazio <li> Usuário clica em adicionar produto <li> Usuário adiciona novo produto e relaciona a essa cubículo <li> Usuário salva as informações </ol> <strong>Fluxo 2. Remover item</strong> <ol> <li> Usuário clica no mapa bidimensional do estoque e escolhe um dos cubículos. <li> Cubículo está populado com um item <li> Usuário clica em remover item <li> Usuário salva as informações </ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center"><strong>Fluxo 1. Impossibilidade de visualizar estoque</strong> <ol> <li> Usuário acessa a home do aplicativo <li> Sistema tenta adquirir informação de estoque <li> Sistema não consegue carregar informação do estoque <li> Usuário é informado que houve algum erro no carregamento e o orienta a tentar novamente mais tarde </ol></td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 13: Especificação do caso de uso: Gerenciar Estoque. (Fonte: autores, 2023).</p>
+</div>
+
+<h3 id="uc14-criacao-de-alertas-para-itens-que-estao-acabando-no-estoque">UC14. Criação de alertas para itens que estão acabando no estoque</h3>
+<table>
+<thead>
+<tr>
+<th align="center">UC14</th>
+<th align="center">Criação de alertas para itens que estão acabando no estoque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Atores</strong></td>
+<td align="center"><li> Estoquista</td>
+</tr>
+<tr>
+<td align="center"><strong>Frequência de uso</strong></td>
+<td align="center">Média</td>
+</tr>
+<tr>
+<td align="center"><strong>Requisitos</strong></td>
+<td align="center">Acesso à internet, conta criada, estoque configurado, ao menos um cubículo com item</td>
+</tr>
+<tr>
+<td align="center"><strong>Condição de entrada</strong></td>
+<td align="center">Usuário seleciona cubículo no mapa do estoque que possua item relacionado.</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxo principal</strong></td>
+<td align="center"><ol> <li> Usuário seleciona cubículo no mapa do estoque que possua item relacionado <li> Usuário clica no ícone de notificações na página de detalhes do cubículo <li> Usuário configura alerta para cubículo e item relacionado <li> Usuário salva alterações</ol></td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos alternativos</strong></td>
+<td align="center">Não há</td>
+</tr>
+<tr>
+<td align="center"><strong>Fluxos de exceção</strong></td>
+<td align="center">Não há</td>
+</tr>
+</tbody>
+</table>
+<div style="text-align: center">
+<p> Tabela 14: Especificação do caso de uso: Gerenciar Estoque. (Fonte: autores, 2023).</p>
+</div>
+
+<h1 id="brainstorm">Brainstorm</h1>
+<p>O brainstorm é uma técnica utilizada para levantar requisitos e aprender sobre novas características que os usuários apreciariam em um produto. Essa técnica tem como objetivo incentivar a criatividade do usuário a partir da filosofia de que cada um é livre para opinar e apresentar suas ideias acerca do que deve ser melhorado, sem julgamentos nem cobranças. Buscando assim, levantar o máximo de opiniões em torno de um tema.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Membros Participantes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Mauricio Machado</td>
+</tr>
+</tbody>
+</table>
+<p>O identificador de cada requisito é formado por 'B' mais uma letra entre 'C' ou 'E' para indicar consumidor ou estoque, e mais um número, sendo 'B' uma abreviação de Brainstorm, e o tipo de requisito refere-se à classificação entre requisitos funcionais (RF) e não funcionais (RNF).</p>
+<p>Como resultado das reuniões e pesquisas, nós obtivemos o temas de requisitos funcionais e não funcionais representados na Tabela 1.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Identificador</th>
+<th>Requisito</th>
+<th align="center">Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">BE1</td>
+<td>Usuário deve conseguir visualizar a quantidade dos produtos no estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE2</td>
+<td>Usuário deve conseguir solicitar retirada de produtos do estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE3</td>
+<td>Usuário deve ser capaz de registrar produtos no estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE4</td>
+<td>Usuário deve ser capaz de editar produtos presentes no estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE5</td>
+<td>Usuário pode emitir um relatório de venda dos produtos.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE6</td>
+<td>Usuário pode customizar alertas sobre itens cujo o estoque esteja acabando.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE7</td>
+<td>Usuário deve ser capaz de registrar o estoque disponível no aplicativo.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE8</td>
+<td>Usuário deve ser capaz de verificar a performance de vendas em períodos de tempo selecionados.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE9</td>
+<td>Usuário deve ser informado sobre valor total do estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE10</td>
+<td>Usuário deve ser informado qual seu produto mais performático em um período de tempo selecionado.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE11</td>
+<td>Usuário deve logar toda adição de itens ao estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE11</td>
+<td>Usuário pode verificar hisórico de adições no estoque.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE12</td>
+<td>Usuário pode verificar histórico de vendas.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE13</td>
+<td>Usuário pode visualizar o mapeamento dos produtos de cada prateleira.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE14</td>
+<td>Usuário deve ter acesso ao status de operação da máquina.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE15</td>
+<td>Usuário pode sobreescrever o status de operação da máquina.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BE16</td>
+<td>Sistema deve ter acesso a energia.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE17</td>
+<td>Sistema deve ter conexão a internet.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE18</td>
+<td>Sistema deve apresentar produtos populares.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE19</td>
+<td>Sistema deve dar feedback de interação em até 5 segundos.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE20</td>
+<td>Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE21</td>
+<td>Sistema deve registrar as vendas e atualizar o estoque automaticamente após cada transação.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE23</td>
+<td>Sistema deve assegurar conformidade de dados com LGPD.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE24</td>
+<td>Aplicativo deve estar disponível em Android.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE25</td>
+<td>Sistema deve cessar operação quando uma pessoa estiver presente no mesmo recinto que a máquina.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BE26</td>
+<td>Sistema deve enfileirar pedidos em caso de indisponibilidade de pontos de entrega.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP1</td>
+<td>Usuário pode filtrar a lista de produtos.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP2</td>
+<td>Usuário deve poder visualizar a lista de todos os produtos.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP3</td>
+<td>Usuário pode fazer o pagamento com cartão digital (débito).</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP4</td>
+<td>Usuário pode fazer o pagamento com cartão digital (crédito).</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP5</td>
+<td>Usuário pode fazer o pagamento via PIX.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP6</td>
+<td>Usuário deve realizar cadastro.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP7</td>
+<td>Usuário pode adicionar produtos ao carrinho.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP8</td>
+<td>Usuário deve validar identidade.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP9</td>
+<td>Usuário deve validar identidade.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP10</td>
+<td>Usuário pode pesquisar um produto.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP11</td>
+<td>Usuário pode verificar o status do pedido.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP12</td>
+<td>Usuário pode iniciar um chat em tempo real.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP13</td>
+<td>Usuário pode acessar área FAQ e chat.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP14</td>
+<td>Usuário deve ter acesso ao valor total da sua compra.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP15</td>
+<td>Usuário pode fazer compras em grupo.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP16</td>
+<td>Usuário recebe notificações.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP17</td>
+<td>Usuário pode fazer informações do produto serem lidas para ele.</td>
+<td align="center">RF</td>
+</tr>
+<tr>
+<td align="center">BP18</td>
+<td>Sistema deve proteger as informações do usuário e as transações contra acessos não autorizados.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP19</td>
+<td>Sistema deve ter conexão a internet.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP20</td>
+<td>Sistema deve ter contraste adequado entre a fonte de texto e a cor de fundo de modo que usuários com distúrbios de visão possam ler as informações.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP21</td>
+<td>Sistema deve guardar informações em conformidade com a LGPD.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP22</td>
+<td>Sistema deve ser disponível para plataformas Mobile Android.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP23</td>
+<td>Em sua primeira compra, 65% dos usuários devem ser capazes de efetivar sem precisar de entrar em contato com o suporte.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP24</td>
+<td>Sistema  deve reembolsar o usuário que cancelar a compra sem justificativa em até 5 minutos.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP25</td>
+<td>Sistema deve ser capaz de identificar se cpf é válido.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP26</td>
+<td>Sistema deve validar identidade facial do usuário e sua relação com o cpf cadastrado.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP27</td>
+<td>Sistema deve ser desenvolvido de forma responsiva, adaptando a aparência e funcionalidade do sistema às diferentes telas e tamanhos de dispositivos.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP28</td>
+<td>O aplicativo deve ser intuitivo, sendo consistente em toda a interface de usuário, garantindo que o usuário possa prever o que acontecerá em cada etapa.</td>
+<td align="center">RNF</td>
+</tr>
+<tr>
+<td align="center">BP29</td>
+<td>Sistema deve dar feedback de interação em até 5 segundos.</td>
+<td align="center">RNF</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requisitos-elicitados">Requisitos Elicitados</h2>
+<h1 id="introspeccao">Introspecção</h1>
+<h2 id="introducao">Introdução</h2>
+<p style="text-align: justify; text-indent: 20px">A introspecção é uma técnica essencialmente voltada para especialistas em requisitos, que devem extrair as melhores informações por meio de uma análise profunda sobre como e quais requisitos são necessários para satisfazer os usuários e stakeholders do sistema. Embora seja uma técnica rica em detalhes e informações, pode não ser adequada quando não é um especialista da área realizando-a. No entanto, mesmo que não seja um especialista, ainda pode ser útil realizar a técnica de introspecção para extrair o máximo de suas vantagens e obter informações valiosas para o projeto. </p>
+<p style="text-align: justify; text-indent: 20px">
+A técnica utilizada consiste em o engenheiro de requisitos utilizar a imaginação como principal ferramenta, colocando-se no lugar do usuário do sistema e imaginando o que ele gostaria de realizar ao desempenhar determinadas atividades no sistema. Dessa forma, é possível obter informações valiosas sobre as necessidades e desejos dos usuários, contribuindo para a elaboração de requisitos mais precisos e efetivos para o projeto.
+</p>
+
+<h2 id="metodologia">Metodologia</h2>
+<p style="text-align: justify; text-indent: 20px"> A fim de elaborar o artefato de requisitos, cada membro do grupo utilizou individualmente a técnica da introspecção para elicitar requisitos, os quais foram posteriormente compilados em um único artefato, eliminando duplicações de requisitos. Dessa forma, foi possível obter uma visão geral dos requisitos desejados pelos stakeholders do projeto, evitando redundâncias e garantindo a precisão das informações coletadas</p>
+
+<h2 id="requisitos-levantados">Requisitos levantados</h2>
+<p style="text-align: justify; text-indent: 20px"> 
+    A partir dos dados obtidos pelo brainstorming foi possível levantar possíveis requisitos da aplicação.
+</p>
+<p style="text-align: justify; text-indent: 20px"> 
+    Dessa forma, foram detectados os seguintes requisitos:
+</p>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Descrição</th>
+<th>Tipo de Requisito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I01</td>
+<td>O sistema deverá identificar a localização inicial do produto</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I02</td>
+<td>O sistema deverá indicar quais produtos estão sem estoque</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I03</td>
+<td>O sistema deve ser capaz de integrar-se a mídias sociais, sendo elas o google ou o Facebook.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I04</td>
+<td>O usuário poderá acompanhar o status do pedido</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I05</td>
+<td>O sistema deve permitir que os usuários comparem produtos ou serviços com base no seu preço e  na sua qualidade.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I06</td>
+<td>O sistema deve permitir que os usuários vejam o histórico de pedidos.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I07</td>
+<td>O usuário deve criar uma conta para poder verificar os produtos e realizar compras no aplicativo</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I08</td>
+<td>O usuário para poder iniciar um processo de compra ele deve ter o status de validação de identidade como aprovado</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I09</td>
+<td>O usuário durante a criação da conta,  deve informar: seu email, cpf e senha</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I10</td>
+<td>O sistema deve validar a identidade facial do usuário com o número de documento inserido durante o cadastro.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I11</td>
+<td>O aplicativo deve fornecer um canal de suporte ao cliente para resolver quaisquer problemas ou dúvidas relacionadas ao pedido sendo necessário incluir um chat em tempo real.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I12</td>
+<td>O aplicativo deve fornecer uma sessão de FQ para que os usuarios possam ter suas perguntas respondidas.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I13</td>
+<td>O usuário poderá visualizar via dashboard qual é o produto que mais vende no seu estoque num determinado período de tempo.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I14</td>
+<td>O sistema deve permitir que os usuários concluam uma compra, inserindo informações de pagamento e endereço de entrega</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I15</td>
+<td>O sistema deverá informar para o Usuário quando os itens em estoque estejam acabando.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I16</td>
+<td>O sistema deve identificar a profundidade de um produto através de um QR Code presente em cada caixa que irá conter os produtos.</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I17</td>
+<td>O sistema deve fornecer ao estoquista os itens mais vendidos do estoque</td>
+<td>RF</td>
+</tr>
+<tr>
+<td>I18</td>
+<td>O usuário poderá fazer o cancelamento do pedido no período de 5 minutos, após esse período o reembolso só acontecerá caso o usuário houver uma justificativa.</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I19</td>
+<td>O sistema deve impedir o funcionamento do sistema enquanto estiver sendo feito a reposição de estoque</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I20</td>
+<td>O sistema deve ser responsivo  se adaptando  às diferentes telas e tamanhos de dispositivos.</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I21</td>
+<td>O aplicativo deve ser intuitivo, sendo consistente em toda a interface de usuário, garantindo que o usuário possa prever o que acontecerá em cada etapa</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I22</td>
+<td>O aplicativo deve fornecer feedback instantâneo sobre as ações do usuário, permitindo que o usuário saiba o que está acontecendo em tempo real</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I23</td>
+<td>O sistema deve impedir o funcionamento enquanto o usuário estiver pegando seu produto.</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I24</td>
+<td>O Sistema deve ter um manual de operação/usuário.</td>
+<td>RNF</td>
+</tr>
+<tr>
+<td>I25</td>
+<td>O sistema deve possuir uma  cobertura de teste de pelo menos 75% a fim de ajudar na manutenção do código.</td>
+<td>RNF</td>
+</tr>
+</tbody>
+</table>
+<h6 align = "center">Tabela 1: Tabela contendo os requisitos levantados pela introspecção</h6>
+<h6 align = "center">Fonte: Autor</h6>
+
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="center">Legenda</th>
+<th align="center">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">I</td>
+<td align="center">Introspecção</td>
+</tr>
+<tr>
+<td align="center">RF</td>
+<td align="center">Requisito Funcional</td>
+</tr>
+<tr>
+<td align="center">RNF</td>
+<td align="center">Requisito Não Funcional</td>
+</tr>
+</tbody>
+</table>
+<h6>Tabela 2: Legenda dos acrônimos contidos na Tabela 1</h6>
+<h6>Fonte: Autor</h6>
+
+<p></center></p>
+<h1 id="referencias">Referências</h1>
+<p>[1] DevMedia. O que é UML e Diagramas de Caso de Uso: Introdução Prática à UML. 2012. DevMedia. Disponível em: <a href="https://www.devmedia.com.br/o-que-e-uml-e-diagramas-de-caso-de-uso-introducao-pratica-a-uml/23408">https://www.devmedia.com.br/o-que-e-uml-e-diagramas-de-caso-de-uso-introducao-pratica-a-uml/23408</a>. Acessado em 07 de dez. de 2022.</p>
+<p>[2] IBM. Diagramas de Caso de Uso. IBM. Disponível em: <a href="https://www.ibm.com/docs/pt-br/rsm/7.5.0?topic=diagrams-use-case">https://www.ibm.com/docs/pt-br/rsm/7.5.0?topic=diagrams-use-case</a>. Acessado em 07 de dez. de 2022</p>
+<p>[3] Ferramenta Lucidchart, disponível no <a href="https://www.lucidchart.com/pages/pt">link</a>. Acessado em 07 de dez. de 2022.</p>
+<p>[4] DevMedia. Especificação de Casos de Uso na Prática. 2010. DevMedia. Disponível em no <a href="https://www.devmedia.com.br/especificacao-de-casos-de-uso-na-pratica/18427">link</a>. Acessado em 09 de dez. de 2022.</p>
+<p>[5] - SERRANO, Maurício; SERRANO, Milene. Disponível em: Requisitos - Aula 07. 1º/2019. 50 slides. Material apresentado para a disciplina de Requisitos de Software no curso de Engenharia de Software da UnB, FGA.</p>
+<p>[6] - ANDRADE DE MORAIS, E. Utilização de uma estratégia para Identificação de fontes de informação na fase de Elicitação. Doutorado—[s.l.] Pontifícia Universidade Católica Do Rio De Janeiro, 2021.
+| 1.4     | 10/05/2023 | Melhoramento e adequação da introspecção de acordo com o novo escopo | Davi Matheus, Natanael                        |</p>
+<h2 id="historico-de-versao">Histórico de Versão<br></h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>23/04/2023</td>
+<td>Criação do documento</td>
+<td>Mauricio Machado</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>23/04/2023</td>
+<td>Adição do diagrama de casos de uso e sua explicação</td>
+<td>Mauricio Machado</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>26/04/2023</td>
+<td>Adição dos requisitos via brainstorm</td>
+<td>Mauricio Machado, Davi Matheus, Filipe Machado, Natanael</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>27/04/2023</td>
+<td>Adição dos requisitos via introspecção</td>
+<td>Davi Matheus</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>10/05/2023</td>
+<td>Melhoramento e adequação da introspecção de acordo com o novo escopo</td>
+<td>Davi Matheus, Natanael</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>12/05/2023</td>
+<td>Refatoração requisitos de brainstorm</td>
+<td>Mauricio Machado, Davi Matheus, Natanael, Pedro Henrique</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>17/05/2023</td>
+<td>Refatoração requisitos casos de uso</td>
+<td>Mauricio Machado</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.section"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,509 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../documento_requisito/">
+      
+      
+        <link rel="next" href="../estruturas/documento_estrutura/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>Documento de Visão - Med Grabber</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documento-de-visao" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Med Grabber" class="md-header__button md-logo" aria-label="Med Grabber" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Med Grabber
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Visão
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Tema escuro"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Tema escuro" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="indigo"  aria-label="Tema claro"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Tema claro" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Med Grabber" class="md-nav__button md-logo" aria-label="Med Grabber" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Med Grabber
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Sobre o Projeto
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_arquitetura/" class="md-nav__link">
+        Documento de Arquitetura
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documento_requisito/" class="md-nav__link">
+        Documento de Requisitos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Documento de Visão
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estruturas/documento_estrutura/" class="md-nav__link">
+        Estruturas
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="documento-de-visao">Documento de Visão</h1>
+<!-- Adicionar explicação do que é o documento de visão e sua finalidade -->
+
+<h1 id="5w2h">5W2H</h1>
+<p><code>5W2H</code> é uma metodologia de gestão que tem como objetivo fornecer uma estrutura clara e objetiva para a definição e execução de projetos e processos. Ela consiste em responder as sete perguntas-chave, divididas em cinco Ws (What, Why, Who, Where, When) e dois Hs (How e How much), que significam espectivamente: O que?, Por quê?, Quem?, Onde?, Quando?, Como? E Quanto custa?. Respondendo a essas perguntas se estará planejando as ações de melhoria ou padronizando processos de forma organizada, garantindo que a execução das atividades aconteça da forma planejada.</p>
+<p>O objetivo deste documento é apresentar um entendimento completo do projeto ou processo, alinhando expectativas e metas, evitando problemas de comunicação e, consequentemente, minimizando os riscos de falhas ou erros durante a execução.</p>
+<p><img alt="Exemplo do 5W2H" src="../assets/documento_visao/5w2h_exemplo.jpg" />
+<br>
+Figura 1: Exemplo do modelo 5W2H
+</br></p>
+<h1 id="modelo-5w2h">Modelo 5W2H</h1>
+<h2 id="v10">v1.0</h2>
+<p><img alt="Versão v1.0 do 5W2H" src="../assets/documento_visao/5w2h_v1.jpg" /></p>
+<p></p>
+
+<h1 id="rich-pictures">Rich Pictures</h1>
+<p align="justify">&emsp;&emsp;
+<code>Rich pictures</code> é uma técnica de modelagem de ideias informal e ideal para reuniões, pois permite um rápido entendimento sobre problemas complexos ou mal definidos. Através de desenhos rascunhados e textos curtos e objetivos, é possível expressar momentos e desejos de forma colaborativa com os stakeholders. Tanto a mão livre quanto o uso de software podem ser utilizados na construção do <code>rich picture</code>, e por ser um modelo informal, não há consenso sobre sua sintaxe e forma de uso.
+</p>
+<p align="justify">&emsp;&emsp;
+O objetivo deste documento é apresentar todos os <code>rich pictures</code> criados pelos integrantes do grupo durante o processo de entendimento do projeto de um braço mecânico , no qual é um dispositivo robótico que é capaz de executar tarefas mecânicas e/ou eletrônicas. Ele é projetado para imitar a funcionalidade de um braço humano, permitindo que ele possa ser controlado remotamente ou programado para executar tarefas específicas. O objetivo deste projeto é utilizar essa ferramenta em um contexto de empilhamento e organização de produtos em uma farmácia no contexto de uma compra , a fim de aumentar a eficiência e a precisão do gerenciamento de estoque, facilitando a identificação de produtos e melhorando a experiência do cliente.
+</p>
+
+<p><img alt="Rich Picture" src="../assets/documento_visao/RichPicture.png" /></p>
+<p><center></p>
+<p> Figura 1: Exemplo de rich picture.</p>
+
+<p><small>Fonte: http://mxmossman.blogspot.com/2017/10/better-software-2017.html.</small></p>
+<p></center></p>
+<h2 id="metodologia">Metodologia</h2>
+<p align="justify">&emsp;&emsp;
+ Para elaboração do <code>rich picture</code> cada membro do grupo designado para a tarefa confecionará um sobre o projeto e o restantede do grupo após analisar o <code>rich picture</code> poderá ter uma visão mais clara sobre o escopo do projeto em si.
+</p>
+
+<h3 id="versao-das-rich-pictures">Versão das Rich-Pictures</h3>
+<p align="justify">&emsp;&emsp;
+Neste tópico, são apresentados os rich-pictures criados pelos integrantes. Na primeira versão, elaborou-se uma visão mais simples e visual, que servirá como base para a elaboração da próxima versão do RichPicture pelos membros.
+</p>
+
+<h2 id="resultados">Resultados</h2>
+<h3 id="rich-pictures-v1">Rich-Pictures v1</h3>
+<p><img alt="Rich Picture v1.0" src="../assets/documento_visao/RichPicture_Davi.png" /></p>
+<p><center></p>
+<p> Figura 2: Rich Picture.</p>
+
+<p><small>Autor: <a href='https://github.com/DaviMatheus'>Davi Matheus</a>, 2023.</small></p>
+<p></center></p>
+<h3 id="rich-pictures-v2">Rich-Pictures v2</h3>
+<p><img alt="Rich Picture v2.0" src="../assets/documento_visao/Richpicture_Samuel.png" /></p>
+<p><center></p>
+<p> Figura 3: Rich Picture.</p>
+
+<p><small>Autor: <a href='https://github.com/Samuelcastro7'>Samuel Macedo</a>, 2023.</small></p>
+<p></center></p>
+<h2 id="referencias">Referências</h2>
+<ul>
+<li>[1] - Rational Software Architect RealTime Edition. Disponível em: <a href="https://www.ibm.com/docs/pt-br/rsar/9.5?topic=diagrams-creating-communication">https://www.ibm.com/docs/pt-br/rsar/9.5?topic=diagrams-creating-communication</a>. Acesso em: 17 fev. 2022.</li>
+<li>[2] - Diretriz: Diagrama de Comunicação. Disponível em: <a href="https://www.cin.ufpe.br/~gta/rup-vc/core.base_rup/guidances/guidelines/communication_diagram_FFFEA1B5.html">https://www.cin.ufpe.br/~gta/rup-vc/core.base_rup/guidances/guidelines/communication_diagram_FFFEA1B5.html</a>. Acesso em: 17 fev. 2022.</li>
+<li>[3] - Diagramas de comunicação. Disponível em: <a href="https://www.ibm.com/docs/pt-br/radfws/9.6?topic=SSRTLW_9.6.0/com.ibm.xtools.sequence.doc/topics/ccommndiag.html">https://www.ibm.com/docs/pt-br/radfws/9.6?topic=SSRTLW_9.6.0/com.ibm.xtools.sequence.doc/topics/ccommndiag.html</a>. Acesso em: 20 fev. 2022.</li>
+<li>[4] - PROJECT BUILDER. 5W2H: a metodologia de planejamento que vai ajudar na sua gestão. 2022. Disponível em: https://projectbuilder.com.br/blog/5w2h-a-metodologia-de-planejamento-que-vai-ajudar-na-sua-gestao/. Acesso em: 26 abr. 2023.</li>
+<li>[5] - ROCK CONTENT. O que é 5W2H e como aplicá-lo na sua empresa. 2021. Disponível em: https://rockcontent.com/br/blog/5w2h/. Acesso em: 27 abr. 2023.</li>
+<li>[6] - GESTÃO DE PROJETOS - NA PRÁTICA. Metodologia 5W2H. 2019. Disponível em: https://www.youtube.com/watch?v=Hf8oC_tjJSo. Acesso em: 26 abr. 2023.</li>
+</ul>
+<h2 id="historico-de-versao">Histórico de Versão<br></h2>
+<table>
+<thead>
+<tr>
+<th align="left">Data</th>
+<th align="left">Versão</th>
+<th align="left">Descrição</th>
+<th align="left">Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">25.04.2022</td>
+<td align="left">1.0</td>
+<td align="left">Criação do documento</td>
+<td align="left"><a href="https://github.com/DaviMatheus">Davi matheus</a></td>
+</tr>
+<tr>
+<td align="left">26.04.2022</td>
+<td align="left">1.1</td>
+<td align="left">Criação do documento</td>
+<td align="left"><a href="https://github.com/savioc2">Sávio Cunha</a></td>
+</tr>
+<tr>
+<td align="left">28.04.2022</td>
+<td align="left">1.2</td>
+<td align="left">Adição do Rich picture v2</td>
+<td align="left"><a href="https://github.com/Samuelcastro7">Samuel Macedo</a></td>
+</tr>
+<tr>
+<td align="left">28.04.2022</td>
+<td align="left">1.3</td>
+<td align="left">Conclusão do documento de RichPicture</td>
+<td align="left"><a href="https://github.com/DaviMatheus">Davi matheus</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["tabs", "navigation.section"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
