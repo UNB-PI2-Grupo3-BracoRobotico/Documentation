@@ -128,7 +128,11 @@ Tem a responsabilidade de armazenar os testes unitários e de integração do si
 
 ## v2.0
 
+Esta versão do diagrama de pacotes v2.0 foi refeita para contemplar conceitos que foram adicionados e modificados durante a fase de desenvolvimento.
+
 ![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v2.png)
+
+<details>
 
 O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
 e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
@@ -198,6 +202,70 @@ Contempla valores padrão de configurações que poderão ser sobrescritos por v
 ## Diagrama de Sequência
 
 Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
+
+</details>
+
+## v3.0
+
+![Diagrama de Pacote Back-End v2.0](./assets/documento_arquitetura/diagrama_pacote_backend_v3.png)
+
+O diagrama de pacotes do backend foi pensado para respeitar uma estrutura **Single Source of Truth** (SSOT), onde todos os dados deverão ser guardados em uma mesma fonte,
+e por isso todos os pacotes irão utilizar o pacote `DatabaseController` para se conectar e realizar as operações necessárias no banco de dados.
+
+A escolha de usar Apache Kafka para construir uma arquitetura de microsserviços baseado em eventos é devido à consistência de dados no sistema.
+Em sistemas distribuídos como uma arquitetura baseada em microsserviços, manter uma consistência forte pode ser um desafio devido à latência da rede e ao potencial de falhas.
+É aqui que os microsserviços baseados em eventos são mais importantes.
+Ao usar um modelo orientado a eventos, o sistema pode manter uma consistência dos dados pela forma em que o sistema interage com eventos.
+O microsserviço SSOT emite eventos sempre que os dados são alterados.
+Outros microsserviços escutam esses eventos e atualizam, caso necessário, seus próprios dados.
+Esse modelo ajuda a manter um alto nível de consistência de dados em todo o sistema.
+
+## Estruturas em comuns entre os pacotes
+
+#### kafka_middleware
+
+Essa estrutura contempla conexão com o servidor Kafka, onde terá um objeto `Consumer` que irá consumir dados dos tópicos, terá `Producer` que irá publicar dados nos tópicos e o `Processor` que irá chamar os pacotes relacionados às regras de negócio.
+
+#### Models
+
+Contempla os modelos de dados a serem utilizados pelos pacotes.
+
+## Descrição dos pacotes
+
+#### order_service
+
+Serviço que contempla todas as operações que envolvam ordem de pedidos.
+
+#### robotic_arm_service
+
+Contempla todas as operações necessárias para obter as informações pertinentes a serem enviadas ao braço robótico, como por exemplo
+a localização dos itens que o braço robótico irá pegar.
+
+#### api
+
+Contempla uma API REST para acesso às operações de administrador.
+A API é responsável por processar os dados e enviá-los ao Kafka.
+
+#### DatabaseController
+
+Contempla funções necessárias para acesso ao banco de dados que serão utilizadas por outros pacotes, que não precisarão ter sua própria forma de acesso ao banco.
+
+#### Tests
+
+Contempla os testes que serão executados no sistema.
+
+##### Fixtures
+
+Contempla dados preparados para serem utilizados como input os testes.
+
+#### config
+
+Contempla valores padrão de configurações que poderão ser sobrescritos por variáveis de ambiente.
+
+## Diagrama de Sequência
+
+Os diagramas de sequência são uma representação gráfica fundamental para modelar a interação entre objetos em um sistema. Eles fornecem uma visão detalhada da sequência de mensagens trocadas entre os objetos ao longo do tempo, permitindo que se visualize o comportamento dinâmico do sistema em questão. Além disso, os diagramas de sequência são amplamente utilizados na modelagem de processos de negócios, fluxos de trabalho e interações de software[3]. Como resultado, eles são ferramentas valiosas para os desenvolvedores de software e usuários finais, auxiliando na identificação de requisitos funcionais do sistema e na lógica de processamento de dados. Em resumo, os diagramas de sequência são uma parte essencial do processo de engenharia de software, permitindo uma comunicação clara e concisa de ideias e requisitos.
+
 
 ### Diagrama do aplicativo de compras
 
